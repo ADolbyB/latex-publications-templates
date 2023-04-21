@@ -1,0 +1,38 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[american]{babel}
+\usepackage[margin=1in]{geometry} % Set Margins to 1 inch standard
+\usepackage{csquotes}
+\usepackage[style=mla,backend=biber]{biblatex}
+\setlength\bibitemsep{3\itemsep} % separate bibliography entries
+\defbibheading{bibliography}{
+    \section*{Bibliography}} %use \chapter* if the bibliography will be a chapter
+
+\begin{filecontents}{mla-test-bib.bib}
+
+@article{Kavanaugh1976,
+    Author = {Kavanaugh, Robert D.},
+    Journal = {Child Development},
+    Month = {Sep},
+    Number = {3},
+    Pages = {885-887},
+    Title = {On the Synonymity of `more' and `less': Comments on a Methodology},
+    Volume = {47},
+    Year = {1976}}
+
+\medskip
+
+@book{Saussure1995,
+    Author = {Ferdinand de Saussure},
+    Publisher = {Payot},
+    Title = {Cours de Linguistique G{\'e}n{\'e}rale},
+    Year = {1995}}
+
+\end{filecontents} % This is the end of the sample bibliography
+
+\addbibresource{mla-test-bib.bib} % you would use your own bib file here
+\begin{document}
+
+This is an inline MLA citation \autocite{Saussure1995}. Another MLA inline citation \autocite{Kavanaugh1976}.
+
+\printbibliography
+\end{document}
