@@ -1,0 +1,109 @@
+% !TeX root = test.tex
+\documentclass[letterpaper]{article} % Set Paper Size to 8.5 x 11 Letter Size
+\usepackage[english]{babel}
+\usepackage[margin=1in]{geometry} % Set Margins to 1 inch standard
+\usepackage[nottoc]{tocbibind} % Includes "References" In the table of Contents
+\usepackage{amsmath,amssymb} % Math Libraries
+
+% Title, Date, and Author of the Document:
+\title{Bibliography Management: BibTex}
+\author{Joel M. Brigida}
+
+%Beginning of the Document
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\section{First Section}
+This document is an example of BibTex usage for Bibliography Management.
+Three items are cited: \textit{The \LaTeX\ Companion} book \cite{latexcompanion},
+the Einstein journal paper \cite{einstein}, and Donald Knuth's website \cite{knuthwebsite}.
+The \LaTeX\ related items are \cite{latexcompanion,knuthwebsite}.
+Another additional citation is \cite{dummy}, which is a book without a title.
+
+\medskip
+
+\section{Second Section}
+How To Use LaTeX in VS Code
+\begin{enumerate}
+    \item No need to install Perl and latexmk.
+    \item Install LaTeX Workshop VS Code Extension.
+    \item Install MikTex on your system.
+    \item We are good to go \dots
+\end{enumerate}
+
+\section{Third Section}
+
+\noindent Standard \LaTeX{} practice is to write inline math by enclosing it between \verb|\(...\)|:
+
+\begin{quote}
+In physics, the mass-energy equivalence is stated 
+by the equation \(E=mc^2\), discovered in 1905 by Albert Einstein.
+\end{quote}
+
+\noindent Instead of writing (enclosing) inline math between \verb|\(...\)| you can use \texttt{\$...\$} to achieve the same result:
+
+\begin{quote}
+In physics, the mass-energy equivalence is stated 
+by the equation $E=mc^2$, discovered in 1905 by Albert Einstein.
+\end{quote}
+
+\noindent Or, you can use \verb|\begin{math}...\end{math}|:
+
+\begin{quote}
+In physics, the mass-energy equivalence is stated 
+by the equation \begin{math}E=mc^2\end{math}, discovered in 1905 by Albert Einstein.
+\end{quote}
+
+\medskip
+
+\pagebreak
+
+\section{Fourth Section}
+Here are examples of equations:
+
+\noindent This requires \verb|\usepackage{amsmath,amssymb}|
+
+\begin{equation}
+    H_p(q) = -\frac{1}{N} \sum_{i=1}^{N} y_i \cdot \mathrm{log}_{10}(p(y_i)) + (1-y_i) \cdot \mathrm{log}_{10}(1-p(y_i))
+\end{equation}
+
+\begin{equation}
+\chi_{\mathbb{Q}}(x)=
+    \begin{cases}
+        1 & \text{if } x \in \mathbb{Q}\\
+        0 & \text{if } x \in \mathbb{R}\setminus\mathbb{Q}
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+    \mathrm{Prediction:} \ \varphi(v) = \begin{cases} 
+        1, & \mathrm{if} \ v\ge 0 \\
+        0, & \mathrm{if} \ v < 0 
+     \end{cases}
+\end{equation}
+
+\begin{equation}
+    \mathrm{Forward \ Propagation:} \ \sum_{i = 0}^{m} w_i x_i = v = \vec{w} \cdot \vec{x}
+\end{equation}
+
+\begin{equation}
+    w_1x_1 + w_2x_2 + w_0 = 0 \ \Longrightarrow \ x_2 = \frac{-(w_1x_1 + w_0)}{w_2}
+\end{equation}
+
+\medskip
+
+\pagebreak
+
+% Set the bibliography style to ieeetr and import
+% the bibliography file "sample.bib",
+\bibliographystyle{ieeetr}
+\bibliography{sample}
+
+\end{document}
