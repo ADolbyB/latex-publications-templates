@@ -1,0 +1,120 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry} % Set Margins to 1 inch standard
+\usepackage{enumerate} % Customize Enumerated Lists
+\usepackage{hyperref}
+\pagestyle{empty} % Turn Off Page Numbering
+\parindent 0px % Turn Off Paragraph Indentation
+
+\begin{document}
+\title{\LaTeX\ Tutorial 4: Lists}
+\author{Joel M. Brigida: ADolbyB}
+\maketitle % Document Title
+
+\section{Lists:}
+\thispagestyle{empty} % Remove Stubborn 1st Page Number
+
+An Enumerated List:
+\begin{enumerate}
+    \item Pencil
+    \item Calculator
+    \item Ruler
+    \item Notebook
+    \begin{enumerate}
+        \item notes
+        \item homework
+        \item assessments
+        \begin{enumerate}
+            \item tests
+            \item quizzes
+            \item journal entries
+        \end{enumerate}
+        \item refreshments
+    \end{enumerate}
+\item highlighters
+\end{enumerate}
+
+\vspace{1cm}
+
+An Itemized List:
+\begin{itemize}
+    \item Pencil
+    \item Paper
+    \item Calculator
+    \item Ruler
+    \item Notebook
+\end{itemize}
+
+\pagebreak
+
+Alternate Style Enumeration (Why No Indent?):
+\begin{enumerate}[A.] % also valid: a., (a) and (a.), etc....
+    \item Pencil
+    \item Calculator
+    \item Ruler
+    \item Notebook
+\end{enumerate}
+
+\vspace{1cm}
+
+Another Alternate Enumeration:
+\begin{enumerate}[I.] % also valid: i., (i), and (i.), etc...
+    \item Pencil
+    \item Calculator
+    \item Ruler
+    \item Notebook
+\end{enumerate}
+
+\vspace{1cm}
+
+Continue From a Previous List:
+\begin{enumerate} \setcounter{enumi}{5}
+    \item Backpack
+    \item Sunglasses
+    \item Headphones
+\end{enumerate}
+
+\vspace{1cm}
+
+An Multilevel Itemized List:
+\begin{itemize}
+    \item Pencil
+    \item Calculator
+    \item Ruler
+    \item Notebook
+    \begin{itemize}
+        \item notes
+        \item homework
+        \item assessments
+        \begin{itemize}
+            \item tests
+            \item quizzes
+            \item journal entries
+        \end{itemize}
+        \item refreshments
+    \end{itemize}
+\item highlighters
+\end{itemize}
+
+\pagebreak
+
+Custom Itemization: Removing numbers
+\begin{enumerate}
+    \item[] Pencil
+    \item[] pen
+    \item[] Calculator
+    \item[] Ruler
+    \item[] Notebook
+\end{enumerate}
+
+\vspace{1cm}
+
+Custom Itemization: Adding Custom Labels
+\begin{enumerate}
+    \item[one] Pencil
+    \item[two] pen
+    \item[3] Calculator
+    \item[four] Ruler
+    \item[fizzive] Notebook
+\end{enumerate}
+
+\end{document}
