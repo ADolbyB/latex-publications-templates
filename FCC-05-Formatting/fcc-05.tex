@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.0in]{geometry} % Set Margins to 1 inch standard
+\usepackage{hyperref} % use hyperlinks
+\usepackage{indentfirst} % Set 1st paragraph indentation
+\pagestyle{empty} % Turn Off Page Numbering
+
+\renewcommand{\baselinestretch}{1.25} % set default paragraph line spacing
+
+\title{\LaTeX\ Tutorial 5: Text and Document Formatting}
+\author{Joel M. Brigida: ADolbyB}
+\date{xXx Any Date xXx} % leave blank for no date or \today for current date.
+
+\renewcommand{\contentsname}{Table of Contents:} % Custom name for Table of Contents
+
+\begin{document}
+\maketitle % Document Title
+\tableofcontents
+\thispagestyle{empty} % Remove Stubborn 1st Page Number
+
+\pagebreak
+
+\section{Text Formatting:}
+
+This will produce \textit{italicized} text.
+
+This will produce \textbf{Bold Face} text.
+
+This will produce \textsc{Small Caps} text.
+
+This will produce \texttt{typewriter monospace} text.
+
+\hspace{\parindent}Example: Visit my website (not a link): \texttt{https://joelbrigida.com}
+
+Make a custom hyperlink (requires hyperref pkg): \href{https://joelbrigida.com}{My Website}
+
+To show just the web address as a hyperlink: \url{https://joelbrigida.com}
+
+Change font of hyperlink (requires hyperref pkg): \texttt{\href{https://joelbrigida.com}{My Website}}
+
+
+\section{Font Sizing:}
+
+PEMDAS: Please Excuse My Dear Aunt Sally. (Normal Size)
+
+PEMDAS: Please Excuse My \begin{large}Dear Aunt Sally\end{large}. (large)
+
+PEMDAS: Please Excuse My \begin{Large}Dear Aunt Sally\end{Large}. (Large)
+
+PEMDAS: Please Excuse My \begin{huge}Dear Aunt Sally\end{huge}. (huge)
+
+PEMDAS: Please Excuse My \begin{Huge}Dear Aunt Sally\end{Huge}. (Huge)
+
+PEMDAS: Please Excuse My \begin{normalsize}Dear Aunt Sally\end{normalsize}. (normalsize)
+
+PEMDAS: Please Excuse My \begin{small}Dear Aunt Sally\end{small}. (small)
+
+PEMDAS: Please Excuse My \begin{scriptsize}Dear Aunt Sally\end{scriptsize}. (scriptsize)
+
+PEMDAS: Please Excuse My \begin{tiny}Dear Aunt Sally\end{tiny}. (tiny)
+
+
+\section{Text Justification:}
+\begin{center}
+    This Line Is Centered (center).
+\end{center}
+
+\begin{flushleft}
+    This Line is Left-Justified (flushleft).
+\end{flushleft}
+
+\begin{flushright}
+    This Line Is Right-Justified (flushright).
+\end{flushright}
+
+\pagebreak
+
+\begin{center}
+    \section*{Example Sections and Subsections}
+\end{center}
+
+\section{Linear Functions}
+    Linear Functions are generally defined in rectangular coordinates. These are functions which define straight
+lines. The rectangular coordinate plane is also called the Cartesian coordinate plane after Rene Descartes. Below are
+several exxamples of different linear equation types.
+    \subsection{Slope-Intercept Form}
+        \subsubsection{Example 1:}
+            $y = mx + b$
+        \subsubsection{Example 2:}
+            $3 = 8x + 5$
+    \subsection{Standard Form}
+        $ Ax + By = C $
+    \subsection{Point Slope Form}
+        $ y - y_1 = m(x - x_1) $
+\section{Quadratic Functions}
+    Quadratic functions are generally defined in rectangular coordinates. These are functions which define a
+parabolic curve, which is in the shape uf a parabola. A true parabola is only defined as opening up or opening down.
+A parabola which opens to the right or left is acually made up of 2 functions: the positive and negative square
+root function.
+    \subsection{Vertex Form}
+        $ (x - h^2) + k = 0 $
+    \subsection{Standard Form}
+        $ Ax^2 + Bx + C = 0 $
+    \subsection{Factored Form}
+        $ (x - p)(x - q) = 0 $
+
+\end{document}
