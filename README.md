@@ -15,6 +15,7 @@ I plan to learn documentation using LaTeX and migrate from word processing softw
  - Electrical Engineering Lectures: [Latex Tutorial For Beginners](https://www.youtube.com/watch?v=uVM2FcwPCgk)
  - Simulation Engineer: [How To Compile LaTeX Document in VS Code](https://www.youtube.com/watch?v=QK_yc9qSa2w)
  - FreeCodeCamp: [LaTeX - Full Tutorial for Beginners](https://www.youtube.com/watch?v=ydOTMQC7np0)
+ - Michelle Krummel: [LaTeX Tutorials](https://www.michellekrummel.com/tutorials)
 
 ## Status:
 
