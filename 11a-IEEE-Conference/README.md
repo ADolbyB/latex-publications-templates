@@ -8,7 +8,7 @@ The next folder `11b-IEEE-withBib` will be the same Conference template, but wit
  - Refer to `IEEEtran_HOWTO.pdf` for template instructions.
 
 The folder `11c-IEEE-Complete` will be my own edited version I can use as a template w/ Bibliography.
- - Refer to `IEEEtran_bst_HOWTO.pdf` for template instructions.
+ - Refer to `IEEEtran_bst_HOWTO.pdf` for bibliography instructions.
 
 
  -- $JB$
