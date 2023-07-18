@@ -6,10 +6,19 @@ I plan to learn documentation using LaTeX and migrate from word processing softw
 
 ## Environment:
 
- - Visual Studio Code
- - [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
- - [MiKTeX](https://miktex.org/download) For Automatic Package Management.
- - [TeXMaker](https://www.xm1math.net/texmaker/download.html): If you rather prefer a dedicated application for managing documents, check out this free cross-platform editor.
+For Local Installations:
+1. VS Code
+    - Visual Studio Code
+    - [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+    - [MiKTeX](https://miktex.org/download) For Automatic Package Management.
+2. TeXMaker
+    - [TeXMaker](https://www.xm1math.net/texmaker/download.html): If you rather prefer a dedicated application for managing documents, check out this free cross-platform editor.
+    - Note that Using TeXMaker still requires MiKTeX.
+
+Online IDE:
+
+3. Overleaf: 
+    - [Overleaf](https://www.overleaf.com/) Online LaTeX Editor, which also has collaborative capabilities.
 
 ## Sources:
 
@@ -18,6 +27,10 @@ I plan to learn documentation using LaTeX and migrate from word processing softw
  - FreeCodeCamp: [LaTeX - Full Tutorial for Beginners](https://www.youtube.com/watch?v=ydOTMQC7np0)
  - Michelle Krummel: [LaTeX Tutorials](https://www.michellekrummel.com/tutorials)
  - IEEE: [Manuscript Templates for Conference Proceedings](https://www.ieee.org/conferences/publishing/templates.html)
+
+ ## Free Templates:
+  - [Overleaf](https://www.overleaf.com/latex/templates) Templates.
+  - [LaTeX Templates](http://www.latextemplates.com/). Can be imported directly to Overleaf or Download Source Code.
 
 ## Status:
 
