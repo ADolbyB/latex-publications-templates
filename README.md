@@ -29,8 +29,15 @@ Online IDE:
  - IEEE: [Manuscript Templates for Conference Proceedings](https://www.ieee.org/conferences/publishing/templates.html)
 
  ## Free Templates:
-  - [Overleaf](https://www.overleaf.com/latex/templates) Templates.
-  - [LaTeX Templates](http://www.latextemplates.com/). Can be imported directly to Overleaf or Download Source Code.
+ - [IEEE Citation Generator](https://www.mybib.com/tools/ieee-citation-generator).
+    - Great for short papers that have few sources.
+    - Works good if you don't want to set up a separate .bib file, and always up to date.
+ - [Overleaf](https://www.overleaf.com/latex/templates) Document Templates.
+    - 1 Click Import to Overleaf.com acct, or download & Import to VS Code.
+    - Has a real nice [MSc or PhD Template](https://www.overleaf.com/latex/templates/msc-or-phd-dissertation-template-originally-for-the-university-of-malta/xhnmbpvkmmqp).
+ - [LaTeX Templates](http://www.latextemplates.com/). 
+     - Can be imported directly to Overleaf or Download Source Code.
+     - Includes another nice [Masters/Doctoral Thesis](http://www.latextemplates.com/template/masters-doctoral-thesis) Template.
 
 ## Status:
 
