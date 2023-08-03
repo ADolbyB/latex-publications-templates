@@ -1,0 +1,675 @@
+
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{From Crisis to Control: Sensor Networks and Smart Systems Shaping Effective Disaster Management \\
+    \thanks{Special thanks to our families for their support throughout our journey.}
+}
+
+\author{
+	\IEEEauthorblockN{
+		Jehad Ismail\IEEEauthorrefmark{1},
+		Joel Brigida\IEEEauthorrefmark{2},
+		Barthody Alexandre\IEEEauthorrefmark{3},
+		Stephanie Val\IEEEauthorrefmark{4} and
+		Isabela Costa\IEEEauthorrefmark{5}}
+	\IEEEauthorblockA{
+		\IEEEauthorrefmark{1}
+			College of Engineering and Computer Science\\
+			Florida Atlantic University, Boca Raton, FL USA 33431\\
+			Email: aismail2021@fau.edu }
+	\IEEEauthorblockA{
+		\IEEEauthorrefmark{2}
+			Design and Prototyping\\
+			Dark Ridge LLC, West Palm Beach, FL 33415\\
+			Email: joel@joelbrigida.com }
+	\IEEEauthorblockA{
+		\IEEEauthorrefmark{3}
+			College of Engineering and Computer Science\\
+			Florida Atlantic University, Boca Raton, FL USA 33431\\
+			Email: balexandre2019@fau.edu }
+	\IEEEauthorblockA{
+		\IEEEauthorrefmark{4}
+			College of Engineering and Computer Science\\
+			Florida Atlantic University, Boca Raton, FL USA 33431\\
+			Email: sval2021@fau.edu }
+	\IEEEauthorblockA{
+		\IEEEauthorrefmark{5}
+			College of Engineering and Computer Science\\
+			Florida Atlantic University, Boca Raton, FL USA 33431\\
+			Email: icosta2021@fau.edu }
+}
+
+\maketitle
+
+\begin{abstract}
+
+This paper explores the role of sensor networks and smart systems in effective disaster management. 
+It discusses their contributions to prevention, preparation, response, and recovery phases, highlighting 
+their transformative impact. The implementation of wireless sensor networks for landslide monitoring is 
+presented as a case study and also touches upon the use of sensor networks in various natural 
+disasters. This papare emphasizes the importance of emergency communication, remote monitoring through drones 
+and cameras, and resilient infrastructure. Overall, it showcases the vital role of sensor networks and 
+smart systems in proactive disaster management.\par
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+    Smart Systems, Sensor Networks, IoT, Embedded Systems\par
+\end{IEEEkeywords}
+
+\section{Introduction} % Section I
+
+Sensor networks and smart systems play a crucial role in our modern world, offering a multitude of benefits
+to society, with a primary focus on enhancing safety. Particularly in the field of disaster management, these 
+technologies have emerged as indispensable tools. The utilization of specialized sensors designed to detect 
+and respond to natural disasters, coupled with the implementation of alert systems, decision-making support, 
+remote monitoring capabilities, and resilient infrastructure, has revolutionized the landscape of effective 
+disaster management. Sensor networks and smart systems have truly transformed the way we approach and mitigate 
+the impact of catastrophes, ensuring a more proactive and resilient response.\par
+
+\section{Sensor Networks} % Section II: Jehad
+
+Sensor networks and smart systems in disaster management serve four primary objectives: prevention, preparation, 
+response, and recovery. These interconnected technologies play a pivotal role in each phase of disaster management, 
+contributing to a more comprehensive and effective approach.\par
+
+In reference to prevention, sensor networks and smart systems work proactively to prevent disasters or reduce their 
+impact. By constantly monitoring environmental conditions such as the temperature, humidity, air quality, or 
+seismic activity, sensor networks can allow for early warning signs and trigger alerts. With regard to 
+preparation, sensor networks and smart systems assist in the preparation of disaster management. They can 
+deliver real-time data and analytics that allow authorities to measure risks, plan response approaches, and 
+allocate resources efficiently. In terms of response efforts, sensor networks and smart systems play a crucial 
+role in response operations. They provide real time data on environmental conditions, infrastructure integrity, 
+and the condition of the affected populations. This information will help emergency responders to make informed 
+decisions, prioritize actions, and allocate resources to areas where they are needed the most. As for recovery, 
+sensor networks and smart systems continue to assist in recovery efforts. They provide crucial data for damage 
+assessment, structural health monitoring, and environmental recovery. Smart systems facilitate data analytics 
+and decision support tools that assist in resource allocation, rebuilding strategies, and long-term recovery 
+plans.\par
+
+The utilization of sensor networks in monitoring natural disasters has garnered significant attention from 
+researchers and engineers due to its widespread applicability. An intriguing case in point is the implementation 
+of wireless sensor networks specifically designed for landslide monitoring. Kotta, et al \cite{je1} offer a 
+compelling solution in the form of a wireless sensor network system that relies on accelerometers to detect 
+vibrations associated with landslides. Through their experiments, they observed that when the accelerometer's 
+value surpassed 1 gravity, it served as a critical indicator of substantial mass sliding and hazardous 
+conditions.\par
+
+This innovative wireless sensor network system demonstrates how technology can effectively contribute to 
+disaster management. By employing accelerometers as sensing devices, the system can detect even minute changes 
+in vibration levels, allowing for the early identification of potential landslides. The obtained data provides 
+valuable insights into the intensity of mass sliding, enabling authorities to assess the severity of the 
+situation and take appropriate measures to safeguard lives and property.\par
+
+The study conducted by Kotta, et al \cite{je1} showcases the immense potential of wireless sensor networks 
+in mitigating the risks associated with landslides. The implementation of such advanced monitoring systems 
+not only enhances the accuracy of landslide detection but also improves the overall response time and 
+decision-making during critical situations. Consequently, these findings pave the way for the development 
+of more robust and efficient sensor network solutions that aid in the proactive management of natural 
+disasters.\par
+
+There are several types of natural disasters and each disaster uses sensor networks in its own unique ways. 
+The use of sensor networks for landslides is solely just one example. With earthquakes, sensor networks are 
+deployed to earthquake-prone areas to detect seismic activity and monitor the ground motion. Seismometers, 
+accelerometers, and geophones are some of the sensors found in these networks that measure the intensity, 
+duration, and frequency of the ground shaking. For floods, it`s pretty simple: water level sensors are placed 
+in rivers, streams, and flood-prone areas and they continuously measure the water levels, predict flood events 
+and issue warnings in real-time. With wildfires, there are smoke detectors and infrared sensors within the 
+sensor networks that detect smoke and abnormal rise in temperature which can trigger alerts. Other technologies 
+used include thermal cameras and remote sensors to monitor the behavior of fire, heat signatures, and patterns 
+of the spreading fire. Pertaining to hurricanes and storms, weather monitoring stations use anemometers, 
+barometers, and rain gauges within the sensor networks. These are responsible for measuring wind speed, 
+atmospheric pressure, and precipitation. As for volcanoes, sensor networks are deployed near active volcanoes 
+to monitor their volcanic activity. The types of sensors used here are seismic sensors and gas detectors 
+and they are used to track ground vibrations, gas emissions, and any changes in volcanic activity. 
+Collecting all this data allows for clear insights into volcanic eruptions. Lastly, for tsunamis Buoy-based 
+sensors are installed in coastal waters to detect changes in sea level and to transmit real-time data. The 
+Buoy-based sensors are integrated with seismometers that can detect underwater earthquakes which are 
+associated with tsunamis. With these sensor networks in place, early warning systems can initiate evacuation 
+procedures.\par
+
+In general, sensor networks are instrumental in effective disaster management. They enable prevention through 
+early warning systems, support preparation efforts by providing real-time data for risk assessment, facilitate 
+response operations by offering critical information to emergency responders, and aid in the recovery phase by 
+assessing damage and monitoring environmental conditions. With their ability to continuously monitor and 
+collect data, sensor networks empower authorities to make informed decisions and take proactive measures, 
+ultimately saving lives and minimizing the impact of disasters. As technology advances, sensor networks will 
+continue to evolve, enhancing their role in disaster management and contributing to safer and more resilient 
+communities.\par
+
+
+\section{Emergency Communication And Alert Systems} % Section III: Isabela
+There is, inherently, nothing more important for a sensor network to do when it has sufficient data than 
+to be able to notify needed people about a—rather grave—situation. Take, for example, an alert system 
+about mudslides, or tsunami's: those alerting systems are critical, of the utmost importance to save even 
+one individual's life. The difference between a catastrophic event and one being minimized, could be done 
+by a simple alarm, alerting those necessary about abnormal activity.\par
+
+As discussed in Banjanovic-Mehmedovic, et al \cite{iz1}, an abnormal situation or anomaly is defined 
+as a disturbance or series of disturbances in a process. For our examples, we'll be talking 
+about how natural disasters or events of war can trigger these alarms. \par
+
+For example, there are many mudslides in Brazil, and most of them are unfortunately deadly, even with 
+alert systems in place. Brazil is a combination of poor city-planning on the loose 
+terrain of a mountain, which creates grave results. When too much rain falls, the loose soil 
+can't hold onto the weight of many houses that weren't built correctly on the mountain, 
+and suddenly parts of the hillside wash away down the mountain. The most recent event was deadly and killed 
+more than forty people located just outside Rio de Janeiro. This was an improvement before the Alert System
+was installed because sirens blared, giving people a warning that there was potential for a mudslide, 
+and urged them to evacuate.\par
+
+How was this done? A combination of practicality and expertise in the area. The government does not have 
+enough funding to create elaborate, precise mechanisms to warn their people, but they do have water 
+bottles. Lots of them. And water bottles they used for their alarms. For the geologist that is well-known 
+for creating alert systems within the country, using a water bottle to ``collect rainfall'', and ``when [the 
+rain] reached a certain level, sirens blasted'' \cite{iz2}, is sufficient enough to create a system where people 
+are able to escape their dangerous positions in time is more than useful. Even something as simple as a 
+water bottle filling up to a certain level can be the difference between life and death— to go as far as 
+``eighteen of Petropolis' 20 risk alert sirens sounded before Tuesday's fatal landslides'', \cite{iz2} which many 
+civilians were aware of, warning them that there was going to be a disaster ahead. \par
+
+Not only did they use sirens, but they also texted the people who lived in the area, ``[receiving] text 
+messages from authorities, warning them about the coming storm'' \cite{iz2} that could impact their community. An 
+alert system doesn't have to be just an alarm on a pole blaring noise, but it can also be texted or called 
+to someone's phone, which can be more useful to those who have a disability—perhaps they can't hear—and 
+having both options is more inclusive. Detection is important, but what good is detection if the people 
+who can be affected don't know in time? These types of alarms are best known as conditional, as it 
+would be wise if only certain people would get these notifications in order for the alarms to work 
+more efficiently. If your house isn't built on the hillside in this city; you're away from any 
+danger of having your house be swept away by the rain and floodwater, there is no sense in 
+alerting you of imminent danger, as that would cause confusion. The alert system should be 
+nuanced and take into consideration ``various points'' \cite{iz3}: GPS, weather advisory, 
+population density, and, in our case, any filled water bottles that pass the reasonable threshold. \par
+
+Our next example is the flooding that happened in Japan in 2011 that was caused by a tsunami. Tsunamis are 
+created by earthquakes in the ocean that push large bodies of water onto land and can cause catastrophic 
+damage to areas— as explored in the horrible tsunami in 2011, north-western Japan was ravaged by such 
+weather. Luckily, there was hope for the residents, as the Japan Meteorological Agency issued the warnings 
+and alerts to television and radio channels, the internet, and mobile phone networks \cite{iz3}, which is much 
+more elaborate than the alert systems in Brazil. In as little as three seconds from the earthquake, 
+warnings and alerts were issued to those who monitor such activity within the ocean floor to detect if 
+there was a possibility of a natural disaster. A tsunami warning actually came out in twenty minutes after 
+the actual earthquake. These timely, efficient ways to notify civilians helped safe many lives throughout 
+this horrific event that could've been one of the worst in history, and they're not alone.
+NOAA, a U.S. weather agency actually detected the earthquake as well and was able to warn the residents of 
+Hawaii with similar alert systems. Buoys with long sensors, placed on the ocean floor, picked up 
+disturbances that resembled earthquake patterns and were able to make their own calls on the subject \cite{iz4}. 
+That wireless transmission to scientists in Hawaii, who later transferred it to local emergency managers 
+who were able to use all of this information to deduce their next steps, was vital to keeping everyone 
+safe, both on Japanese and American soil. Wireless transmissions need to be fast, speedy, with as much 
+data as possible while being cost-effective. As we've previously discussed, it is not every country that 
+can afford costly measures in keeping their citizens safe, and there needs to be a way to have good alarms 
+yet being affordable. \par
+
+There have been a few solutions, ranging from having a system of alarms that can alert a variety of things 
+in one package  \cite{iz3}— perhaps an audible alarm system can have different noises depending on what they're 
+alerting for, so a tornado alarm could be a different sound than an earthquake, though that would require 
+the average human to recognize the different sounds. Nevertheless, the option shouldn't be tossed away so 
+quickly; a hierarchy of alerts, with the architecture shaped in a way where the emergency alerts are given 
+at a local scale, and not the entire city, is one to look into. As we've discussed, there's no need to 
+alert the entire city, one that spans multiple kilometres across, about an imminent flood if sensors are 
+only alerting to a specific hill or mountainside. It would be then useful for only a subset of the 
+entirety of the alarm system to go off and alert citizens; likewise, it is more useful to alert the 
+citizens that live in the tsunami-affected area of the dangers, instead of alerting the entirety of 
+Japan.\par
+
+\section{Decision Making Support} % Section IV: Alex
+
+Technology improvement throughout the years does not need to be explained any longer because of how 
+far we as a society have come. I.e., technologies such as Sensor networks and smart systems have played 
+a crucial role in natural disaster management over the past few years and are continuing to do so 
+by providing valuable data and decision-making support to minimize damages. Hence, this portion of 
+the paper will discuss and explore some of the key points when it comes to sensor networks and smart 
+systems decision-making support in natural disaster management and those key points utilization.\par
+
+One of the main key outcomes of sensor networks and smart systems in relation to natural disaster 
+management is providing life prevention warnings or to be more specific, “Early Warning Systems”. 
+Sensor networks can be deployed in disaster-prone areas to detect early signs of potential natural 
+disasters such as earthquakes, tsunamis, floods, and hurricanes. These sensors can monitor environmental 
+parameters like seismic activity, water levels, wind speed, and rainfall, providing real-time data for 
+early warning systems. Furthermore, Early Warning Systems are critical components of disaster management, 
+they are designed to detect and alert communities or to be more specific, public disaster management 
+workers about potential natural disasters before they occur or as they are happening. These systems help 
+reduce the loss of life and property damage by providing timely and accurate information to authorities 
+and the public.\par
+
+Early Warning Systems can be categorized into multiple types such as Seismic and Tsunami Early Warning 
+Systems which are systems that focus on earthquake-prone areas and coastal regions susceptible to tsunamis. 
+Seismic sensors detect seismic activity, while buoys and tide gauges monitor sea levels for potential 
+tsunamis; Wildfire Early Warning Systems which are deployed in areas prone to wildfires, these systems 
+use remote sensing techniques, weather data, and fire monitoring tools to detect and predict the spread 
+of wildfires; Meteorological Early Warning Systems which are systems that focus on weather-related 
+disasters such as hurricanes, typhoons, storms, tornadoes, and heavy rainfall leading to floods. 
+They use weather monitoring instruments like weather radars, satellites, and weather stations to 
+predict and track meteorological events, etc.\par
+
+As a result, to achieve these expectations, Early Warning Systems use Various types of sensors, 
+collect large amounts of data, and analyze these data to make reliable decisions. \par
+
+A second main key outcome of sensor networks and smart systems in relation to natural disaster management 
+is data Collection and Monitoring. Smart sensor networks can collect vast amounts of data from 
+disaster-affected areas. This data includes information on the intensity and spread of the disaster, 
+infrastructure damage, and the affected population. Monitoring this data helps in assessing the 
+situation accurately and allows for a swift response. Additionally, data collection and monitoring 
+are fundamental aspects of natural disaster management. They involve the systematic gathering, 
+processing, and analysis of various types of data to understand the ongoing situation, assess the 
+impact of the disaster, and make informed decisions. Furthermore, the following paragraphs will 
+dive more into the context of Data Collection and Monitoring in relation to disaster management.\par
+
+Sensor networks and smart systems collect various types of data collection depending on the specific 
+end goal that needs to be achieved. Examples of data collected are environmental Data which includes 
+data related to meteorological conditions such as temperature, humidity, wind speed, and precipitation. 
+It also encompasses hydrological data, such as river flow, water levels, and groundwater measurements. 
+Next is seismic data that are collected by seismometers, which is crucial for monitoring earthquake 
+activity; Geospatial Data which involves information related to the physical location and attributes 
+of features on the Earth's surface. It includes topographic maps, satellite imagery, aerial photographs, 
+and GIS (Geographic Information System) data; last but not least, Remote Sensing Data which are data such 
+as satellite imagery and aerial surveys, provide valuable data for monitoring the extent of damage 
+caused by natural disasters. They offer a comprehensive view of the affected regions, enabling 
+decision-makers to prioritize response efforts effectively.\par
+
+Furthermore, these data are monitored by data monitoring systems such as sensor networks which consist of 
+a network of distributed sensors that continuously monitor various environmental parameters. These sensors 
+can be deployed in disaster-prone areas to collect real-time data, enabling early warning and quick 
+response. Real-time monitoring is another method that is used as a data monitoring system that provides 
+live updates of data, allowing decision-makers to track the disaster's progression and make informed 
+decisions in real time.\par
+
+In addition, data are then required to be processed and analyzed through different methods such as 
+Integrating data from various sources which is essential for creating a comprehensive picture of 
+the disaster situation. Next, data are validated to ensure the accuracy and reliability of collected 
+data because it is very critical that the data that is being collected is correct. Data validation 
+involves checking for errors, inconsistencies, and outliers to ensure that decision-making is based 
+on trustworthy information. Furthermore, data analytics and modeling techniques are applied to process 
+and interpret the collected data. Predictive models use historical data and current sensor inputs to 
+forecast the disaster's trajectory. As a result of data collection and monitoring, we are able to make 
+informed decision-making, make impact assessments, and learn from past events.\par
+
+Last but not least, we have remote sensing and imaging which are also one of the main key outcomes of 
+sensor networks and smart systems in relation to natural disaster management. Smart systems can utilize 
+remote sensing technologies, such as satellite imagery and drones, to assess the extent of damage caused 
+by the disaster. These images provide valuable insights into the affected regions, which aids in 
+prioritizing rescue and relief efforts. Remote sensing and imaging are powerful technologies that play 
+a significant role in disaster management and natural resource monitoring. They involve the use of 
+various sensors and imaging devices to collect data from a distance, typically from aircraft or satellites, 
+about the Earth's surface and its environment. Here is a more in-depth look at remote sensing and 
+imaging. Furthermore, the following paragraph will dive more into the context of remote sensing and 
+imaging in relation to disaster management.\par
+
+First, there are passive and active remote sensing. Passive remote sensing involves the detection of 
+natural energy such as sunlight that is reflected, emitted, or scattered by objects on the Earth's 
+surface. Passive sensors, such as cameras and radiometers, capture the energy to create images and 
+spectral data. In contrast, Active remote sensing uses its own source of energy such as radar or lidar 
+to illuminate the target and measures the reflected or scattered energy. This method enables remote 
+sensing in all weather conditions and at night.\par
+
+Second, there are spatial and temporal resolutions. The spatial resolution of satellite sensors refers 
+to the level of detail in the imagery they capture. High-resolution sensors offer fine details, while 
+low-resolution sensors provide broader coverage but with lower detail. In contrast, the temporal resolution 
+represents the frequency at which a satellite revisits a specific area. Some satellites have high temporal 
+resolution, allowing frequent updates, while others have lower temporal resolution due to their orbit and 
+revisiting times.\par
+
+Lastly, there are earth observation satellites which are satellites that are equipped with various sensors 
+that capture data in different spectral bands, ranging from visible light to microwave and thermal infrared. 
+They provide frequent and widespread coverage of the Earth's surface.\par
+
+In the case of disaster management, these applications conduct damage assessments after a natural disaster 
+using satellite imagery and can quickly assess the extent of damage to infrastructure, buildings, and 
+vegetation. This information is invaluable for prioritizing response efforts; Monitoring environmental 
+changes by monitoring changes in land use, deforestation, coastal erosion, and glacier movements, 
+providing valuable data for environmental management and conservation; and conducting flood Mapping 
+by utilizing satellite radar and optical sensors which capture flood extent and changes over time, 
+supporting flood monitoring and management.\par
+
+Moreover, besides early warning systems, data Collection and Monitoring, and remote sensing and imaging, 
+there are many additional other key points that have strong utilization impacts on disaster manangment. 
+These key points are real-time communication, post-disaster evaluation, and integration of AI and machine 
+learning. For example, real-time communication facilitates seamless communication among emergency response 
+teams, government agencies, and affected communities. Post-disaster evaluation continues to be valuable 
+for conducting damage assessments and impact evaluations after a disaster by analyzing post-disaster 
+data, decision-makers can learn from the event and improve future disaster response strategies. Lastly, 
+integrating AI and machine learning algorithms can be utilized to analyze complex data patterns and make 
+more accurate predictions. This enables decision-makers to have a deeper understanding of the disaster's 
+potential impacts and make data-driven decisions.\par
+
+Nevertheless, just as nothing is achieved overnight, there are currently many challenges with decision-making 
+support in relation to Sensor networks and smart systems' role in natural disaster management. Some of these 
+challenges are the need for stronger infrastructure, better data qualities and availability, and ethical 
+consideration because during decision-making, we must be aware of how we save lives and on what fairground 
+we approach such decisions.\par
+
+Overall, early warning systems, data Collection and Monitoring, and remote sensing and imaging are instrumental 
+in mitigating the impact of natural disasters, providing decision-makers and communities with critical 
+time to prepare and respond effectively. Continuous improvement, integration of advanced technologies, 
+and effective communication are key to enhancing the efficiency and effectiveness of these 
+life-saving systems.\par
+
+Conclusion. In conclusion, sensor networks and smart systems are powerful tools in natural disaster management. 
+By providing real-time data, predictive insights, and efficient communication, these technologies empower 
+decision-makers to make informed decisions and take timely actions to minimize damage and save lives 
+during natural disasters. Furthermore, key points discussed earlier such as data collection and monitoring 
+and remote sensing and imaging are indispensable components of natural disaster management. They enable 
+decision-makers to gain critical insights, respond effectively, and minimize the impact of disasters 
+on communities and infrastructure. Continuous improvements in data collection technologies, 
+integration, and analysis are vital for enhancing disaster preparedness and response efforts.\par
+
+
+\section{Remote Monitoring} % Section V: Steph/Specks
+
+Remote Monitoring in disaster management involves using equipment such as cameras, drones, and the like, 
+to survey affected areas, sensing temperatures, relative humidity levels, leaks, ventilation, dew points, 
+adverse weather developments, and so on; Equipment that also relays ``information regarding power outages 
+and weather changes ... [and] [t]he size of the equipment and components vary by manufacturer and 
+model.'' \cite{b4} This equipment of sensors plays a focal role in the monitoring and alerting of disaster 
+management, contributing to a more comprehensive approach in response to these disasters. With remote 
+monitoring systems, recovery specialists and first responders can set considerations to maintain ideal 
+circumstances in recovery efforts contributing to disaster readiness.\par
+
+One example showing this is the application of drones, where drones have become an effective part of harm 
+reduction, seeing that their use ``has rapidly evolved over the past decade ... [in] a variety of 
+fields... and [has] becom[e] increasingly used in disaster management or humanitarian aid.'' \cite{b5} 
+More specifically, the application of drones in disaster control has expanded to search and rescues in 
+that they can ``reduce the time required to locate victims and the time required for subsequent intervention 
+by searching a large area in a short period of time, ... providing critical information to rescuers about 
+the route that needs to be taken. Additionally, ... searching for alive victims buried beneath rubble 
+using sensors such as noise sensing, binary sensing, vibration, and heat sensing.'' \cite{b5} Thus, 
+when it comes to disaster management, drones have significant potential in helping in searching for 
+lost and trapped civilians due to disasters such as cave-ins, floods, hurricanes, and the like. Remote 
+monitoring, with drones, has the potential to save the lives of people in high-risk areas, so they
+can feel safer and more at ease, giving them a much higher chance of survival during a local disaster.\par
+
+Another example of the potential benefits of remote monitoring in disaster management is found in 
+landslide monitoring. Like in the use of drones, the Internet of Things (IoT) ``plays a major role for the 
+purpose of monitoring natural disasters'' \cite{b7}, specifically in things like landslides; Seeing that 
+landslides ``cause more than \$100 million in direct damage and cause thousands of fatalities'' \cite{b7}
+and so, in ``order to mitigate the landslide hazard, several landslide monitoring techniques have been 
+developed over the last decades'' \cite{b7}.  Remote sensing, a commonly used technique, is one of these 
+methods, which is ``mainly used in landslide detection, fast characterization, and mapping 
+applications'' to ``gather information about the distribution and kinematics of surface displacements. Remote 
+sensing makes use of aircraft, spacecraft, or terrestrial-based platforms.'' \cite{b7} Even though the 
+manual live supervision is limited due to the revisit period of satellites, it is typically ``suitable for 
+mapping vulnerable areas ... [and] monitoring displacements over a large area ... with 3-D capabilities''.
+\cite{b7} To elaborate further, these remote techniques collect data about an area using satellites, 
+airborne, or ground-based sensors. ``[The] most commonly used techniques are based on laser, radar, and 
+infrared sensor[s].'' \cite{b7} For example, these remote sensors, specifically terrestrial laser scanning 
+(TLS), have been used for active landslides in the French Alps. Using automated monitoring to track 
+rockfalls and landslides, providing near real-time monitoring/change detection for data collection. This 
+automated monitoring helps find and predict areas at high risk of being affected and buried, allowing at-
+risk people to be alerted and relocated when needed or for businesses to take the proper precautions.\par
+
+An additional example of the potential benefits of remote monitoring in disaster management is also seen 
+in Water Level Monitoring/Flood monitoring. Where the Internet of Things (IoT) ``plays a major role in 
+the purpose of monitoring natural disasters;'' \cite{b7} like river behavior, and how it may ``help 
+mitigate or prevent future disasters.'' \cite{b6} With that said, seeing that floods are amongst the 
+``most common and devastating of all natural hazards [accounting for 41\% of all natural perils that occurred 
+globally in the last decade]''. \cite{b3} Remote monitoring, correspondingly, has the potential to curb 
+flood-related deaths and the cost of damages. And so, to mitigate the hazards of floods caused by things 
+like water levels and storms, ``activities exploring how camera images and wireless sensor data...[that] 
+can improve flood management''\cite{b3} have been developed and utilized. One method being computer-
+vision, a commonly used technique based on cameras and ``relevant images from existing urban surveillance cameras 
+[that] are captured and processed to improve decision-making.'' \cite{b3} These remote camera-based 
+systems are more capable and commercial in that they ``involve low equipment cost and wide aerial 
+coverage..., enabling the detection of flood levels at multiple points.'' \cite{b3} In other words, they 
+have the advantage over traditional fixed-point methods of sensing in that they have an extensive 
+reportage built on ``image processing techniques that have been widely applied in many fields, including aerospace, 
+medicine, traffic monitoring, and environmental object analysis.'' \cite{b3} An aspect of how computer 
+vision helps with disaster management of floods is how it aids with monitoring water levels in places such 
+as lakes, rivers, and other potentially disastrous water sources since they are of extreme importance when 
+it comes to early warning signs of a flood. Computer vision is useful in monitoring water levels with 
+things like ``Image filtration...[which] plays a vital role in estimating water levels.'' \cite{b3} To 
+elaborate further, a difference (image) method is utilized to analyze images of ``the region of interest 
+(ROI) between the previous and current frame and then outputting a level of water...the water level is 
+then estimated from the y-axis of the edged image.'' \cite{b3} This remote solution of difference has been 
+utilized a few times and has shown to be dependable with adequate accuracy. And so, computer vision has 
+been of great help and importance when it comes to disaster management and monitoring disasters caused by 
+flooding with computers and cameras and has the budding to advance ``flood inundation mapping, debris flow 
+estimation, and post-flood damage estimation[s].'' \cite{b3} \par
+
+Overall, those are just some ways remote monitoring helps in disaster management of things like search 
+and rescue, floods, and landslides. With the use of things like; drones, remote sensing, and computer 
+vision, the equipment makes preventing the horrid outcomes of such disasters much easier.\par
+
+\section{Resilient Infrastructure} % Section VI
+
+% Smart Systems, especially for disaster recovery, require Resilient Infrastructure that incorporates 
+% reliability, security (...) than just device security. Its very existence should not pose a threat to your  
+% safety. We buy and drive cars and trust that at 70 MPH on the highway, the wheels won't fall off, or the
+% steering wheel suddenly doesn't work. The vast new world of IoT devices must have ``SOMETHING'' so that
+% they are trusted by the public. This can include everything down to where the minerals to make the
+% batteries supplied with the device are mined and processed.\par
+
+How is Resilient Infrastructure for Smart Systems in Disaster Management defined? Well, it may be
+easier to define what it is not, since ``[t]he importance of resilience is continually increasing, as 
+communication networks are becoming a fundamental component in the operation of critical 
+infrastructures.'' \cite{jm1} Smart system infrastructure is not resilient if it is not able 
+to continually provide needed data to its user base or response team for the prescribed period. 
+This shows that battery or power source usage, as well as mode of communication and 
+medium of data exchange need to be taken into account. \par
+
+Building and deploying Resilient Infrastructure for smart systems, especially those aimed at Disaster
+Management, can vary slightly depending on the type of natural disaster, for example, floods and 
+hurricanes are handled differently than earthquakes, and the goal of the disaster management
+task at hand: prevention, preparation, response, or recovery. There are other factors like 
+risk analysis and risk management, discussed in Chang et al \cite{jm6}, which shows that proper 
+Disaster Management is not ad hoc, it must be properly trained and budgeted for or the system 
+will not be resilient. In general, though, there are many similarities. All resilient infrastructure 
+are generally built with some redundancy at all levels, from redundant data storage to redundant
+power supplies and even alternative power sources, like wind or solar it it is the only power
+source available at any disaster location. Using redundancy in mission critical systems 
+helps keep systems functional as a whole in case of one or more failures in the data chain from 
+user to network.\par
+
+In the landslide example discussed previously, the sensor network and its base station would likely 
+need to be remote from any other base station that collects the data to be resilient. 
+For infrastructure to be resilient in this case, since the operator or disaster response team may need 
+to rely on streaming data from those sensors after the landslide
+for days during disaster cleanup, the sensor network needs to have a sustainable power source that can last
+through the prescribed amount of time. Depending on how far away 
+each base station is from each other, the protocol for communication needs to be adjusted, along with the
+required amount of power and frequency for data transmissions from the sensor network. 
+In this case, since the sensor network is remote, if the data only needs to be transmitted 
+from the sensor network site to a nearby location, less than one mile, then RF transceivers 
+may work well. For those base stations to be connected to the internet poses a problem if the disaster 
+zone is remote or lacking proper infrastructure, like in power outage areas. In all cases, Data Resilience
+is important, as discussed in Vitaly, et al. \cite{jm1} Any time  \par
+
+In other situations, for example, very isolated locations with no existing 
+infrastructure, the best or only way for long range transmission may be communication via satellite. 
+A traditional RF radio may not be desirable or usable if the distance between the system users or 
+response team and the monitored disaster containing the sensor network are separated by more 
+than a few miles, which is the approximate distance a high power transciever 
+can transmit reliably without any radio towers in the viscinity for repeating or signal hopping so the 
+data received is not corrupted. In general, higher frequencies like UHF (300 MHz to 3 GHz) and 
+SHF (3 GHz to 30 GHz), which are where WiFi frequencies are located, offer an order of magnitude 
+more spectrum, allowing extra channelized bandwitdth in a smaller space thanks to the shorter 
+wavelength, however, the distance those higher frequencies travel without a signal repeater 
+diminishes, but signals can be concentrated with dish antennas, as one example, to concentrate 
+the RF into a directional beam much like a flashlight concentrates light in one direction. 
+As frequency is lowered, the waves generally travel farther, but lower frequency bands 
+like HF (3 MHz to 30 MHz) and VHF (30 MHz to 300 MHz) have much less room in the band to 
+transfer wide bandwitdths of data. In addition to this, as discussed in Wireless Review, \cite{jm6}
+the local terrain and type of foliage can have an effect on wireless transmissions at these
+frequencies. \par
+
+Resilient Infrastructure - How IoT can contribute to building resilient infrastructures that can withstand 
+and recover from disasters. Infrastructures equipped with IoT sensors to trigger early warning systems. \par
+
+Resilient Infrastructure also requires data as current as possible for disaster management smart systems, 
+also.  or if you need a team that also requires data 
+service to their laptops or gear and likely share network access to the devices being deployed \par 
+
+One example of disaster recovery Resilient Infrastructure for disaster management uses 
+``A wireless multihop infrastructure (WMI) [which] employs homogeneous and easily deployable
+wireless routers to facilitate disaster-resilient Internet access in smart cities, emergency situations, 
+and the Internet of Things. On the other hand, however, a WMI is subject to energy constraints, carries
+unbalanced traffic, and has weaknesses in terms of maintenance, such as the lack of 
+human management.'' \cite{jm2} WMI's use wireless mesh networks as base stations. Although not 
+ideal for certain circumstances, the appeal of WMI type systems for disaster recovery is 
+attractive since it is quickly deployable in mobile vehicles using small generators, and 
+easily scalable to most natural disaster types. For devices deployed out in a remote location, 
+they will need to be programmed with power saving and sleep modes so as not to drain the battery 
+life before the prescribed period is expired. This aids in response time, and \par
+
+Data Resilience \cite{jm1} needs to be discussed. Lose or corrupt the data that is transferred across the 
+network, your IoT network is basically junk.\par
+
+No matter your situation, though, power demands, data resiliency and data transmission to the end user 
+or response team can be major hurdles. If the data being collected from the smart system only needs 
+to get to a local user who is present can typically use an ad hoc network. If the system is remote 
+from the users monitoring the system, then data transmission becomes the first issue. If the network 
+is deployed in a city setting, then there is a likely 4G LTE or 5G Connection available to the 
+network and the user, so data can be rapidly transferred. But if the disaster is in a jungle 
+or a desert or somewhere remote, then options are limited. A system can be deployed into a remote 
+location, and record data for a certain period of time and then the user returns to gather the data 
+to analyze at a future time or date.\par
+
+The environmental conditions for deployed disaster relief smart systems are an important factor for 
+resilient infrastructure. Any sensors or smart systems subjected to outdoor weather need protection 
+from extreme weather. For example: a sensor or smart system deployed in a hot, sunny climate needs 
+to be tolerant of heat and sunlight. A smart system deployed to an arctic climate must be built 
+to a different specification for cold tolerance and water resistance. Temperature also has an
+effect on power sources, too. Extreme hot or cold conditions are generally not favorable for
+systems that use batteries, so they may have a higher failure rate and need more frequent
+battery replacement. \par
+
+\section{Conclusion} % Section VII: Joel
+
+
+The integration of sensor networks and smart systems with Disaster Management has allowed humanity
+to monitor, prevent, prepare for, respond to, and recover from disaster much more efficiently, quickly, and 
+safely, putting us in more control to mitigate the overall effects on our way of life. Disaster Management 
+Smart Systems have proven themselves as valuable tools for natural disasters. Some key aspects of 
+disaster management smart systems are implementation of the alert systems (example), decision-making 
+support (example), remote monitoring capabilities (example), and resilient infrastructure (example).\par
+
+When Sensor Networks for Disaster Management are deployed, they provide their users with data-rich 
+environments that allow as close to real-time monitoring as possible to assist in disaster prevention
+and/or mitigation, like the landslide example. Together with Emergency Communications and Alert
+systems, proper action can be taken by authorities, including staging a response crew in preparation, 
+dispatching a response team after a disaster, or providing an early warning to residents in the
+disaster zone. Remote Monitoring enables real-time analysis and reaction from some point of 
+safety local to the disaster, or halfway across the world if the internet or satellite uplink 
+is available. Finally, resilient infrastructure was discussed that ensures the deployed system
+is able to withstand and operate after the disaster it is monitoring, and provide redundancy 
+and fault tolerance so that system operation can fully function in case of partial failure 
+of the system.\par
+
+Various disaster scenarios are studied and presented, and as the landscape for disaster recovery
+smart systems becomes more available at a cheaper cost, the implementation of these systems 
+becomes easier and helps build a safer and more aware, prepared community. \par
+
+
+% Bibliography Entries are all at the end in IEEE Template...
+\begin{thebibliography}{00}
+    % Jehad: Sensor Networks Begin
+    \bibitem{je1} Herry Z Kotta, Kalvein Rantelobo, Silvester Tena, and Gregorius Klau, ``Wireless sensor
+        net-work for landslide monitoring in nusa tenggara timur,'' TELKOMNIKA, 
+        (TelecommunicationComputing Electronics and Control), 9(1):9-18, 2011
+    
+    % Isabela: Alert Systems Begin
+    \bibitem{iz1}L. Banjanovic-Mehmedovic, M. Zukic, and F. Mehmedovic, “Alarm detection and monitoring in 
+    industrial environment using hybrid wireless sensor network,” SN Applied Sciences, vol. 1, no. 3, 
+    Feb. 2019, doi: https://doi.org/10.1007/s42452-019-0269-y.
+    
+    \bibitem{iz2} ``Experts say Brazil's deadly mudslides reflect poor planning in the face of climate change,'' 
+        PBS NewsHour, Feb. 18, 2022. https://www.pbs.org/newshour/world/experts-say-brazils-deadly-mudslides-
+        reflect-poor-planning-in-the-face-of-climate-change
+    
+    \bibitem{iz3} D. G. Costa, F. Vasques, P. Portugal, and A. Aguiar, “A Distributed Multi-Tier Emergency 
+        Alerting System Exploiting Sensors-Based Event Detection to Support Smart City Applications,” Sensors, vol. 20, no. 1, p.170, Dec. 2019, doi: https://doi.org/10.3390/s20010170.
+    
+    \bibitem{iz4} “Tsunami Strike Japan - Warning Systems,” oceantoday.noaa.gov.
+        https://oceantoday.noaa.gov/fullmoon-tsunamistrikewarning/welcome.html
+
+    % Need to organize these:    
+    \bibitem{b2} D. Prasad, A. Hassan, D. K. Verma, P. Sarangi and S. Singh, ``Disaster Management System
+        Using Wireless Sensor Network: A Review,'' 2021 International Conference on Computational 
+        Intelligence and Computing Applications (ICCICA), Nagpur, India, 2021, pp. 1-6, 
+        doi: https://doi.org/10.1109/ICCICA52458.2021.9697236.
+    
+    \bibitem{b3} Arshad, Bilal, et al. ``Computer Vision and IoT-Based Sensors in Flood Monitoring and
+        Mapping: A Systematic Review.'' Sensors, vol. 19, no. 22, 16 Nov. 2019, p. 5012, 
+        doi: https://doi.org/10.3390/s19225012. Accessed 30 Sept. 2020.
+
+    \bibitem{b4} ``How Disaster Recovery Teams Use Remote Monitoring.'' Www.polygongroup.com, 
+        www.polygongroup.com/en-US/blog/how-remote-monitoring-services-assist-disaster-recovery-teams/. 
+        Accessed 30 June 2023.
+
+    \bibitem{b5} Mohd Daud, Sharifah Mastura Syed, et al. ``Applications of Drone in Disaster Management: 
+        A Scoping Review.'' Science and Justice, vol. 62, no. 1, 1 Jan. 2022, pp. 30-42, 
+        www.sciencedirect.com/science/article/pii/S1355030621001477, 
+        doi: https://doi.org/10.1016/j.scijus.2021.11.002.
+    
+    \bibitem{b6} Moreno, Carlos, et al. ``RiverCore: IoT Device for River Water Level Monitoring over
+        Cellular Communications.'' Sensors, vol. 19, no. 1, 2 Jan. 2019, p. 127, 
+        www.ncbi.nlm.nih.gov/pmc/articles/PMC6338933/, doi: https://doi.org/10.3390/s19010127.
+    
+    \bibitem{b7} Thirugnanam, Hemalatha, et al. ``Review of Landslide Monitoring Techniques with IoT 		
+        Integration Opportunities.'' IEEE Journal of Selected Topics in Applied Earth Observations and Remote 
+        Sensing, vol. 15, 2022, pp. 5317-5338, https://doi.org/10.1109/jstars.2022.3183684. Accessed 31 July 
+        2022.
+    
+% Decision Making Support Begin (Alex)
+    \bibitem{al1} Kuglitsch, M. (2022) Artificial Intelligence for Disaster Risk Reduction: Opportunities, 
+        challenges, and prospects, World Meteorological Organization. Available at: 
+        https://public.wmo.int/en/resources/bulletin/artificial-intelligence-disaster-risk-reduction-opportunities-
+        challenges-and(Accessed: 25 July 2023). 
+
+    \bibitem{al2} Andronie, Mihai. "Artificial Intelligence-Based Decision-Making Algorithms, Internet of 
+        Things Sensing Networks, and Deep Learning-Assisted Smart Process Management in Cyber-Physical Production 
+        Systems." Mdpi.Com, 21 Oct. 2021, www.mdpi.com/2079-9292/10/20/2497. Accessed 25 Jul. 2023.
+
+    \bibitem{al3} Wu, Qi. "Applications and Theoretical Challenges in Environmental Emergency Issues Alerting 
+        System on IoT Intelligence." Science Direct, 24 Apr. 2020, 
+        www.sciencedirect.com/science/article/pii/S0140366420301717. Accessed 25 Jul. 2023.
+
+    \bibitem{al4} Khalifeh, Ala’. "Chapter 16 - Smart Remote Sensing Network for Early Warning of Disaster 
+        Risks." Science Direct, 17 Jun. 2022, www.sciencedirect.com/science/article/abs/pii/B9780323911665000124. 
+        Accessed 25 Jul. 2023.
+
+    \bibitem{al5} Konečný, Milan. "Early Warning and Disaster Management: The Importance of Geographic  
+        Information (Part A)." Taylor and Francis Online, 20 Aug. 2010, 
+        www.tandfonline.com/doi/full/10.1080/17538947.2010.508884. Accessed 25 Jul. 2023.
+
+% Remote Monitoring Begin: Steph/Specks
+
+% JB: Resilient Infrastructure Begin
+    \bibitem{jm1} K., Vitaly. ``Data Resilience in Large-Scale IOT Deployments.'' Forbes, 21 Apr. 2022, 
+        www.forbes.com/sites/forbestechcouncil/2021/11/19/data-resilience-in-large-scale-iot-deployments/?sh=1a1f7362c88c. 
+	
+    \bibitem{jm2} R. Mohanon, ``What Is Edge Computing? Components, Examples, and Best Practices,''
+        Spice Works, Feb. 2022, Accessed: Jul. 20, 2023. [Online]. 
+        Available: https://www.spiceworks.com/tech/edge-computing/articles/what-is-edge-computing/
+    
+    \bibitem{jm3} A. Sinha, P. Kumar, N. P. Rana, R. Islam, and Y. K. Dwivedi, 
+        ``Impact of internet of things (IoT) in disaster management: a task-technology fit perspective,''
+        Annals of Operations Research, Oct. 2017, doi: https://doi.org/10.1007/s10479-017-2658-1.
+
+    \bibitem{jm4} R. Teng, H. -B. Li, B. Zhang and R. Miura, ``Differentiation Presentation for 
+        Sustaining Internet Access in a Disaster-Resilient Homogeneous Wireless Infrastructure,'' in 
+        IEEE Access, vol. 4, pp. 514-528, 2016, doi: 10.1109/ACCESS.2016.2519244.
+    
+    \bibitem{jm5} S. E. Chang, T. McDaniels, J. Fox, R. Dhariwal, and H. Longstaff, 
+        ``Toward Disaster-Resilient Cities: Characterizing Resilience of Infrastructure Systems with 
+        Expert Judgments,'' Risk Analysis, vol. 34, no. 3, pp. 416-434, Oct. 2013, 
+        doi: https://doi.org/10.1111/risa.12133.
+
+    \bibitem{jm6}
+        T. Kridel, ``Less Than Stellar,'' Wireless Review, Jan. 1999, Accessed: Jul. 25, 2023. [Online]. 
+        Available: https://link.gale.com/apps/doc/A53641879/AONE
+\end{thebibliography}
+    \vspace{12pt}
+\end{document}
