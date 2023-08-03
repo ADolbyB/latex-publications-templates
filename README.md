@@ -1,12 +1,15 @@
-# LaTeX Template Docs
+# LaTeX Publications and Templates
 
 This is a small collection of LaTeX templates I began creating and customizing from tutorials and content I found on the web.
 
 I plan to learn documentation using LaTeX and migrate from word processing software (currently I use LibreOffice) to LaTeX for larger works.
 
+Update 8/2/2023: I added a new `Publications` folder and renamed the repo. This folder will now hold any papers I decide to add.
+
 ## Environment:
 
 For Local Installations:
+
 1. VS Code
     - Visual Studio Code
     - [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
