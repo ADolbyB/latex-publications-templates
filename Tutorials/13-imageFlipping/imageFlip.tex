@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{tikz,subcaption}
+\usetikzlibrary{positioning}
+
+%% Source Code Modified from: https://tex.stackexchange.com/questions/244871/jpg-image-is-flipped-upside-down
+
+\begin{document}
+
+% Vertical flip
+\begin{figure}
+   \begin{subfigure}[b]{.5\textwidth}
+     \begin{tikzpicture}
+         \node[scale=0.4] (a)
+         { \scalebox{1}[1]{\includegraphics[scale=0.2]{2019m8.jpg}} };
+     \end{tikzpicture}
+     \caption{Original Image}
+   \end{subfigure}
+   \begin{subfigure}[b]{.5\textwidth}
+     \begin{tikzpicture}
+         \node[scale=0.4] (a)
+         { \scalebox{1}[-1]{\includegraphics[scale=0.2]{2019m8.jpg}} };  % Note: \scalebox{1}[-1] (Flipped Y-axis)
+      \end{tikzpicture}
+      \caption{Flipped Image}
+   \end{subfigure}
+\caption{Vertical flip of .jpg or .pdf files}
+\end{figure}
+
+% Horizontal flip
+\begin{figure}
+   \begin{subfigure}[b]{.5\textwidth}
+      \begin{tikzpicture}
+          \node[scale=0.4] (a)
+          { \scalebox{1}[1]{\includegraphics[scale=0.2]{2019m8.jpg}} };
+      \end{tikzpicture}
+      \caption{Original Image}
+    \end{subfigure}
+    \begin{subfigure}[b]{.5\textwidth}
+      \begin{tikzpicture}
+         \node[scale=0.4] (a)
+         { \scalebox{-1}[1]{\includegraphics[scale=0.2]{2019m8.jpg}} };  % Note: \scalebox{-1}[1] (Flipped X-axis)
+      \end{tikzpicture}
+    \caption{Flipped Image}
+  \end{subfigure}
+\caption{Horizontal flip of .jpg or .pdf files}
+\end{figure}
+
+% Horizontal & Vertical flip
+\begin{figure}
+    \begin{subfigure}[b]{.5\textwidth}
+       \begin{tikzpicture}
+           \node[scale=0.4] (a)
+           { \scalebox{1}[1]{\includegraphics[scale=0.2]{2019m8.jpg}} };
+       \end{tikzpicture}
+       \caption{Original Image}
+     \end{subfigure}
+     \begin{subfigure}[b]{.5\textwidth}
+       \begin{tikzpicture}
+          \node[scale=0.4] (a)
+          { \scalebox{-1}[-1]{\includegraphics[scale=0.2]{2019m8.jpg}} };  % Note: \scalebox{-1}[-1] (Flipped X & Y-axis)
+       \end{tikzpicture}
+     \caption{Flipped Image}
+   \end{subfigure}
+ \caption{Horizontal \& Vertical flip of .jpg or .pdf files}
+ \end{figure}
+ \end{document}
