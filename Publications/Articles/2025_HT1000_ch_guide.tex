@@ -1,0 +1,910 @@
+% !TeX root = tutorial1.tex
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}       % 1-inch margins
+\usepackage{amsfonts, amssymb, amsmath} % all the fun math stuff
+\usepackage{graphicx}                   % For images
+\usepackage{hyperref}                   % For hyperlinks
+\usepackage{caption}                    % Better captions
+\usepackage{indentfirst}                % Force Sections 1st paragraph to Indent like the rest.
+\usepackage{float}                      % [H] to put images 'HERE'
+\usepackage{enumerate}                  % Customize Enumerated Lists
+\usepackage{url}                        % used for custom \url{....} methods
+\usepackage{enumitem}                   % used to break enumerated lists, insert text, and resume enumeration.
+\thispagestyle{empty}                   % No page number on title page
+\hypersetup{%
+    colorlinks=true,
+    urlcolor=blue
+}
+
+\let\oldurl\url % Makes \url{} automatically use a custom size.
+\renewcommand{\url}[1]{{\small\oldurl{#1}}} % custom \small \url size
+
+%======================== Document Start ===================================
+\begin{document}
+%===========================================================================
+% Title Page Start =========================================================
+
+\title{A General Handheld Radio Primer\\
+    {\large Using Surplus Motorola HT1000s on the MURS Band.}}
+
+\medskip
+\date{December 5, 2025}                 % Use a custom Date.
+\author{Written in \LaTeX\ by Joel M. Brigida}
+
+\maketitle                              % Create Document Title
+
+\thispagestyle{empty}                   % No page number on title page
+
+\pagenumbering{arabic}                  % 1,2,3 type page numbering.
+
+\clearpage                              % Go to the next page (which will become page 1)
+\setcounter{page}{1}                    % Forces THIS page to be page 1
+% === ToC Page  1 ==========================================================
+
+\begin{center}
+    \tableofcontents                    % Table of Contents appears on page 1
+\end{center}
+
+\clearpage
+% === Page 2 ===============================================================
+\begin{center}
+    \section{Disclaimer}
+\end{center}
+
+Please note that none of the information in this manual is meant to be legal advise in any way. The author of
+this document does not assume any responsibility for the accuracy of the information in this document. This 
+document should be regarded as the author's own opinion, and nothing more for legal reasons even though this is a 
+well researched subject in the author's own expertise.
+
+\clearpage                              % Start main content on page 2
+% === Page 3 ===============================================================
+
+\begin{center}
+    \item \section{General Information}
+\end{center}
+
+This is a general handheld radio primer that can be adapted to any radio \textit{band plan}.  
+This plan happens to describe operation on the \textit{MURS} portion of the \textit{FCC Part 95} frequency
+allocations, using surplus Motorola HT1000s, but can be adapted to any radio with any channel configuration, 
+since the principles of operation are all the same.
+
+\medskip
+This is a guide to help understand operating procedure and help explain some possibly unknown features 
+of the Motorola HT1000s. The actual manual that is screenshot on the next page is 
+a free downloadable PDF that is available on \textit{The Internet Archive}. There is a link to this manual as well
+as a link to the Radio Service Software User's Manual placed in the ``Links'' section of this document.
+
+\medskip
+\noindent In this guide, the following nomenclature will be used:
+
+\medskip
+\begin{itemize}
+    \item \textit{Italics} are used for keywords or vocabulary that is important to learn.
+    \item \textsc{Small Caps} refers to a unique work employment position or title.
+    \item \textbf{Bold Face} is used for emphasis.
+    \item The ``$\approx$'' symbol is used, precedes a number and means ``approximately''.
+    \item The abbreviation ``Hz'' for Hertz is used, which is a measurement of frequency. Hz means ``cycles per second,'' 
+        which is to say how many times a radio wave repeats itself per second. Also note:
+        \begin{itemize}
+            \item kHz = kilohertz: thousands of cycles per second.
+            \item MHz = megahertz: millions of cycles per second.
+        \end{itemize}
+\end{itemize}
+
+\begin{center}
+    \item \subsection{MURS Frequency Allocation and Related Info}
+\end{center}
+
+XxxX's radios operate in the MURS band in the \textit{VHF-Hi} portion of \textit{The Electromagnetic Spectrum}. 
+MURS stands for ``Multi Use Radio Service'' and operates under the FCC Part 95 rules, which in XxxX's case is unlicensed 
+spectrum, meaning no license is required to use it. This is unlike Amateur (ham) Radio, which operates under 
+\textit{FCC Part 97} Rules, and has $5$ different license classes, $2$ of which are \textit{legacy} only licenses.
+
+\medskip
+What is VHF-Hi Band? VHF is ``Very High Frequency'', which is considered to be
+$30 - 300\text{ MHz}$ in frequency or $10\text{ meters} - 1\text{ meter}$ in wavelength. The
+Hi or Lo designation splits the entire VHF band into $2$ parts.
+This split happens at $\approx 100\text{ MHz}$. So if your radio (or television) operates anywhere
+above $\approx 100\text{ MHz}$, then it operates in the VHF-Hi band. Broadcast antenna 
+televisions actually operate as receivers only in \textit{VHF-Lo}, \textit{VHF-Hi} and \textit{UHF}
+bands.
+
+% === Page 4 ========================================================================
+Something else to mention is that XxxX's radios are \textit{FCC Part 90} certified for use in the
+VHF-Hi band, which in the case of XxxX's Motorola HT1000s means $ 136\text{ MHz} $
+to $174\text{ MHz}$. Why? Because that is the allocated spectrum for anything operating under
+FCC Part 90 rules in the VHF-Hi band. This is why we are allowed to use an FCC Part 90 radio in the MURS band:
+the two sets of rules (Part 90 and Part 95) have overlap and the Part 90 operator license exceeds any license class
+in the entire FCC Part 95 regulations.
+
+\medskip
+So where are the MURS frequency allocations? They can also be called \textit{channel\\allocations},
+which is an old television reference. The MURS frequency channel allocations are numbered and named by 
+the FCC as follows:
+
+\medskip
+\begin{enumerate}
+    \item Name: MURS 1.
+    \begin{itemize}
+        \item Freq: $151.82\text{ MHz}$.
+        \item Max \textit{Bandwidth}: $11.25\text{ MHz}$.
+        \item Max Power: $2$ Watts \textit{ERP}.
+    \end{itemize}
+
+    \item Name: MURS 2.
+    \begin{itemize}
+        \item Freq: $151.88\text{ MHz}$.
+        \item Max \textit{Bandwidth}: $11.25\text{ MHz}$.
+        \item Max Power: $2$ Watts \textit{ERP}.
+    \end{itemize}
+
+    \item Name: MURS 3
+    \begin{itemize}
+        \item Freq: $151.94\text{ MHz}$.
+        \item Max \textit{Bandwidth}: $11.25\text{ MHz}$.
+        \item Max Power: $2$ Watts \textit{ERP}.
+    \end{itemize}
+
+    \item Name: MURS 4 aka Blue Dot.
+    \begin{itemize}
+        \item Freq: $154.57\text{ MHz}$.
+        \item Max \textit{Bandwidth}: $20\text{ MHz}$.
+        \item Max Power: $2$ Watts \textit{ERP}.
+    \end{itemize}
+
+    \item Name: MURS 5 aka Green Dot.
+    \begin{itemize}
+        \item Freq: $154.60\text{ MHz}$.
+        \item Max \textit{Bandwidth}: $20\text{ MHz}$.
+        \item Max Power: $2$ Watts \textit{ERP}.
+    \end{itemize}
+\end{enumerate}
+
+This is the list the FCC issues as the guide for MURS channel allocation. These are the specifications, or ``rules''
+that the FCC provides the public so the MURS channels are used legally and do not cause \textit{interference} 
+on another channel or some other service that is not MURS. These FCC rules are also good for \textit{interoperability}
+so that everyone who wants to use this MURS band uses the same settings so the audio coming out of the radio 
+sounds correct, and all the radios are on the same frequencies.
+
+\clearpage
+% === Page 5 ========================================================================
+\begin{center}
+    \item \subsection{The Motorola \textit{Jedi Series} Handhelds}
+\end{center}
+
+% TODO: Fix the figure placed "here!" that overlaps the text. FIXED JB.
+\begin{figure}[h!] % [h!] for here! to place figure on 1st page. Otherwise its on 2nd Page.
+    \center
+    \includegraphics[width=\linewidth]{Jedi_Series.png}
+    \caption{The HT1000 is a part of the \textit{Jedi Series} of handheld transceivers.}
+\end{figure}
+
+\clearpage
+% === Page 6 ========================================================================
+The above linked guide is a free public download, but is a 170 page document. It is the factory service manual that an 
+\textsc{RF Technician} or \textsc{RF Engineer} could refer to for ``fixing'' the Jedi Generation of handheld radios. 
+It has all the part numbers and pictures for every piece the radio contains. The service manual also contains other 
+important information just like XXxxxXXXX used in his job as \textsc{Production Engineer} at NovTech in Coconut Creek, FL. 
+Most of the information XXxxxXXXX needed for his job was:
+
+\begin{itemize}
+    \item Printed Circuit Board Physical Layout.
+    \begin{itemize}
+        \item This is so the \textsc{Engineer} can trace the physical ``wiring'' (called traces) that travel 
+            through the PCB.
+        \item This is a good use of an \textit{ohmmeter}, to \textit{check continuity} from one place on the PCB to another.
+        \item Checking continuity means expecting and measuring a 0 ohm \textit{short} reading on the ohmmeter from one 
+            place to another place.
+        \item The layouts are ``where everything is'' and what it looks like in real life, layer by layer, if 
+            you held any of the radio components or sub-assembly components in your hand and looked at them. In today's
+            subscription based services, like Altium Designer, each of these layers can be inspected on the computer
+            screen and highlighted as needed for any circuit on the PCB.
+    \end{itemize}
+    \item Wiring and PCB Schematic diagrams.
+    \begin{itemize}
+        \item This is what the \textsc{Engineer} or \textsc{Technician} uses to identify electrical circuit \\configurations 
+            in the radio for testing. If we know the circuit configuration, then we can conduct tests and voltage measurements
+            with a ``good'' radio, then \\compare that result with a ``suspect'' or ``defective'' radio. This is a very effective
+            method of testing if you have more than 1 of the same assembly. XxxX has 4 HT1000s, so if one breaks,
+            XXxxxXXXX can take a good one and a broken one, use the service manual and locate and fix the
+            ``root cause'' of the problem.
+    \end{itemize}
+    \item Other useful tools in the service manual XXxxxXXXX would use:
+    \begin{itemize}
+        \item How to test the complete assembly, what measurements to take and how to \\measure them.
+        \item Pictures and part numbers of proprietary test equipment and proprietary tools.
+        \item Error Codes and how to retrieve, decode, and interpret them.
+        \item How to ``align'' the radio. This is a periodic maintenance item and done after some repairs.
+            Radio alignment adjusts the radio so that it conforms to the FCC channel specifications for operation.
+        \item How to disassemble and reassemble the radio and everything inside it.
+        \item Maintenance procedures, just like a car.
+        \item Exploded parts views of the physical parts, what they look like, and their part numbers.
+    \end{itemize}
+\end{itemize}
+
+\clearpage
+% === Page 7 ========================================================================
+This old service manual would usually be shipped printed in a 3-ring binder to the Motorola radio dealers in 
+addition to being used by the internal Motorola Engineering team. Nowadays the engineers who write the manual 
+just give us files to open in our subscription-based computer programs or subscription-based web tools that can be 
+easily emailed to anyone needing it. In the next subsection there will be links and URLs to check out 
+some of these Web Tools. They are very, very expensive but usually have free trials for a month or so.
+
+\begin{center}
+    \subsection{Modern Service Manuals}
+\end{center}
+
+Some examples of modern versions of this old service manual are created with subscription-based 
+web tools or downloadable subscription-based programs are:
+
+\medskip
+\begin{itemize}
+    \item \href{https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad.html}{OrCad X} 
+    (hyperlinked) actually leads here:
+    \begin{itemize}
+        \item \url{https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad.html}
+    \end{itemize}
+\item \href{https://www.altium.com/altium-designer}{Altium Designer}
+    \begin{itemize}
+        \item \url{https://www.altium.com/altium-designer}
+        \item This is the software we all used at NovTech. XXxxxXXXX used all the diagrams to fix the 
+        \textit{embedded computer systems} we manufactured at NovTech.
+    \end{itemize}
+\item \href{https://www.kicad.org/}{KiCad}
+    \begin{itemize}
+        \item \url{https://www.kicad.org/}
+        \item This is 100\% Free and open-source software, and is very popular with students and hobbyists.
+        \item XxxxXXxxxX and XXxxxXXXX both have made projects with this software.
+    \end{itemize}
+\end{itemize}
+
+These programs are all called ``EDAs'': Electronic Design Automation tools. They sure beat drawing 
+everything on paper and snail mailing everything like the ``old days''.
+
+\clearpage
+% === Page 8 ========================================================================
+\begin{center}
+    \section{Channel Groups and Information}    
+\end{center}
+
+What is considered a ``Channel Group?'' In this particular use case with XxxX's HT1000s, channels $1 - 5$ 
+are considered a group by XXxxxXXXX because these channels all have one thing in common: the \textit{PL Tone}. 
+Channel Group $1$ has the functionality of channel interoperability using a \textit{tone squelch} 
+of $103.5$ Hz while more than one radio is tuned to the same HT1000 channel. This feature blocks all other stations
+or interference from another station that is not using the same $103.5$ Hz tone on their transmitter.
+Later on, other commonalities of each group will be explained as they appear.
+
+\begin{center}
+    \item \subsection{Channel Group 1: Channels 1 - 5}    
+\end{center}
+
+\medskip
+\begin{enumerate}
+    \item MURS 1
+    \begin{itemize}
+        \item Freq: 151.820 MHz
+        \item Tone: 103.5 Hz
+        \item Bandwidth: Narrow (11.25 kHz)
+    \end{itemize}
+    \item MURS 2
+     \begin{itemize}
+        \item Freq: 151.880 MHz
+        \item Tone: 103.5 Hz
+        \item Bandwidth: Narrow (11.25 kHz)
+    \end{itemize}   
+    \item MURS 3
+    \begin{itemize}
+        \item Freq: 151.940 MHz
+        \item Tone: 103.5 Hz
+        \item Bandwidth: Narrow (11.25 kHz)
+    \end{itemize}
+    \item MURS 4
+    \begin{itemize}
+        \item Freq: 154.570 MHz
+        \item Tone: 103.5 Hz
+        \item Bandwidth: Wide (20 kHz)
+    \end{itemize}
+    \item MURS 5
+    \begin{itemize}
+        \item Freq: 154.60 MHz
+        \item Tone: 103.5 Hz
+        \item Bandwidth: Wide (20 kHz)
+    \end{itemize}
+\end{enumerate}
+
+\clearpage
+% === Page 9 ========================================================================
+\begin{center}
+    \item \subsection{Channel Group 2: Channels 6 - 11}    
+\end{center}
+
+\medskip
+\begin{enumerate}[resume]
+    \item MURS 1
+    \begin{itemize}
+        \item Freq: 151.820 MHz
+        \item Tone: 127.3 Hz
+        \item Bandwidth: Narrow (11.25 kHz)
+    \end{itemize}
+    \item MURS 2
+     \begin{itemize}
+        \item Freq: 151.880 MHz
+        \item Tone: 127.3 Hz
+        \item Bandwidth: Narrow (11.25 kHz)
+    \end{itemize}   
+    \item MURS 3
+    \begin{itemize}
+        \item Freq: 151.940 MHz
+        \item Tone: 127.3 Hz
+        \item Bandwidth: Narrow (11.25 kHz)
+    \end{itemize}
+    \item MURS 4
+    \begin{itemize}
+        \item Freq: 154.570 MHz
+        \item Tone: 127.3 Hz
+        \item Bandwidth: Wide (20 kHz)
+    \end{itemize}
+    \item MURS 5
+    \begin{itemize}
+        \item Freq: 154.60 MHz
+        \item Tone: 127.3 Hz
+        \item Bandwidth: Wide (20 kHz)
+    \end{itemize}
+\end{enumerate}
+
+\medskip
+Note that all of these have the same tone of $127.3$ Hz, so they are considered a channel group.
+Channel 11 is slightly different than the rest of the channels in Group 2, although it should be 
+interoperable with any of the HT1000s that are tuned to channel 10 or 11. We will discuss that next.
+
+\clearpage    
+% === Page 10 ======================================================================== 
+\medskip
+The ``special'' channel 11 is exactly the same as channel 10, except at the end of every transmission on 
+channel 11, there is a unique ``chirp'' noise that can be heard by the receiving radio. While listening, after 
+the voice audio stops, the radio sends out a little data burst packet which is what many Police Departments 
+(Plymouth PD verified by XXxxxXXXX, Falmouth PD verified by XXXXX) used for ``unit ID.'' This data burst 
+is decoded by the dispatch console and used typically by the dispatcher when one of the officers (or 
+firefighters or EMS, etc.) calls out on the radio. The dispatcher knows immediately who is calling to keep 
+transmissions shorter and help keep the channel clear of traffic. Each officer in a squad car will usually 
+have two radios: one handheld, and one mobile unit mounted in the vehicle. Each radio can have its own 
+unique ID, so the dispatcher knows if the officer is calling from the handheld or the squad car.
+
+This ``chirp'' tone is named: \textit{MDC-1200}, and is set to ID on \textit{dekey}. For it to work properly,
+the radio must be \textit{keyed up} for $\approx$ one second.
+
+\begin{enumerate}[resume]
+    \item MURS 5 with MDC1200 ID on dekey.
+    \begin{itemize}
+        \item Freq: 154.60 MHz
+        \item Tone: 127.3 Hz
+        \item Bandwidth: Wide (20 kHz)
+    \end{itemize}
+\end{enumerate}
+
+\clearpage
+% === Page 11 ========================================================================
+\begin{center}
+    \item \subsection{Channel Group 3: Channels 12 - 16}    
+\end{center}
+
+In Channel Group 3, all channels are set to receive (RX) only. Transmitting on these
+channels is not allowed in this case due to the missing \textit{FCC Part 80} type certification on the HT1000 
+radios, which is needed for transmitting on the Marine VHF band. Transmitting on the NOAA Weather Band is also 
+not allowed because the beacon is a \textit{broadcast station}.
+
+\medskip
+\begin{enumerate}[resume]
+    \item Marine VHF $9$
+    \begin{itemize}
+        \item Freq: 156.450 MHz (\textit{RX Only})
+        \item Tone: \textit{Carrier Squelch}
+        \item Bandwidth: Wide (25 kHz)
+    \end{itemize}
+    \item Marine VHF $16$
+     \begin{itemize}
+        \item Freq: 156.80 MHz (RX Only)
+        \item Tone: \textit{Carrier Squelch}
+        \item Bandwidth: Wide (25 kHz)
+    \end{itemize}   
+    \item Marine VHF $22A$
+    \begin{itemize}
+        \item Freq: 157.10 MHz (RX Only)
+        \item Tone: \textit{Carrier Squelch}
+        \item Bandwidth: Wide (25 kHz)
+    \end{itemize}
+    \item NOAA Weather Radio channel $3$
+    \begin{itemize}
+        \item Freq: 162.475 MHz (RX Only)
+        \item Tone: \textit{Carrier Squelch}
+        \item Bandwidth: Wide (25 kHz)
+    \end{itemize}
+    \item NOAA Weather Radio channel $1$
+    \begin{itemize}
+        \item Freq: 162.550 MHz
+        \item Tone: \textit{Carrier Squelch}
+        \item Bandwidth: Wide (25 kHz)
+    \end{itemize}
+\end{enumerate}
+
+In the area of SE Massachusetts, the NOAA Ch 1 weather beacon is in the Boston area at the Blue Hills 
+Observatory in Milton. The NOAA Ch 3 weather beacon is located in the Bourne/Hyannis area located at 
+Camp Edwards. The stations self ID this information as well as its beacon transmitter callsign over the air
+while listening. The National Weather Service shows more information about these beacons here:
+
+\begin{itemize}
+    \item KHB35 Milton: \url{https://www.weather.gov/nwr/sites?site=KHB35}
+    \item KEC37 Camp Edwards: \url{https://www.weather.gov/nwr/sites?site=KEC37}
+\end{itemize}
+
+\clearpage
+% === Page 12 ========================================================================
+\begin{center}
+    \item \subsection{Toggle Switch and Button Functions}   
+\end{center}
+
+\noindent Toggle Switch Definitions:
+
+\medskip
+\begin{itemize}
+    \item Switch position A: Always High Power
+    \item Switch Position B: Always Low Power
+    \item Switch Position C: Channel Group Scan
+    \begin{itemize}
+        \item Group A: Scans all MURS channels by channel group of XxxX's custom MURS \\
+            Channels when tuned to any of Channels $1 \text{ through }11$
+        \item Group B: Scans all $3$ RX only Marine Channels on XxxX's Radios.
+                \begin{itemize}
+                    \item Marine Channel $9$
+                    \begin{itemize}
+                        \item Boater / General Call channel.
+                    \end{itemize}
+                \item Marine Channel $16$
+                    \begin{itemize}
+                        \item USCG Call / S.O.S call channel.
+                    \end{itemize}
+                \item Marine Channel $22A$
+                    \begin{itemize}
+                        \item USCG Announcements channel.
+                    \end{itemize}
+                        \begin{itemize}
+                            \item USCG calls out on channel $16$ for the announcement, then switches to channel $22A$ 
+                            to make the announcement.
+                        \end{itemize}
+                        \item When tuned to any Marine Channel on XxxX's Radios, the toggle switch can be switched to 
+                            ``C'' and the radio will scan all $3$ channels continuously until switched off of position 
+                            ``C'', or if the channel is switched to another channel group.
+                \end{itemize}
+        \item Group C: Both local NOAA Weather Radio stations.
+            \begin{itemize}
+                \item Scan is deactivated on XxxX's $2$ NOAA Weather channels. This is because they are 
+                    \textit{broadcast stations}, so they are continually transmitting and would not let the radio scan.
+            \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\medskip
+Note that the Toggle Switch Configuration can be changed in the RSS (MS-DOS based). The only other useful
+function we might care about is changing the Toggle Switch Configuration to:
+\begin{itemize}
+    \item A: When the radio receives a signal, 2 conditions must be met to \textit{unsquelch} the radio.
+    \begin{itemize}
+        \item Sets the radio to sense an \textit{FM carrier} signal AND the PL Tone to unsquelch.
+    \end{itemize}
+    \item B: When the radio receives a signal, it only needs to hear the FM carrier to unsquelch.
+    \item C: Channel scan function just like on XxxX's radios.
+\end{itemize}
+
+% === Page 13 ========================================================================
+\medskip
+All the other Toggle Switch functions in the RSS are mostly useless now since they are legacy configurations 
+related to obsolete and outdated \textit{Trunking Protocols}. The other configurations can be viewed in the Radio
+Service Software manual. The link for that manual is in Section 5 of this document. The side button configuration
+menu can be viewed on page 88 of the RSS manual if interested.
+
+\medskip
+\noindent Side and Top Button Definitions:
+\begin{itemize}
+    \item Side Button $1$: Top round button on the side of the radio.
+    \begin{itemize}
+        \item Function: Inoperative/Disabled.
+        \item This function CAN be changed in RSS.
+    \end{itemize}
+    \item Side Button $2$: Second from top button on the side of the radio.
+    \begin{itemize}
+        \item Function: Inoperative/Disabled.
+        \item This function CAN be changed in RSS.
+    \end{itemize}
+    \item Side Button $3$: Third from top button on the side of the radio.
+    \begin{itemize}
+        \item Function: Monitor
+        \item When pressing this button momentarily, the radio will unsquelch and noise can heard on an unused channel.
+            Holding the button for more than $5$ seconds will result in the permanent unsquelching of the radio on that
+            channel until the button is pressed again, or the radio is switched off and on again.
+            \begin{itemize}
+                \item This function is very handy for detecting weak stations that can be heard, but are too weak to
+                    unsquelch the radio. Sometimes when just out of range of another station, the radio will not 
+                    unsquelch, but pressing the monitor button may allow the operator to hear the weak station through
+                    the noise.
+            \end{itemize}
+        \item This function CAN be changed in RSS.
+    \end{itemize}
+        \item Side Button $4$: Long bumpy oval button on the side of the radio.
+        \begin{itemize}
+            \item Push To Talk or ``PTT'' button.
+            \item Function CANNOT be changed in RSS. This must always function as the PTT buttton.
+        \end{itemize}
+    \item Top Orange Button: Top of radio near antenna.
+    \begin{itemize}
+        \item Function: Inoperative/Disabled.
+        \item This function CAN be changed in RSS.
+        \item This function is typically used for an ``Emergency'' or ``Panic'' button on old trunking networks which are
+            all legacy and obsolete now, so it typically goes unused. In newer radios with a display, the orange
+            button can typically be \\ configured to light the display or toggle the high and low power setting in the 
+            RSS. The ``Emergency'' function is only usable on trunking networks, otherwise it just creates 
+            interference.
+    \end{itemize}
+\end{itemize}
+
+\clearpage
+% === Page 14 =========================================================================
+\begin{center}
+    \item \section{Other Thoughts}
+\end{center}
+
+In this guide, some different services in the VHF-Hi band for the range of 136 MHz - 174 MHz were discussed,
+since that is the frequency range of operation for the HT1000s.
+In that band, there are many different services, some which were not discussed:
+
+\medskip
+\begin{itemize}
+    \item Amateur Radio: 144 - 148 MHz (FCC Part 97.)
+    \item MURS band: 151 MHz and 154 MHz (FCC Part 95.)
+    \item Marine VHF band: 155 MHz - 161 MHz (FCC Part 80.)
+    \item Railroad VHF: 160 MHz - 161 MHz (Also FCC Part 90.)
+    \item NOAA Weather Radio: 162 MHz (FCC Part 11 for Emergency Alert Systems.)
+\end{itemize}
+
+\medskip
+Railroad VHF used to be conventional analog operation, but has mostly moved to digital operation, so the 
+HT1000 would only hear the digital tones and not decode it properly for listening to voice traffic. To decode
+digital voice traffic, a newer digital radio with a digital vocoder is required.
+
+\begin{center}
+    \item \subsection{\LaTeX\ and Mathematical Equations}
+\end{center}
+
+Here are some general math equations, which is why so many people use \LaTeX\ for writing books, doing 
+math equations, and creating documents. Here are some general examples which look just like math textbooks:
+
+\medskip
+The Equation for a Straight Line is:
+\begin{equation}
+    y = mx + b
+\end{equation}
+
+The Quadratic Equation is:
+\begin{equation}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+\medskip
+
+The Theory of Special Relativity is:
+\begin{equation}
+    e = mc^2
+\end{equation}
+
+Save the best for last, this is Calculus. Without Calculus, discovered by Isaac \\ \indent Newton and Gottfried
+Leibniz, we would still be living with late \textbf{1700s} technology!
+\begin{equation}
+    \int \limits_a^b f(x) \, \mathrm{d}x = \lim \limits_{x \to \infty} \sum \limits_{k=1}^{n} f(x_k) \cdot \Delta x
+\end{equation}
+
+\medskip
+Newton and Leibniz were incredibly intelligent. They were like the ``Elon Musks'' of their 
+time, which is the Late 1700s.
+
+\clearpage
+% === Page 15 ========================================================================
+\begin{center}
+    \item \section{Links}
+\end{center}
+
+\medskip
+Here is an explanation of the old television channel frequency allocations in VHF-Lo, 
+VHF-Hi and UHF:
+\medskip
+\begin{itemize}
+    \item \url{https://northpine.com/2023/03/15/explainer-vhf-low-vhf-high-and-uhf/}.
+\end{itemize}
+
+\medskip
+Here is an online calculator that converts Frequency to Wavelength, along with some easy 
+explanation: 
+\begin{itemize}
+    \item \url{https://www.everythingrf.com/rf-calculators/frequency-to-wavelength}.
+\end{itemize}
+
+\medskip
+RadioReference is an excellent mostly free resource where most public service and Amateur Radio
+frequencies, callsigns, and descriptions can be referenced. Here is a frequency allocation chart with 
+public information on the MURS band:
+\begin{itemize}
+    \item \url{https://www.radioreference.com/db/aid/7733}.
+\end{itemize}
+
+\medskip
+Here are the NOAA Weather Radio frequency allocations for the United States:
+\begin{itemize}
+    \item \url{https://wiki.radioreference.com/index.php/Weather_Radio}.
+\end{itemize}
+
+\medskip
+Here are the Marine VHF boater and ship channel names and frequency allocations for the United States:
+\begin{itemize}
+    \item \url{https://wiki.radioreference.com/index.php/Marine_VHF_Channels}.
+\end{itemize}
+
+\medskip
+HT1000 Service Manual for Jedi Series Radios:
+\begin{itemize}
+    \item \url{https://archive.org/details/manualsbase-id-372344}
+\end{itemize}
+
+\medskip
+HT1000 RSS User's Guide: This is also a free download from Repeater Builder, and it describes how to
+use the Radio Service Software to configure and program the HT1000 radios. This provides a glimpse of different
+options and configurations for the HT1000.
+\begin{itemize}
+    \item \url{https://manuals.repeater-builder.com/mo-files2/-HT1000/HT1000\%20RSS\%20Manual\%206881073C55-F.pdf}
+\end{itemize}
+
+\clearpage
+% === Page 16 ========================================================================
+\begin{center}
+    \section{Vocabulary and Definitions}
+\end{center}
+
+\noindent For ease of reference, all references are in the page order they appear in this text.
+\begin{center}
+    \item \subsection{Page 3 Definitions}
+\end{center}
+
+\begin{enumerate}
+    \item \textit{band plan}: A radio band plan (also called a frequency allocation plan or spectrum allocation 
+        plan) is a structured framework that divides portions of the radio frequency spectrum into specific frequency 
+        bands and assigns each band to particular services, users, or types of radio communications. It ensures orderly, 
+        efficient, and interference-free use of the limited radio spectrum resource. Some other examples are as follows:
+    \begin{itemize}
+        \item US FM Radio Broadcast Band Plan: 87.5 - 108 MHz.
+        \item US 700 MHz Cellular Band Plan: 698 - 806 MHz.
+    \end{itemize}
+    \item \textit{MURS}: Multi Use Radio Service. The FCC channel allocations for operating here can be 
+        seen on page 3.
+    \item \textit{FCC}: The Federal Communications Commission. This is the US Executive Branch agency that
+        was created in the 1930s which provides the regulatory framework for frequency/channel allocations in the
+        in the USA for ALL services. TV, radio, satellite, aircraft, ships, boats, everything. There are all 
+        different ``FCC Part'' numbers for each different service.
+    \item \textit{FCC Part 95}: This is the frequency allocations for Personal Radio Services (PRS). Part 95 
+        includes MURS (license free), FRS (Family Radio Service, also license free), GMRS (General Mobile Radio 
+        Service, requires a license and overlaps with FRS), and CB (Citizens Band, also license free).
+    \item \textit{The Internet Archive}: This is a public archive of various materials available to anyone on 
+        the internet for free. This archive has free books, manuals, games, and all kinds of other software.
+    \item \textit{VHF}: Very High Frequency band. The entire band spans from 30 MHz to 300 MHz in frequency or
+        10 meters to 1 meter in wavelength.
+    \item \textit{VHF-Hi}: This is the portion of the VHF band from 100 MHz to 300 MHz, or 3 meters to 1 meter in
+        wavelength.
+    \item \textit{VHF-Lo}: This is the portion of the VHF band from 30 MHz to 100 MHz, or 10 meters to 3 meters
+        in wavelength.
+    \item \textit{UHF}: Ultra High Frequency band. The ``next highest'' band in frequency above VHF. UHF spans
+        from 300 MHz to 3 GHz in frequency, or 1 meter to 10 centimeters in wavelength.
+
+% === Page 17 ========================================================================    
+    \item \textit{The Electromagnetic Spectrum}: This is the entire spectrum of frequencies in the universe. It
+        spans from Radiofrequency Waves (RF) at the lower end (several MHz), then to Microwaves (several GHz). 
+        In the center of the Electromagnetic Spectrum is Visible Light. Just below Visible Light is called Infrared, 
+        which is a type of light we can't see (but the camera on your cellphone can!!). Lots of TV remotes use infrared 
+        to control the TV, and night vision cameras use infrared to create that bright black and white night vision
+        picture.
+        Just above visible light are Ultraviolet rays or UV Light, which we also can't see. At the very high
+        end of the Electromagnetic Spectrum are: X-rays, then Gamma Rays, and finally Cosmic Rays are the highest
+        known frequency that exists in the Universe. All of these have something in common: they are all particles
+        and/or waves that can travel through free space (around the universe in space). Their only difference 
+        is frequency. Sound waves are NOT in the Electromagnetic Spectrum because they do not travel through free 
+        space, and cannot take the form of a particle. Sound is considered a ``mechanical wave'' created by the 
+        motion of a speaker, and is therefore not part of the Electromagnetic Spectrum. Mechanical Waves are still 
+        waves, though, so they can still be measured in Hertz or Kilohertz. Compared to the frequency of Radio Waves,
+        sound waves are MUCH lower in frequency.
+    \item \textit{FCC Part 97}: This is the rules of operation and frequency allocations for the Amateur Radio 
+        (ham) Band.
+    \item \textit{legacy}: This word refers to any software, hardware, license or etc. that is outdated and no
+        longer used. Something that is considered ``obsolete'' is also considered a ``legacy item'' just like old
+        Nintendo NES games from the 1980s.
+
+\begin{center}
+    \item \subsection{Page 4 Definitions}
+\end{center}
+
+    \item \textit{FCC Part 90}: This is the FCC allocation for ``Private Land Mobile Radio Service'' aka PLMR and
+        covers licensed operation for services like: Police, Fire, City, County, Private Contractors, Crane Companies,
+        and etc. that want to use high power radios. This is also the class certification for the HT1000 radios. They
+        are ``FCC Part 90 Type Accepted'' for this type of use.
+    \item \textit{channel allocation}: a channel allocation or frequency allocation is a specification that the
+        FCC provides to operate in a certain radio service. This allocation will include specs like: maximum power
+        for that channel, the channel bandwidth, and the frequency of the channel.
+    \item \textit{Bandwidth}: Bandwidth is how much spectrum the radio uses on a specific channel. The FCC
+        defines maximum bandwidth on MURS as either $ 11.25 \text{ kHz} $ for MURS 1, 2 and 3, or $ 20 \text{ kHz} $
+        for MURS 4 and 5. Even though the radio is tuned to MURS 1, for example, at $ 151.82 \text{ MHz} $, the
+        radio needs to use a little spectrum on either side of that ``center frequency'' to send the voice traffic.
+        Think of the FCC allocated ``max bandwidth'' as the total width of a lane on the road. In order to drive
+        down the center of that lane, the car must be less wide than the lane, or the vehicle would not fit the lane,
+        and you couldn't drive it on the road without interfering with oncoming traffic. It is the same principle in a
+        radio transmitter. We must set the radio to transmit within its own ``lane'' so that it does not interfere 
+        with other radio traffic on adjacent channels. The bandwith setting in the radio firmware (modified 
+        via \textit{RSS}) must be set properly. The RSS has predetermined settings for channel bandwidth.
+% === Page 18 ========================================================================
+    \item \textit{RSS}: The Motorola trademark for ``Radio Service Software,'' which is the program used to 
+        modify programmed radio data such as: operating frequency, PL tone, toggle switch configurations, and etc.
+    \item \textit{ERP}: ERP stands for Effective Radiated Power. This value referes to how many watts of RF 
+        power the antenna is actually radiating from the antenna, which includes the total output power of the
+        radio, minus transmission line losses, plus antenna gain (or loss). This value, in the case of the HT1000
+        would be at least 5 watts on high power, which is the transmitter output rating. The transmission line 
+        losses are nearly negligible since the antenna is directly connected to the radio. So the only factors that
+        affect ERP on the HT1000 is: the power switch (low vs high power) and the antenna gain, measured in 
+        decibels (dB.)
+    \item \textit{interference}: According to the FCC, interference is defined as: ``The effect of unwanted energy 
+        due to one or a combination of emissions, radiations, or inductions upon reception in a radiocommunication 
+        system, manifested by any performance degradation, misinterpretation, or loss of information which could be 
+        extracted in the absence of such unwanted energy.'' What does all that mean? Interference is any unwanted
+        RF energy that affects signal reception. Interference can be accidentally caused by LED or fluorescent 
+        lights, or can be deliberate (and illegal) from another radio operator trying to ``jam'' your signal so the
+        receiving radio gets no signal or a degraded signal.
+    \item \textit{interoperability}: This term refers to different radios, usually carried by different \\ 
+        departments, which allow them to communicate beyond just their own dispatch unit. As an example: police, 
+        fire and EMS could be on separate frequencies with separate dispatchers. However, each police, fire, 
+        and/or EMS unit radio will have \\ ``interoperability channels'' so they can talk to each other for whatever 
+        reason when they need to, like if they were attending the same call. This goes up level by level typically, 
+        where those same local units can have interoperability channels with neighboring local agencies or state 
+        agencies, and state agencies usually have interoperability channels with federal agencies in case more than 
+        one agency is responding to a call.
+
+\clearpage
+% === Page 19 ========================================================================
+\begin{center}
+    \item \subsection{Page 5 Definitions}
+\end{center}
+
+    \item \textit{Jedi Series}: The Motorola Jedi Series is a generation of radios that were in use in the 1990s
+        throughout the 2010s or so. They were preceded by the Motorola ``Genesis Series'' (models like P200s and HT600s), 
+        and proceeded by the ''Astro'' series (Astro Spectras and XTS3000s), and then replaced by the ``Astro25''
+        series of radios (XTS and XTL 5000s).
+
+\begin{center}
+    \item \subsection{Page 6 Definitions}
+\end{center}
+
+    \item \textit{Ohmmeter}: An ohmmeter is a device that measures ``resistance'' in Ohms ($ \Omega $).
+        Resistance is a value that states how difficult it is for electricity to flow. Low ohms is easier for 
+        electricity to flow, higher resistance is more difficult for electricity to flow.
+    \item \textit{continuity check}: Performing a ``continuity check'' uses an ohmmeter. To do this, the circuit
+        must be powered off, and having good continuity means having the lowest ohm value possible, like if we
+        were measuring the continuity of a wire from the front of a vehicle to the rear.
+    \item \textit{short or short circuit}: a short, or short circuit refers to a $ 0 \Omega $ value. This can
+        be good or bad. It is bad to short any power source from positive directly to negative, like a car battery.
+        This is dangerous, and causes sparks and can cause a fire. In the case of a single wire, we would expect 
+        a $ 0 \Omega $ short from one end of the wire to the other, since it needs to deliver the power to some
+        load or consumer (like the transmitter or a light bulb) with the least resistance possible.
+
+\begin{center}
+    \item \subsection{Page 7 Definitions}
+\end{center}
+    
+    \item \textit{embedded computer systems}: An ``embedded computer system'' or ``embedded system'' is a system 
+        that is dedicated to perform certain functions and do not typically have normal Graphical User Interfaces like 
+        a laptop or a desktop computer. Some common examples of embedded computer systems are: an ATM machine, a 
+        microwave, the computer system that runs the internal combustion engine in a car, or the entertainment system 
+        in the vehicle. All these systems have the same thing in common: they all have dedicated purposes and no access 
+        to the internal file system like a ``general use'' computer (laptop, desktop, etc.) The HT1000s are also 
+        considered an embedded system.
+
+% === Page 20 ========================================================================
+\begin{center}
+    \item \subsection{Page 8 Definitions}
+\end{center}
+
+    \item \textit{PL Tone}: ``PL'' is the Motorola trademark that means ``Private Line.'' This is somewhat of
+        a misnomer, since there is no privacy guaranteed on the public airwaves. The following terms are functionally
+        equivalent: PL Tone, Tone, and PL. Use whichever interchangeably. it just means the radio is also 
+        transmitting an analog tone in addition to the voice traffic.
+    \item \textit{tone squelch}: ``tone squelch'' is a setting on the radio that only allows the radio to unmute
+        or ``unsquelch'' when it receives: 1) A carrier signal on the correct frequency and 2) the correct PL Tone. 
+        This is different than the ``carrier squelch'' setting, which only requires a carrier signal on the correct 
+        frequency to unmute the radio. There is another setting called ``DCS'' or ``Digital Coded Squelch'' which 
+        functions equivalently to the tone squelch function, except instead of analog PL tones, it uses digital codes.
+        Motorola uses its own trademarked name for DCS called ``DPL'' which means ``Digital Private Line,'' another
+        misnomer, but functions equivalently to DCS.
+
+\begin{center}
+    \item \subsection{Page 10 Definitions}
+\end{center}
+
+    \item \textit{MDC-1200}: Officially named ``Motorola Data Communications 1200 \textit{baud}.'' This is one of 
+        many forms of Automatic Number ID (ANI) that is used for unit identification. This MDC-1200 data burst is 16 
+        bits of information, contained in four \textit{hexadecimal} digits. The range of this ID number is 
+        $0000 - FFFF$. To calculate the total number of unique IDs available, we use the following formula:
+        $$ 2^{\text{ }\# \text{ of bits}} = 2^{16} = 65536 \text{ total IDs.} $$
+    \item \textit{baud}: ``baud'', also called ``baud rate'' just refers to how many binary bits (1s and 0s)
+        are sent every second. $$ 1200 \text{ baud} = 1200 \text{ bits per second. VERY slow by todays standards.} $$
+    \item \textit{hexadecimal}: Also called ``hex'' for shorthand, this is a numbering system using 16 digits 
+        $0 - 9$ and letters A - F. So in order to count in hex, we go like this:
+    \begin{itemize}
+        \item 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10.
+        \item 11, 12, 13, 14, 15, 16, 17, 18, 19, 1A, 1B, 1C, 1D, 1E, 1F, 20, and so on.
+        \item Hex is just a convenient way to convert ``binary'' (1s and 0s) to something more human readable
+        using numbers and a few letters.
+    \end{itemize}
+    \item \textit{dekey}: ``dekey'' refers to when the radio operator ``unkeys'' the radio, which means the
+        operator releases the Push To Talk (PTT) button. Releasing the PTT button means the radio is not transmitting
+        and is in receive mode.
+% === Page 21 ========================================================================    
+    \item \textit{keyed up}: A radio is ``keyed up'' when the PTT button is pressed. This puts the radio in
+        transmit mode so the radio operator can talk over the air. This can also be referred to as the ``keyup'' 
+        state of the radio, which is terminology referred to in the service manual.
+
+\begin{center}
+    \item \subsection{Page 11 Definitions}
+\end{center}
+
+\item \textit{FCC Part 80}: The FCC set of rules that regulate marine, ship, and boater communications.
+\item \textit{broadcast station}: A station or beacon that is always transmitting, like the NOAA weather stations
+    or over the air (OTA) television stations.
+\item \textit{RX Only}: A channel that is ``listen only.'' These channels on a radio are set to only receive and 
+    cannot transmit.
+\item \textit{carrier squelch}: When the radio is not receiving any traffic, it remains muted or ``squelched'' so 
+    the operator does not hear the static noise that would be present on an empty channel. A radio set to receive
+    in ``carrier squelch'' mode will unmute for any signal that increases above the squelch level, including noise
+    and interference as long as it exceeds the squelch level. Why would this be desired? In the case of ham radio,
+    most of XXxxxXXXX's radios are set to receive in carrier squelch mode so that ANY station calling in with any
+    PL tone or DCS code can be heard. Unfortunately, the disadvantage is receiving noise once in awhile.
+
+\begin{center}
+    \item \subsection{Page 12 Definitions}
+\end{center}
+
+\item \textit{unsquelch}: When a radio is turned on, tuned to any channel, but not receiving a signal, no noise
+    can be heard from the radio. This is the ``squelched'' state of the radio, so background static noise is
+    not heard on an unused channel. When the radio receives voice traffic, it ``unsquelches'' or unmutes so 
+    the audio can be heard from the speaker. As soon as the signal disappears, the radio returns to the squelched
+    state.
+\item \textit{FM carrier}: FM stands for ``Frequency Modulation,'' which is the mode of transmission the radio uses
+    to transmit information (voice traffic) over the air. The FM Carrier is the signal that the receiving radio
+    can detect so it can then unmute and the operator can listen to the voice traffic coming over the air. There are 
+    two components to the radio transmission: the FM Carrier, which does not change and is used by the receiving radio
+    to detect a signal, and the ``baseband,'' which is the actual voice traffic being sent over the air using the FM
+    carrier. There are other modes of transmission, one of which may be familiar is AM, or ``Amplitude 
+    Modulation'' which is a slightly different mode. Explaining these modes is beyond the scope of this document, 
+    but can easily be researched on the internet.
+
+% === Page 22 ========================================================================   
+\begin{center}
+    \item \subsection{Page 13 Definitions}
+\end{center}
+
+\item \textit{Trunking Protocols}: Trunking protocols are standardized rules and procedures that govern 
+    how trunked radio systems (also known as trunked Land Mobile Radio or LMR systems) automatically manage 
+    and allocate a shared pool of radio frequency channels among multiple users or groups in two-way radio 
+    communications. This is a common practice for public safety systems like Police, Fire, and EMS. In 
+    conventional analog radio systems, such as MURS operation, each group of channels is assigned 
+    a fixed, dedicated channel, which can lead to inefficiencies if the channel is idle or very busy and
+    overloaded. Trunking uses a computer-controlled central system to dynamically assign available channels 
+    on demand. This allows a large number of users, often far more than the actual number of physical 
+    channels, to share the same limited spectrum efficiently, based on the statistical principle that not 
+    all users transmit simultaneously. A trunking system can help public safety because it can prioritize
+    traffic, like if the emergency button is pressed, and can help guarantee that any operator who needs a
+    clear channel has one when needed. Amateur Radio does not use trunking, since it requires expensive and 
+    unneccessary extra hardware, which is not needed for normal use. Non-trunked systems are considered 
+    ``conventional systems'', such as using the HT1000s in the MURS band.
+
+\end{enumerate}
+
+\end{document}
