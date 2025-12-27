@@ -32,9 +32,7 @@
 \author{Written in \LaTeX\ by Joel M. Brigida}
 
 \maketitle                              % Create Document Title
-
 \thispagestyle{empty}                   % No page number on title page
-
 \pagenumbering{arabic}                  % 1,2,3 type page numbering.
 
 \clearpage                              % Go to the next page (which will become page 1)
@@ -66,12 +64,13 @@ well researched subject in the author's own expertise.
 This is a general handheld radio primer that can be adapted to any radio \textit{band plan}.  
 This plan happens to describe operation on the \textit{MURS} portion of the \textit{FCC Part 95} frequency
 allocations, using surplus Motorola HT1000s, but can be adapted to any radio with any channel configuration, 
-since the principles of operation are all the same.
+since the principles of operation are all the same. This manual was originally written for a client of the
+author's located in SE Massachusetts, and is now being modified for release to this public repository. 
 
 \medskip
-This is a guide to help understand operating procedure and help explain some possibly unknown features 
-of the Motorola HT1000s. The actual manual that is screenshot on the next page is 
-a free downloadable PDF that is available on \textit{The Internet Archive}. There is a link to this manual as well
+This is a guide to help understand various radio functions and help explain some useful, often overlooked 
+features of the Motorola HT1000s. The actual manual that is screenshot on the next page is a free downloadable 
+PDF that is available on \textit{The Internet Archive}. There is a link to this manual as well
 as a link to the Radio Service Software User's Manual placed in the ``Links'' section of this document.
 
 \medskip
@@ -95,31 +94,34 @@ as a link to the Radio Service Software User's Manual placed in the ``Links'' se
     \item \subsection{MURS Frequency Allocation and Related Info}
 \end{center}
 
-XxxX's radios operate in the MURS band in the \textit{VHF-Hi} portion of \textit{The Electromagnetic Spectrum}. 
-MURS stands for ``Multi Use Radio Service'' and operates under the FCC Part 95 rules, which in XxxX's case is unlicensed 
-spectrum, meaning no license is required to use it. This is unlike Amateur (ham) Radio, which operates under 
-\textit{FCC Part 97} Rules, and has $5$ different license classes, $2$ of which are \textit{legacy} only licenses.
+These particular HT1000 radios operate in the MURS band in the \textit{VHF-Hi} portion of 
+\textit{The Electromagnetic Spectrum}. MURS stands for ``Multi Use Radio Service'' and operates under the 
+FCC Part 95 rules, which in this particular case is unlicensed spectrum, meaning no license is required to 
+use it. This is unlike Amateur (ham) Radio, which operates under \textit{FCC Part 97} Rules, and has $5$ 
+different license classes, $2$ of which are \textit{legacy} only licenses.
 
 \medskip
 What is VHF-Hi Band? VHF is ``Very High Frequency'', which is considered to be
 $30 - 300\text{ MHz}$ in frequency or $10\text{ meters} - 1\text{ meter}$ in wavelength. The
-Hi or Lo designation splits the entire VHF band into $2$ parts.
-This split happens at $\approx 100\text{ MHz}$. So if your radio (or television) operates anywhere
-above $\approx 100\text{ MHz}$, then it operates in the VHF-Hi band. Broadcast antenna 
-televisions actually operate as receivers only in \textit{VHF-Lo}, \textit{VHF-Hi} and \textit{UHF}
-bands.
+Hi or Lo designation splits the entire VHF band into $2$ parts. This split happens at 
+$\approx 100\text{ MHz}$. So if your radio (or television) operates above  $\approx 100\text{ MHz}$ but 
+below 300 MHz, then it operates in the VHF-Hi band. As a comparison, the FM radio in automobiles 
+receives from 88 MHz to 108 MHz, so it operates at the upper edge of VHF-Lo band, and crosses into the 
+lower edge of the VHF-Hi band. FCC Part 73 encompasses the rules for all broadcast services, including 
+television and radio.
 
 % === Page 4 ========================================================================
-Something else to mention is that XxxX's radios are \textit{FCC Part 90} certified for use in the
-VHF-Hi band, which in the case of XxxX's Motorola HT1000s means $ 136\text{ MHz} $
-to $174\text{ MHz}$. Why? Because that is the allocated spectrum for anything operating under
-FCC Part 90 rules in the VHF-Hi band. This is why we are allowed to use an FCC Part 90 radio in the MURS band:
-the two sets of rules (Part 90 and Part 95) have overlap and the Part 90 operator license exceeds any license class
-in the entire FCC Part 95 regulations.
+\medskip
+Something else to mention is that these HT1000 radios are \textit{FCC Part 90} certified for use in the
+VHF-Hi band, which in the case of this bandsplit of Motorola HT1000s means they can operate from 
+$ 136\text{ MHz} $ to $174\text{ MHz}$. Why? Because that is the allocated spectrum for anything operating 
+under FCC Part 90 rules in the VHF-Hi band. Lower than 136 MHz is used for aircraft (FCC Part 87), and above
+174 MHz is used for broadcast television. This is why we are allowed to use an FCC Part 90 radio in the 
+MURS band: the two sets of rules (Part 90 and Part 95) have overlap and the Part 90 operator license exceeds 
+any license class in the entire FCC Part 95 regulations.
 
 \medskip
-So where are the MURS frequency allocations? They can also be called \textit{channel\\allocations},
-which is an old television reference. The MURS frequency channel allocations are numbered and named by 
+So what are the MURS frequency allocations? These \textit{channel allocations} are numbered and named by 
 the FCC as follows:
 
 \medskip
@@ -184,8 +186,8 @@ sounds correct, and all the radios are on the same frequencies.
 The above linked guide is a free public download, but is a 170 page document. It is the factory service manual that an 
 \textsc{RF Technician} or \textsc{RF Engineer} could refer to for ``fixing'' the Jedi Generation of handheld radios. 
 It has all the part numbers and pictures for every piece the radio contains. The service manual also contains other 
-important information just like XXxxxXXXX used in his job as \textsc{Production Engineer} at NovTech in Coconut Creek, FL. 
-Most of the information XXxxxXXXX needed for his job was:
+important information just like this author used in his job as \textsc{Production Engineer} at an OEM in South Florida. 
+Most of the information the author needed for his job was:
 
 \begin{itemize}
     \item Printed Circuit Board Physical Layout.
@@ -205,11 +207,11 @@ Most of the information XXxxxXXXX needed for his job was:
         \item This is what the \textsc{Engineer} or \textsc{Technician} uses to identify electrical circuit \\configurations 
             in the radio for testing. If we know the circuit configuration, then we can conduct tests and voltage measurements
             with a ``good'' radio, then \\compare that result with a ``suspect'' or ``defective'' radio. This is a very effective
-            method of testing if you have more than 1 of the same assembly. XxxX has 4 HT1000s, so if one breaks,
-            XXxxxXXXX can take a good one and a broken one, use the service manual and locate and fix the
-            ``root cause'' of the problem.
+            method of testing if you have more than 1 of the same assembly. This client was given 4 HT1000s, so if one breaks,
+            any radio repair facility can take one good unit and one broken unit, and use the service manual to locate and fix the
+            root cause of the failure.
     \end{itemize}
-    \item Other useful tools in the service manual XXxxxXXXX would use:
+    \item Other useful tools in the service manual this author would use:
     \begin{itemize}
         \item How to test the complete assembly, what measurements to take and how to \\measure them.
         \item Pictures and part numbers of proprietary test equipment and proprietary tools.
@@ -247,14 +249,14 @@ web tools or downloadable subscription-based programs are:
 \item \href{https://www.altium.com/altium-designer}{Altium Designer}
     \begin{itemize}
         \item \url{https://www.altium.com/altium-designer}
-        \item This is the software we all used at NovTech. XXxxxXXXX used all the diagrams to fix the 
-        \textit{embedded computer systems} we manufactured at NovTech.
+        \item This is the software we all used at the OEM in South Florida. This author used all the diagrams to fix the 
+        \textit{embedded computer systems} we manufactured at the OEM.
     \end{itemize}
 \item \href{https://www.kicad.org/}{KiCad}
     \begin{itemize}
         \item \url{https://www.kicad.org/}
         \item This is 100\% Free and open-source software, and is very popular with students and hobbyists.
-        \item XxxxXXxxxX and XXxxxXXXX both have made projects with this software.
+        \item This author has made projects with this software, and it is easy to use.
     \end{itemize}
 \end{itemize}
 
@@ -267,8 +269,8 @@ everything on paper and snail mailing everything like the ``old days''.
     \section{Channel Groups and Information}    
 \end{center}
 
-What is considered a ``Channel Group?'' In this particular use case with XxxX's HT1000s, channels $1 - 5$ 
-are considered a group by XXxxxXXXX because these channels all have one thing in common: the \textit{PL Tone}. 
+What is considered a ``Channel Group?'' In this particular use case with this client's HT1000s, channels $1 - 5$ 
+are considered a group by the author because these channels all have one thing in common: the \textit{PL Tone}. 
 Channel Group $1$ has the functionality of channel interoperability using a \textit{tone squelch} 
 of $103.5$ Hz while more than one radio is tuned to the same HT1000 channel. This feature blocks all other stations
 or interference from another station that is not using the same $103.5$ Hz tone on their transmitter.
@@ -363,12 +365,12 @@ interoperable with any of the HT1000s that are tuned to channel 10 or 11. We wil
 The ``special'' channel 11 is exactly the same as channel 10, except at the end of every transmission on 
 channel 11, there is a unique ``chirp'' noise that can be heard by the receiving radio. While listening, after 
 the voice audio stops, the radio sends out a little data burst packet which is what many Police Departments 
-(Plymouth PD verified by XXxxxXXXX, Falmouth PD verified by XXXXX) used for ``unit ID.'' This data burst 
-is decoded by the dispatch console and used typically by the dispatcher when one of the officers (or 
-firefighters or EMS, etc.) calls out on the radio. The dispatcher knows immediately who is calling to keep 
-transmissions shorter and help keep the channel clear of traffic. Each officer in a squad car will usually 
-have two radios: one handheld, and one mobile unit mounted in the vehicle. Each radio can have its own 
-unique ID, so the dispatcher knows if the officer is calling from the handheld or the squad car.
+(Plymouth PD verified by this author, Falmouth PD verified by author's brother-in-law) used for ``unit ID.'' 
+This data burst is decoded by the dispatch console and used typically by the dispatcher when one of the 
+officers (or firefighters or EMS, etc.) calls out on the radio. The dispatcher knows immediately who is 
+calling to keep transmissions shorter and help keep the channel clear of traffic. Each officer in a squad 
+car will usually have two radios: one handheld, and one mobile unit mounted in the vehicle. Each radio can 
+have its own unique ID, so the dispatcher knows if the officer is calling from the handheld or the squad car.
 
 This ``chirp'' tone is named: \textit{MDC-1200}, and is set to ID on \textit{dekey}. For it to work properly,
 the radio must be \textit{keyed up} for $\approx$ one second.
@@ -451,9 +453,9 @@ while listening. The National Weather Service shows more information about these
     \item Switch Position B: Always Low Power
     \item Switch Position C: Channel Group Scan
     \begin{itemize}
-        \item Group A: Scans all MURS channels by channel group of XxxX's custom MURS \\
-            Channels when tuned to any of Channels $1 \text{ through }11$
-        \item Group B: Scans all $3$ RX only Marine Channels on XxxX's Radios.
+        \item Group A: Scans all MURS channels by channel group of these HT1000s custom MURS \\
+            channels when tuned to any of Channels $1 \text{ through }11$
+        \item Group B: Scans all $3$ RX only Marine Channels on these programmed Radios.
                 \begin{itemize}
                     \item Marine Channel $9$
                     \begin{itemize}
@@ -471,13 +473,13 @@ while listening. The National Weather Service shows more information about these
                             \item USCG calls out on channel $16$ for the announcement, then switches to channel $22A$ 
                             to make the announcement.
                         \end{itemize}
-                        \item When tuned to any Marine Channel on XxxX's Radios, the toggle switch can be switched to 
+                        \item When tuned to any Marine Channel on these Radios, the toggle switch can be switched to 
                             ``C'' and the radio will scan all $3$ channels continuously until switched off of position 
                             ``C'', or if the channel is switched to another channel group.
                 \end{itemize}
         \item Group C: Both local NOAA Weather Radio stations.
             \begin{itemize}
-                \item Scan is deactivated on XxxX's $2$ NOAA Weather channels. This is because they are 
+                \item Scan is deactivated on the $2$ NOAA Weather channels. This is because they are 
                     \textit{broadcast stations}, so they are continually transmitting and would not let the radio scan.
             \end{itemize}
     \end{itemize}
@@ -492,7 +494,7 @@ function we might care about is changing the Toggle Switch Configuration to:
         \item Sets the radio to sense an \textit{FM carrier} signal AND the PL Tone to unsquelch.
     \end{itemize}
     \item B: When the radio receives a signal, it only needs to hear the FM carrier to unsquelch.
-    \item C: Channel scan function just like on XxxX's radios.
+    \item C: Channel scan function just like on these radios.
 \end{itemize}
 
 % === Page 13 ========================================================================
@@ -864,7 +866,7 @@ options and configurations for the HT1000.
     the operator does not hear the static noise that would be present on an empty channel. A radio set to receive
     in ``carrier squelch'' mode will unmute for any signal that increases above the squelch level, including noise
     and interference as long as it exceeds the squelch level. Why would this be desired? In the case of ham radio,
-    most of XXxxxXXXX's radios are set to receive in carrier squelch mode so that ANY station calling in with any
+    most of the author's radios are set to receive in carrier squelch mode so that ANY station calling in with any
     PL tone or DCS code can be heard. Unfortunately, the disadvantage is receiving noise once in awhile.
 
 \begin{center}
