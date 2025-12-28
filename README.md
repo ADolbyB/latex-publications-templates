@@ -1,10 +1,9 @@
 # LaTeX Publications and Templates
 
-This is a small collection of LaTeX templates I began creating and customizing from tutorials and content I found on the web.
+Update 8/2/2023: I added a new `Publications` folder and renamed the repo. This folder will now hold any papers I decide to add
+for publication.
 
-I plan to learn documentation using LaTeX and migrate from word processing software (currently I use LibreOffice) to LaTeX for larger works.
-
-Update 8/2/2023: I added a new `Publications` folder and renamed the repo. This folder will now hold any papers I decide to add.
+Under the `Tutorials` folder is a small collection of LaTeX templates I began creating and customizing from tutorials and content I found on the web, which is referenced below.
 
 ## Environment:
 
