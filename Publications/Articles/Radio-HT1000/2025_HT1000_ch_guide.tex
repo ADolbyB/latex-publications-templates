@@ -65,13 +65,7 @@ This is a general handheld radio primer that can be adapted to any radio \textit
 This plan happens to describe operation on the \textit{MURS} portion of the \textit{FCC Part 95} frequency
 allocations, using surplus Motorola HT1000s, but can be adapted to any radio with any channel configuration, 
 since the principles of operation are all the same. This manual was originally written for a client of the
-author's located in SE Massachusetts, and is now being modified for release to this public repository. 
-
-\medskip
-This is a guide to help understand various radio functions and help explain some useful, often overlooked 
-features of the Motorola HT1000s. The actual manual that is screenshot on the next page is a free downloadable 
-PDF that is available on \textit{The Internet Archive}. There is a link to this manual as well
-as a link to the Radio Service Software User's Manual placed in the ``Links'' section of this document.
+author's located in SE Massachusetts, and is now being modified for release to this public repository.
 
 \medskip
 \noindent In this guide, the following nomenclature will be used:
@@ -90,6 +84,22 @@ as a link to the Radio Service Software User's Manual placed in the ``Links'' se
         \end{itemize}
 \end{itemize}
 
+\medskip
+This guide
+focuses on some slightly advanced topics that the client was interested in, such as some theory and some higher
+level operating procedures. Since the client had never had any radio experience before, this guide was a 
+reinforcement of rules, regulations, types of operation, and what to do in case of a problem in the field,
+as well as the author's view on what happens when the radios need service, etc. This in particular helped my client
+be more confident in their own operating procedure, as well as provide a level of confidence in the author that
+I am able to troubleshoot and repair any problems that may arise over time. This should also help understand 
+various radio functions and help explain some useful, often overlooked features of the Motorola HT1000s. The 
+actual manual that is screenshot on the next page is a free downloadable PDF that is available on 
+\textit{The Internet Archive}. There is a link to this manual as well as a link to the Radio Service 
+Software User's Manual placed in the ``Links'' section of this document. This guide is provided as a small bridge
+between the knowledge gap that exists between newer radio users and the Motorola manuals.
+
+\clearpage
+% === Page 4 ========================================================================
 \begin{center}
     \item \subsection{MURS Frequency Allocation and Related Info}
 \end{center}
@@ -97,8 +107,8 @@ as a link to the Radio Service Software User's Manual placed in the ``Links'' se
 These particular HT1000 radios operate in the MURS band in the \textit{VHF-Hi} portion of 
 \textit{The Electromagnetic Spectrum}. MURS stands for ``Multi Use Radio Service'' and operates under the 
 FCC Part 95 rules, which in this particular case is unlicensed spectrum, meaning no license is required to 
-use it. This is unlike Amateur (ham) Radio, which operates under \textit{FCC Part 97} Rules, and has $5$ 
-different license classes, $2$ of which are \textit{legacy} only licenses.
+use it. This is unlike Amateur (ham) Radio, which operates under \textit{FCC Part 97} Rules, and has 5 
+different license classes, 2 of which are \textit{legacy} only licenses.
 
 \medskip
 What is VHF-Hi Band? VHF is ``Very High Frequency'', which is considered to be
@@ -110,16 +120,30 @@ receives from 88 MHz to 108 MHz, so it operates at the upper edge of VHF-Lo band
 lower edge of the VHF-Hi band. FCC Part 73 encompasses the rules for all broadcast services, including 
 television and radio.
 
-% === Page 4 ========================================================================
+\medskip
+For this particular client in SE Massachusetts, the VHF MURS band was chosen for these particular reasons:
+\medskip
+\begin{enumerate}
+    \item MURS operation is license free, unlike other services in the VHF-Hi band.
+    \item The client's location is rural with plenty of foliage. VHF-Hi band has superior coverage in this
+        type of environment over higher frequency bands.
+    \item VHF-Hi band is an excellent compromise between antenna length and terrain \\penetration, unlike lower
+        frequency bands which require much larger antennas.
+\end{enumerate}
+
 \medskip
 Something else to mention is that these HT1000 radios are \textit{FCC Part 90} certified for use in the
 VHF-Hi band, which in the case of this bandsplit of Motorola HT1000s means they can operate from 
 $ 136\text{ MHz} $ to $174\text{ MHz}$. Why? Because that is the allocated spectrum for anything operating 
 under FCC Part 90 rules in the VHF-Hi band. Lower than 136 MHz is used for aircraft (FCC Part 87), and above
-174 MHz is used for broadcast television. This is why we are allowed to use an FCC Part 90 radio in the 
-MURS band: the two sets of rules (Part 90 and Part 95) have overlap and the Part 90 operator license exceeds 
-any license class in the entire FCC Part 95 regulations.
+174 MHz is used for broadcast television. 
 
+\medskip Also note why we are allowed to use an FCC Part 90 radio in the MURS band: the two sets of rules 
+(Part 90 and Part 95) have overlap and the Part 90 operator implied license exceeds any license class in the entire 
+FCC Part 95 regulations, given that we can operate within the FCC's frequency and bandwidth allocations.
+
+\clearpage
+% === Page 5 ========================================================================
 \medskip
 So what are the MURS frequency allocations? These \textit{channel allocations} are numbered and named by 
 the FCC as follows:
