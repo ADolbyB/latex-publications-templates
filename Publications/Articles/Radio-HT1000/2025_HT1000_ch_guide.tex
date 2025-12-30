@@ -155,28 +155,24 @@ the FCC as follows under Part 95:
         \item Max \textit{Bandwidth}: $11.25\text{ MHz}$.
         \item Max Power: $2$ Watts \textit{ERP}.
     \end{itemize}
-
     \item Name: MURS 2.
     \begin{itemize}
         \item Freq: $151.88\text{ MHz}$.
         \item Max \textit{Bandwidth}: $11.25\text{ MHz}$.
         \item Max Power: $2$ Watts \textit{ERP}.
     \end{itemize}
-
     \item Name: MURS 3
     \begin{itemize}
         \item Freq: $151.94\text{ MHz}$.
         \item Max \textit{Bandwidth}: $11.25\text{ MHz}$.
         \item Max Power: $2$ Watts \textit{ERP}.
     \end{itemize}
-
     \item Name: MURS 4 aka Blue Dot.
     \begin{itemize}
         \item Freq: $154.57\text{ MHz}$.
         \item Max \textit{Bandwidth}: $20\text{ MHz}$.
         \item Max Power: $2$ Watts \textit{ERP}.
     \end{itemize}
-
     \item Name: MURS 5 aka Green Dot.
     \begin{itemize}
         \item Freq: $154.60\text{ MHz}$.
@@ -210,7 +206,7 @@ The above linked guide is a free public download, but is a 170 page document. It
 \textsc{RF Technician} or \textsc{RF Engineer} could refer to for service and maintenance of the Jedi Generation of 
 handheld radios. It has all the part numbers and pictures for every piece the radio contains. The service manual 
 also contains other important information just like this author used in his job as \textsc{Production Engineer} at 
-an Embedded Computer Systems OEM in South Florida. Most of the information the author needed for his job was:
+an engineering firm in South Florida. Most of the information needed for this job was:
 
 \begin{itemize}
     \item Printed Circuit Board (PCB) Physical Layout.
@@ -220,19 +216,19 @@ an Embedded Computer Systems OEM in South Florida. Most of the information the a
         \item The layout makes for good use of an \textit{ohmmeter}, to \textit{check continuity} from one place on 
             the PCB to another, ensuring signal integrity. Checking continuity means expecting and measuring a 0 ohm 
             \textit{short} reading on the ohmmeter from one side of a trace to the other.
-        \item The layout diagrams describe where everything is and what it looks like in real life, layer by layer if 
-            you held any of the components or sub-assemblies in your hand and looked at them. In today's subscription 
-            based services, like Altium Designer, each of these layers can be inspected on the computer screen and 
-            highlighted as needed for any circuit on the PCB. These modern solutions to old paper manuals are discussed
-            on the next page.
+        \item The layout diagrams describe where every component is and what it looks like in real life, layer by 
+            layer if you held any component or subassembly in your hand and looked at it. In today's subscription-based 
+            services, like Altium Designer, each of these layers can be inspected on the computer screen and highlighted 
+            as needed for any circuit or trace on the PCB. These modern solutions to old paper manuals are discussed on 
+            the next page.
     \end{itemize}
     \item Wiring and PCB Schematic diagrams.
     \begin{itemize}
         \item This is what the \textsc{Engineer} or \textsc{Technician} uses to identify electrical circuit 
             \\configurations for testing. When the circuit configuration is known, we can \\conduct tests and voltage 
             measurements with a ``good'' radio, then compare that result with a ``suspect'' or ``defective'' radio. 
-            This is a very effective method of testing if there are more than 1 of the same assembly. This client was 
-            given 4 HT1000s, so if one breaks, any radio repair facility can take one good unit and one broken unit, 
+            This is a very effective method of testing if there are more than one of the same assembly. This client was 
+            given four HT1000s, so if one breaks, any radio repair facility can take one good unit and one broken unit, 
             and use the service manual to locate and fix the root cause of the failure.
     \end{itemize}
     \item Other useful tools in the service manual this author would use:
@@ -249,42 +245,42 @@ an Embedded Computer Systems OEM in South Florida. Most of the information the a
 \end{itemize}
 
 % === Page 8 ========================================================================
-This old service manual would usually be shipped printed in a 3-ring binder to the Motorola radio dealers in 
-addition to being used by the internal Motorola Engineering team. Nowadays the engineers who write the manual 
-just give us files to open in our subscription-based computer programs or subscription-based web tools that can be 
-easily emailed to anyone needing it. In the next subsection there will be links and URLs to check out 
-some of these Web Tools. Some are very, very expensive but usually have free trials for a month or so.
+This old style service manual would typically be printed in a 3-ring binder and shipped to the Motorola radio dealers 
+in addition to its use by the internal Motorola Engineering team. Nowadays, the manuals are electronic, and
+the engineers who write the manual just send files to open in subscription-based computer programs or web tools 
+to access schematics, layouts, and other information. In the next subsection there will be links to investigate 
+some of these tools. Some are very, very expensive but usually have free trials for a month or so.
 
 \begin{center}
     \subsection{Modern Service Manuals}
 \end{center}
 
-Some examples of modern versions of this old service manual are created with subscription based 
-web tools or downloadable subscription based programs such as:
+Some examples of modern engineering tools used to create the diagrams and layouts used for the content in
+service manuals are now created with subscription based web tools or downloadable subscription based programs 
+such as:
 
 \medskip
 \begin{itemize}
-    \item \href{https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad.html}{OrCad X} 
-    (hyperlinked) actually leads here:
+    \item \href{https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad.html}{OrCad X}
     \begin{itemize}
-        \item \url{https://www.cadence.com/en_US/home/tools/pcb-design-and-analysis/orcad.html}
+        \item This software was originally used by the engineering firm this author worked at, but was 
+            eventually abandoned for Altium Designer.
     \end{itemize}
-\item \href{https://www.altium.com/altium-designer}{Altium Designer}
+    \item \href{https://www.altium.com/altium-designer}{Altium Designer}
     \begin{itemize}
-        \item \url{https://www.altium.com/altium-designer}
-        \item This is the software we all used at the OEM in South Florida. This author used all the diagrams to fix 
-        the \textit{embedded computer systems} we manufactured at the OEM.
+        \item This is the software we used at the engineering firm in South Florida. This author used all 
+            the files to test and repair the \textit{embedded computer systems} we manufactured at the 
+            engineering firm.
     \end{itemize}
-\item \href{https://www.kicad.org/}{KiCad}
+    \item \href{https://www.kicad.org/}{KiCad}
     \begin{itemize}
-        \item \url{https://www.kicad.org/}
         \item This is 100\% Free and open-source software, and is very popular with students and hobbyists.
-        \item This author has made projects with this software, and it is easy to use.
+        \item This author has made projects with KiCad, and it is easy to use.
     \end{itemize}
 \end{itemize}
 
-These programs are all called ``EDAs'': Electronic Design Automation tools. They are far superior to drawing 
-everything on paper and snail mailing it all like it was years ago.
+These programs are all EDAs: Electronic Design Automation tools. They are far superior to drawing everything 
+on paper and snail mailing it all like years ago.
 
 \clearpage
 % === Page 9 ========================================================================
