@@ -1,6 +1,6 @@
 % !TeX root = tutorial1.tex
 \documentclass[12pt,letterpaper]{article}
-\usepackage[margin=0.75in]{geometry}       % 1-inch margins
+\usepackage[margin=0.75in]{geometry}    % 3/4 inch margins
 \usepackage{amsfonts, amssymb, amsmath} % all the fun math stuff
 \usepackage{graphicx}                   % For images
 \usepackage{hyperref}                   % For hyperlinks
@@ -10,19 +10,17 @@
 \usepackage{enumerate}                  % Customize Enumerated Lists
 \usepackage{url}                        % used for custom \url{....} methods
 \usepackage{enumitem}                   % used to break enumerated lists, insert text, and resume enumeration.
-\thispagestyle{empty}                   % No page number on title page
 \hypersetup{%
-    colorlinks=true,
+    colorlinks=true,                    % colored text rather than box outlined links (cleaner looking)
     urlcolor=blue
 }
 
-\let\oldurl\url % Makes \url{} automatically use a custom size.
+\let\oldurl\url                         % Makes \url{} automatically use a custom size.
 \renewcommand{\url}[1]{{\small\oldurl{#1}}} % custom \small \url size
 
-%======================== Document Start ===================================
+% ======================= Document Start ===================================
 \begin{document}
-%===========================================================================
-% Title Page Start =========================================================
+% ====================== Title Page Start ==================================
 
 \title{A General Handheld Radio Primer\\
     {\large Using Surplus Motorola HT1000s on the MURS Band.}}
@@ -126,7 +124,7 @@ For this particular client in SE Massachusetts, the VHF MURS band was chosen for
     \item MURS operation is license free, unlike other services in the VHF-Hi band.
     \item The client's location is rural with plenty of foliage. VHF-Hi band has superior coverage in this
         type of environment over higher frequency bands.
-    \item VHF-Hi band is an excellent compromise between antenna length and terrain \\penetration, unlike lower
+    \item VHF-Hi band is an excellent compromise between antenna length and terrain penetration, unlike lower
         frequency bands which require much larger antennas.
 \end{enumerate}
 
@@ -135,7 +133,7 @@ Something else to mention is that these HT1000 radios are \textit{FCC Part 90} c
 VHF-Hi band, which in the case of this bandsplit of Motorola HT1000s means they can operate from 
 136 MHz to 174 MHz. Why? Because that is the allocated spectrum for anything operating 
 under FCC Part 90 rules in the VHF-Hi band. Lower than 136 MHz is used for aircraft (FCC Part 87), and above
-174 MHz is used for broadcast television. 
+174 MHz is used for broadcast television (FCC Part 73). 
 
 \medskip Also note why we are allowed to use an FCC Part 90 radio in the MURS band: the two sets of rules 
 (Part 90 and Part 95) have overlap and the Part 90 operator implied license exceeds any license class in the entire 
@@ -203,7 +201,7 @@ settings, the audio received from the radio sounds correct, and all the radios a
 \clearpage
 % === Page 7 ========================================================================
 The above linked guide is a free public download, but is a 170 page document. It is the factory service manual that an 
-\textsc{RF Technician} or \textsc{RF Engineer} could refer to for service and maintenance of the Jedi Generation of 
+\textsc{RF Technician} or \textsc{RF Engineer} could refer to for service and \\ maintenance of the Jedi Generation of 
 handheld radios. It has all the part numbers and pictures for every piece the radio contains. The service manual 
 also contains other important information just like this author used in his job as \textsc{Production Engineer} at 
 an engineering firm in South Florida. Most of the information needed for this job was:
@@ -233,8 +231,8 @@ an engineering firm in South Florida. Most of the information needed for this jo
     \end{itemize}
     \item Other useful tools in the service manual this author would use:
     \begin{itemize}
-        \item How to test the complete assembly, what measurements to take and how to \\measure them.
-        \item Pictures and part numbers of proprietary test equipment and proprietary tools for purchase.
+        \item How to test the complete assembly, what measurements to take and how to measure them.
+        \item Pictures and part numbers of proprietary test equipment and proprietary tools for \\ purchase.
         \item Error Codes and how to retrieve, decode, interpret, and troubleshoot them.
         \item How to ``align'' the radio. This is a periodic maintenance item and done after some repairs.
             Radio alignment adjusts the radio so that it conforms to the FCC channel specifications for operation.
@@ -246,7 +244,7 @@ an engineering firm in South Florida. Most of the information needed for this jo
 
 % === Page 8 ========================================================================
 This old style service manual would typically be printed in a 3-ring binder and shipped to the Motorola radio dealers 
-in addition to its use by the internal Motorola Engineering team. Nowadays, the manuals are electronic, and
+in addition to its use by the internal Motorola Engineering team. \\Nowadays, the manuals are electronic, and
 the engineers who write the manual just send files to open in subscription-based computer programs or web tools 
 to access schematics, layouts, and other information. In the next subsection there will be links to investigate 
 some of these tools. Some are very, very expensive but usually have free trials for a month or so.
@@ -386,7 +384,7 @@ interoperable with any of the HT1000s that are tuned to channel 10 or 11. This i
 \clearpage    
 % === Page 11 ======================================================================== 
 \medskip
-The ``special'' channel 11 is exactly the same as channel 10, except at the end of every transmission on 
+The ``special'' channel 11 is exactly the same as channel 10, except at the end of every \\transmission on 
 channel 11, there is a unique ``chirp'' noise that can be heard by the receiving radio. While listening, after 
 the voice audio stops, the transmitting radio sends out a little data burst packet which is what many Police 
 Departments used for unit ID. This data burst is decoded by the dispatch console and used typically by the 
@@ -465,7 +463,7 @@ allowed because the beacon is a \textit{broadcast station}.
 
 In the area of SE Massachusetts, the NOAA Ch 1 weather beacon is in the Boston area at the Blue Hills 
 Observatory in Milton. The NOAA Ch 3 weather beacon is located in the Bourne/Hyannis area located at 
-Camp Edwards. The stations self ID this information as well as its beacon transmitter callsign over the air
+Camp Edwards. The stations self ID this information as well as its beacon \\transmitter callsign over the air
 while listening. The National Weather Service shows more information about these beacons here:
 
 \begin{itemize}
@@ -576,7 +574,7 @@ menu can be viewed on page 88 of the RSS manual if interested.
         \item This function CAN be changed in RSS.
         \item This function is typically used for an ``Emergency'' or ``Panic'' button on old trunking networks which 
             are all legacy and obsolete now, so it typically goes unused. In newer radios with a display, the orange
-            button can typically be \\ configured to light the display or toggle the high and low power setting in the 
+            button can typically be configured to light the display or toggle the high and low power setting in the 
             RSS. The ``Emergency'' function is only usable on trunking networks, otherwise it just creates 
             interference.
     \end{itemize}
@@ -602,7 +600,7 @@ In that band, there are many different services, some which were not discussed:
 \end{itemize}
 
 \medskip
-Railroad VHF used to be conventional analog operation, but has mostly moved to digital operation, so the 
+Railroad VHF used to be conventional analog operation, but has mostly moved to digital \\operation, so the 
 HT1000 would only hear the digital tones and not decode it properly for listening to voice traffic in this case. 
 To decode digital voice traffic, a newer digital radio with a digital vocoder is required.
 
@@ -766,7 +764,7 @@ options and configurations for the HT1000.
         via \textit{RSS}) must be set properly. The RSS has predetermined settings for channel bandwidth.
 % === Page 19 ========================================================================
     \item \textit{RSS}: The Motorola trademark for ``Radio Service Software,'' which is the program used to 
-        modify programmed radio data such as: operating frequency, PL tone, toggle switch configurations, and etc.
+        modify programmed radio data such as: operating frequency, PL tone, toggle switch \\configurations, and etc.
     \item \textit{ERP}: ERP stands for Effective Radiated Power. This value referes to how many watts of RF 
         power the antenna is actually radiating from the antenna, which includes the total output power of the
         radio, minus transmission line losses, plus antenna gain (or loss). This value, in the case of the HT1000
@@ -877,7 +875,7 @@ options and configurations for the HT1000.
     \item \subsection{Page 11 Definitions}
 \end{center}
 
-\item \textit{FCC Part 80}: The FCC set of rules that regulate marine, ship, and boater communications. Some newer
+\item \textit{FCC Part 80}: The FCC set of rules that regulate marine, ship, and boater \\communications. Some newer
     Part 90 certified radios also hold Part 80 certification, such as some newer Motorola APX series radios. This is
     convenient for interoperability between local/state law enforcement and the US Coast Guard, draw bridge operators,
     and etc.
