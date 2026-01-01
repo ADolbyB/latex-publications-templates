@@ -1,6 +1,6 @@
 % !TeX root = tutorial1.tex
 \documentclass[12pt,letterpaper]{article}
-\usepackage[margin=1in]{geometry}       % 1-inch margins
+\usepackage[margin=0.75in]{geometry}       % 1-inch margins
 \usepackage{amsfonts, amssymb, amsmath} % all the fun math stuff
 \usepackage{graphicx}                   % For images
 \usepackage{hyperref}                   % For hyperlinks
@@ -292,8 +292,13 @@ What is considered a channel group? In this particular use case with the client'
 are considered a group by the author since they all have the same \textit{PL Tone}. Channel Group 1 functions 
 with channel interoperability using a \textit{tone squelch} of 103.5 Hz when more than one radio 
 is tuned to the same HT1000 channel. This feature blocks all other stations or interference from another station 
-that is not using the same 103.5 Hz tone on their transmitter, since unmuting the receiving radio requires it. 
+that is not using the same 103.5 Hz tone on their transmitter, since unmuting the receiving radio requires it. Also
+note that when the radio receives traffic and unmutes, the red LED near the antenna will blink.
 Later on, other commonalities of each group will be explained as they appear.
+
+In the case of the wrong PL tone received by the radio but it hears an FM carrier signal on that channel, 
+the red LED light near the antenna will still blink, indicating the presence of voice traffic, but the radio 
+remains muted.
 
 \begin{center}
     \item \subsection{Channel Group 1: Channels 1 - 5}
@@ -401,6 +406,17 @@ the radio must be \textit{keyed up} for $\approx$ one second.
         \item Bandwidth: Wide (20 kHz)
     \end{itemize}
 \end{enumerate}
+
+The purpose of having two separate channel groups with different tone squelch settings is for versatility. Since the
+HT1000s have 16 available channels, rather than leave some of the channels unprogrammed, the author decided to create
+two separate groups in case of interference. Channel group 1 will typically be sufficient for most operation, but
+there is the possibility of being in a location where someone else is using the same tone frequency on their 
+transmitter, since the MURS channels can be used by anyone in the general public. If in the rare instance MURS $1 - 5$
+are busy with other traffic using the 103.5 Hz PL tone, channel group 2 can be used with a different PL tone of 
+127.3 Hz to block out the unwanted traffic. This is not a perfect solution, though. If the other stations are 
+operating close by, their FM carrier signals can still cause unwanted interference by blocking your wanted traffic
+from being heard at all in some circumstances if their FM carrier signal is stronger. This can cause receiving 
+operators to ``miss calls.''
 
 \clearpage
 % === Page 12 ========================================================================
@@ -515,14 +531,14 @@ function we might care about is changing the Toggle Switch Configuration to:
     \item C: Channel scan function just like on these radios.
 \end{itemize}
 
-% === Page 14 ========================================================================
 \medskip
 All the other Toggle Switch functions in the RSS are mostly useless now since they are legacy configurations 
 related to obsolete and outdated \textit{Trunking Protocols}. The other configurations can be viewed in the Radio
 Service Software manual. The link for that manual is in Section 5 of this document. The side button configuration
 menu can be viewed on page 88 of the RSS manual if interested.
 
-\medskip
+\clearpage
+% === Page 14 ========================================================================
 \noindent Side and Top Button Definitions:
 \begin{itemize}
     \item Side Button 1: Top round button on the side of the radio.
@@ -572,7 +588,7 @@ menu can be viewed on page 88 of the RSS manual if interested.
     \item \section{Other Thoughts}
 \end{center}
 
-In this guide, some different services in the VHF-Hi band for the range of 136 MHz - 174 MHz were discussed,
+In this guide, some different services in the VHF-Hi band for the range of 136 MHz $-$ 174 MHz were discussed,
 since that is the frequency range of operation for the HT1000s.
 In that band, there are many different services, some which were not discussed:
 
@@ -580,15 +596,15 @@ In that band, there are many different services, some which were not discussed:
 \begin{itemize}
     \item Amateur Radio: 144 $-$ 148 MHz (FCC Part 97.)
     \item MURS band: 151 MHz and 154 MHz (FCC Part 95.)
-    \item Marine VHF band: 155 MHz $-$ 161 MHz (FCC Part 80.)
-    \item Railroad VHF: 160 MHz $-$ 161 MHz (Also FCC Part 90.)
+    \item Marine VHF band: 156 MHz $-$ 157 MHz and 160 $-$ 162 MHz (FCC Part 80.)
+    \item Railroad VHF: 159 MHz $-$ 161 MHz (Also FCC Part 90.)
     \item NOAA Weather Radio: 162 MHz (FCC Part 11 for Emergency Alert Systems.)
 \end{itemize}
 
 \medskip
 Railroad VHF used to be conventional analog operation, but has mostly moved to digital operation, so the 
-HT1000 would only hear the digital tones and not decode it properly for listening to voice traffic. To decode
-digital voice traffic, a newer digital radio with a digital vocoder is required.
+HT1000 would only hear the digital tones and not decode it properly for listening to voice traffic in this case. 
+To decode digital voice traffic, a newer digital radio with a digital vocoder is required.
 
 \clearpage
 % === Page 16 ========================================================================
@@ -628,7 +644,21 @@ Here are the NOAA Weather Radio frequency allocations for the United States:
 \medskip
 Here are the Marine VHF boater and ship channel names and frequency allocations for the United States:
 \begin{itemize}
-    \item \url{https://wiki.radioreference.com/index.php/Marine_VHF_Channels}.
+    \item \url{https://www.navcen.uscg.gov/maritime-vhf-narrowband-channels}.
+\end{itemize}
+
+\medskip
+Here is a chart of the complete FCC Part 97 band plan for US Amateur Radio:
+\begin{itemize}
+    \item \url{https://www.arrl.org/files/file/Regulatory/Band\%20Chart/Hambands4_Color_11x8_5.pdf}.
+\end{itemize}
+
+\medskip
+Here is the complete FCC Online Table of Frequency Allocations. This covers all frequencies from 0 Hz up to 
+3000 GHz and is several hundred pages long. This lists all services authorized to operate under FCC regulations,
+where they are allowed to operate, and what type of RF emissions are approved for operation there.
+\begin{itemize}
+    \item \url{https://www.fcc.gov/sites/default/files/fcctable.pdf}
 \end{itemize}
 
 \medskip
@@ -661,13 +691,16 @@ options and configurations for the HT1000.
     \item \textit{band plan}: A radio band plan (also called a frequency allocation plan or spectrum allocation 
         plan) is a structured framework that divides portions of the radio frequency spectrum into specific frequency 
         bands and assigns each band to particular services, users, or types of radio communications. It ensures orderly, 
-        efficient, and interference-free use of the limited radio spectrum resource. Some other examples are as follows:
+        efficient, and interference-free use of the limited radio spectrum resource. In the United States, the 
+        governing body which regulates this is the Federal Communications Commission (FCC). Some other examples 
+        of separate band plans are as follows:
     \begin{itemize}
-        \item US FM Radio Broadcast Band Plan: 87.5 $-$ 108 MHz.
+        \item US AM Radio Broadcast Band Plan: 540 $-$ 1700 kHz.
+        \item US FM Radio Broadcast Band Plan: 88 $-$ 108 MHz.      
         \item US 700 MHz Cellular Band Plan: 698 $-$ 806 MHz.
     \end{itemize}
     \item \textit{MURS}: Multi Use Radio Service. The FCC channel allocations for operating here can be 
-        seen on page 3.
+        seen on page 3. Operation here is covered under FCC Part 95 rules.
     \item \textit{FCC}: The Federal Communications Commission. This is the US Executive Branch agency that
         was created in the 1930s which provides the regulatory framework for frequency/channel allocations in the
         in the USA for ALL services. TV, radio, satellite, aircraft, ships, boats, everything. There are all 
@@ -688,26 +721,27 @@ options and configurations for the HT1000.
 
 % === Page 18 ========================================================================    
     \item \textit{The Electromagnetic Spectrum}: This is the entire spectrum of frequencies in the universe. It
-        spans from Radiofrequency Waves (RF) at the lower end (kHz to several MHz), then to Microwaves (several GHz). 
-        In the center of the Electromagnetic Spectrum is Visible Light. Just below Visible Light is called Infrared, 
-        which is a type of light we can't see (but the camera on your cellphone can!!). Lots of TV remotes use infrared 
-        to control the TV, and night vision cameras use infrared to create that bright black and white night vision
-        picture. Just above visible light are Ultraviolet rays or UV Light, which we also can't see. At the very high
-        end of the Electromagnetic Spectrum are: X-rays, then Gamma Rays, and finally Cosmic Rays are the highest
-        known frequency that exists in the Universe. All of these have something in common: they are all particles
-        and/or waves that can travel through free space (around the universe in space). Their only difference 
-        is frequency. Sound waves are NOT in the Electromagnetic Spectrum because they do not travel through free 
-        space, and cannot take the form of a particle. Sound is considered a ``mechanical wave'' created by the 
-        motion of a speaker, and is therefore not part of the Electromagnetic Spectrum. Mechanical Waves are still 
-        waves, though, so they can still be measured in Hertz or Kilohertz. Compared to the frequency of Radio Waves,
-        sound waves are MUCH lower in frequency.
+        spans from Radiofrequency Waves (RF) at the lower end (kHz to several MHz), then to Microwaves (several GHz).
+        Skipping ahead to the center of the Electromagnetic Spectrum is Visible Light. Just below Visible Light is 
+        called Infrared, which is a type of light humans can't see (but the camera on your cellphone can!!). 
+        Lots of TV remotes use infrared LEDs to control the TV. Night vision cameras also use infrared to create 
+        the bright black and white night vision picture, like on doorbell cameras. Just above visible light are 
+        Ultraviolet rays or UV Light, which we also can't see. At the very high end of the Electromagnetic Spectrum 
+        are: X-rays, then Gamma Rays, and finally Cosmic Rays are the highest known frequency that exists in the 
+        Universe. All of these have something in common: they are all particles and/or waves that can travel through 
+        free space (around the universe in space). Their only difference is frequency. Sound waves are NOT in the 
+        Electromagnetic Spectrum because they do not travel through free space, and cannot take the form of a 
+        particle. Sound is considered a ``mechanical wave'' created by the motion of a speaker, and is therefore 
+        not part of the Electromagnetic Spectrum. Mechanical Waves are still waves, though, so they can still be 
+        measured in Hertz or Kilohertz. Compared to the frequency of Radio Waves, sound waves are MUCH lower 
+        in frequency.
     \item \textit{FCC Part 97}: This is the rules of operation and frequency allocations for the Amateur Radio 
         (ham) Band.
     \item \textit{legacy}: This word refers to any software, hardware, license or etc. that is outdated and no
         longer used. Something that is considered ``obsolete'' is also considered a ``legacy item'' just like old
         Nintendo NES games from the 1980s.
     \item \textit{FCC Part 73}: These are the FCC regulations and spectrum allocation for all broadcast services, 
-        including AM/FM radio and over the air broadcast television.
+        including AM/FM radio and over the air (OTA) broadcast television.
 
 \begin{center}
     \item \subsection{Page 4 Definitions}
@@ -747,10 +781,10 @@ options and configurations for the HT1000.
         RF energy that affects signal reception. Interference can be accidentally caused by LED or fluorescent 
         lights, or can be deliberate (and illegal) from another radio operator trying to ``jam'' your signal so the
         receiving radio gets no signal or a degraded signal.
-    \item \textit{interoperability}: This term refers to different radios, usually carried by different \\ 
+    \item \textit{interoperability}: This term refers to different radios, usually carried by different
         departments, which allow them to communicate beyond just their own dispatch unit. As an example: police, 
         fire and EMS could be on separate frequencies with separate dispatchers. However, each police, fire, 
-        and/or EMS unit radio will have \\ ``interoperability channels'' so they can talk to each other for whatever 
+        and/or EMS unit radio will have ``interoperability channels'' so they can talk to each other for whatever 
         reason when they need to, like if they were attending the same call. This goes up level by level typically, 
         where those same local units can have interoperability channels with neighboring local agencies or state 
         agencies, and state agencies usually have interoperability channels with federal agencies in case more than 
@@ -819,7 +853,7 @@ options and configurations for the HT1000.
     \item \textit{MDC-1200}: Officially named ``Motorola Data Communications 1200 \textit{baud}.'' This is one of 
         many forms of Automatic Number ID (ANI) that is used for unit identification. This MDC-1200 data burst is 16 
         bits of information, contained in four \textit{hexadecimal} digits. The range of this ID number is 
-        $0000 - FFFF$. To calculate the total number of unique IDs available, we use the following formula:
+        0000 - FFFF. To calculate the total number of unique IDs available, we use the following formula:
         $$ 2^{\text{ }\# \text{ of bits}} = 2^{16} = 65536 \text{ total IDs.} $$
     \item \textit{baud}: ``baud'', also called ``baud rate'' just refers to how many binary bits (1s and 0s)
         are sent every second. $$ 1200 \text{ baud} = 1200 \text{ bits per second. VERY slow by todays standards.} $$
@@ -828,32 +862,39 @@ options and configurations for the HT1000.
     \begin{itemize}
         \item 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10.
         \item 11, 12, 13, 14, 15, 16, 17, 18, 19, 1A, 1B, 1C, 1D, 1E, 1F, 20, and so on.
-        \item Hex is just a convenient way to convert ``binary'' (1s and 0s) to something more human readable
+        \item Hex is just a convenient way to convert binary (1s and 0s) to something more human readable
         using numbers and a few letters.
     \end{itemize}
-    \item \textit{dekey}: ``dekey'' refers to when the radio operator ``unkeys'' the radio, which means the
-        operator releases the Push To Talk (PTT) button. Releasing the PTT button means the radio is not transmitting
-        and is in receive mode.
+    \item \textit{dekey}: ``dekey'' refers to when the radio operator unkeys the radio, which means the
+        operator releases the Push To Talk (PTT) button. Releasing the PTT button means the radio stops transmitting
+        and reverts to receive mode.
 % === Page 22 ========================================================================    
     \item \textit{keyed up}: A radio is ``keyed up'' when the PTT button is pressed. This puts the radio in
         transmit mode so the radio operator can talk over the air. This can also be referred to as the ``keyup'' 
-        state of the radio, which is terminology referred to in the service manual.
+        state of the radio, which is terminology referred to in the service and RSS manuals.
 
 \begin{center}
     \item \subsection{Page 11 Definitions}
 \end{center}
 
-\item \textit{FCC Part 80}: The FCC set of rules that regulate marine, ship, and boater communications.
-\item \textit{broadcast station}: A station or beacon that is always transmitting, like the NOAA weather stations
-    or over the air (OTA) television stations.
-\item \textit{RX Only}: A channel that is ``listen only.'' These channels on a radio are set to only receive and 
-    cannot transmit.
+\item \textit{FCC Part 80}: The FCC set of rules that regulate marine, ship, and boater communications. Some newer
+    Part 90 certified radios also hold Part 80 certification, such as some newer Motorola APX series radios. This is
+    convenient for interoperability between local/state law enforcement and the US Coast Guard, draw bridge operators,
+    and etc.
+\item \textit{broadcast station}: A station or beacon that is always transmitting, like the NOAA weather stations,
+    over the air (OTA) television broadcast, or AM/FM radio stations.
+\item \textit{RX Only}: A channel that is set to ``listen only.'' These channels on a radio only receive and 
+    are blocked from transmitting. In the case of the HT1000s, pressing the PTT button on an RX only channel will 
+    result in an error tone emitting from the speaker. This warns the operator that transmitting (TX) is not allowed.
 \item \textit{carrier squelch}: When the radio is not receiving any traffic, it remains muted or ``squelched'' so 
-    the operator does not hear the static noise that would be present on an empty channel. A radio set to receive
-    in ``carrier squelch'' mode will unmute for any signal that increases above the squelch level, including noise
-    and interference as long as it exceeds the squelch level. Why would this be desired? In the case of ham radio,
-    most of the author's radios are set to receive in carrier squelch mode so that ANY station calling in with any
-    PL tone or DCS code can be heard. Unfortunately, the disadvantage is receiving noise once in awhile.
+    the operator does not hear the static white noise that would be present on an unused channel. A radio set to 
+    receive in ``carrier squelch'' mode will unmute for any signal that increases above the squelch level, including 
+    noise and interference as long as it exceeds the squelch level. Why would this be desired? In the case of ham 
+    radio, most of the author's radios are set to receive in carrier squelch mode so that ANY station calling in with 
+    any PL tone or DCS code can be heard. Unfortunately, the disadvantage is receiving noise once in awhile. In most 
+    commercial or public safety situations, carrier squelch mode is undesired, since the operators only want to hear
+    traffic from their own group of operators. This is so no outside stations can break in easily and cause unwanted
+    interference.
 
 \begin{center}
     \item \subsection{Page 12 Definitions}
@@ -863,7 +904,7 @@ options and configurations for the HT1000.
     can be heard from the radio. This is the ``squelched'' state of the radio, so background static noise is
     not heard on an unused channel. When the radio receives voice traffic, it ``unsquelches'' or unmutes so 
     the audio can be heard from the speaker. As soon as the signal disappears, the radio returns to the squelched
-    state.
+    state, which is muted audio.
 \item \textit{FM carrier}: FM stands for ``Frequency Modulation,'' which is the mode of transmission the radio uses
     to transmit information (voice traffic) over the air. The FM Carrier is the signal that the receiving radio
     can detect so it can then unmute and the operator can listen to the voice traffic coming over the air. There are 
