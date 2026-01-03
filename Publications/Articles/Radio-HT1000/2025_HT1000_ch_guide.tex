@@ -136,8 +136,9 @@ under FCC Part 90 rules in the VHF-Hi band. Lower than 136 MHz is used for aircr
 174 MHz is used for broadcast television (FCC Part 73). 
 
 \medskip Also note why we are allowed to use an FCC Part 90 radio in the MURS band: the two sets of rules 
-(Part 90 and Part 95) have overlap and the Part 90 operator implied license exceeds any license class in the entire 
-FCC Part 95 regulations, given that we can operate within the FCC's frequency, bandwidth and power allocations.
+(Part 90 and Part 95) have overlap and the Part 90 radio type certification can meet or exceed any rules in the
+FCC Part 95 regulations, given that we can operate within the FCC's Part 95 frequency, bandwidth and power 
+allocations.
 
 \clearpage
 % === Page 5 ========================================================================
@@ -388,13 +389,13 @@ The ``special'' channel 11 is exactly the same as channel 10, except at the end 
 channel 11, there is a unique ``chirp'' noise that can be heard by the receiving radio. While listening, after 
 the voice audio stops, the transmitting radio sends out a little data burst packet which is what many Police 
 Departments used for unit ID. This data burst is decoded by the dispatch console and used typically by the 
-dispatcher when one of the officers (or firefighters or EMS, etc.) calls out on the radio. The dispatcher knows 
+dispatcher when one of the officers (or firefighters, EMS, etc.) calls out on the radio. The dispatcher knows 
 immediately who is calling to keep transmissions shorter and help keep the channel clear of traffic. Each officer 
 in a squad car will usually have two radios: one handheld, and one mobile unit mounted in the vehicle. Each radio 
 can have its own unique ID, so the dispatcher knows if the officer is calling from the handheld or the squad car.
 
 This chirp tone is named: \textit{MDC-1200}, and is set to ID on \textit{dekey}. For it to work properly,
-the radio must be \textit{keyed up} for $\approx$ one second.
+the radio must be \textit{keyed up} for $\approx$ one second or longer.
 
 \begin{enumerate}[resume]
     \item MURS 5 with MDC1200 ID on dekey.
@@ -425,7 +426,7 @@ operators to ``miss calls.''
 In Channel Group 3, all channels are set to receive (RX) only. Transmitting on these
 channels is not allowed in this case due to the missing \textit{FCC Part 80} type certification on the HT1000 
 radios, which is needed for transmitting on the Marine VHF band. Transmitting on the NOAA Weather Band is never 
-allowed because the beacon is a \textit{broadcast station}.
+allowed because the beacons are \textit{broadcast stations}.
 
 \medskip
 \begin{enumerate}[resume]
@@ -519,14 +520,14 @@ while listening. The National Weather Service shows more information about these
 
 \medskip
 Note that the Toggle Switch Configuration can be changed in the RSS (MS-DOS based). The only other useful
-function we might care about is changing the Toggle Switch Configuration to:
+function we might care about in this application is changing the Toggle Switch Configuration to:
 \begin{itemize}
     \item A: When the radio receives a signal, 2 conditions must be met to \textit{unsquelch} the radio.
     \begin{itemize}
         \item Sets the radio to sense an \textit{FM carrier} signal AND the PL Tone to unsquelch.
     \end{itemize}
     \item B: When the radio receives a signal, it only needs to hear the FM carrier to unsquelch.
-    \item C: Channel scan function just like on these radios.
+    \item C: Channel scan function just as described earlier.
 \end{itemize}
 
 \medskip
@@ -560,6 +561,8 @@ menu can be viewed on page 88 of the RSS manual if interested.
                     unsquelch the radio. Sometimes when just out of range of another station, the radio will not 
                     unsquelch, but pressing the monitor button may allow the operator to hear the weak station through
                     the noise.
+                \item Note that when using the Monitor function, the tone squelch function is also \\overridden so any 
+                    station, including environmental noise can be heard.
             \end{itemize}
         \item This function CAN be changed in RSS.
     \end{itemize}
@@ -602,7 +605,7 @@ In that band, there are many different services, some which were not discussed:
 \medskip
 Railroad VHF used to be conventional analog operation, but has mostly moved to digital \\operation, so the 
 HT1000 would only hear the digital tones and not decode it properly for listening to voice traffic in this case. 
-To decode digital voice traffic, a newer digital radio with a digital vocoder is required.
+To decode digital voice traffic, a newer digital radio with a digital \textit{vocoder} is required.
 
 \clearpage
 % === Page 16 ========================================================================
@@ -719,10 +722,10 @@ options and configurations for the HT1000.
 
 % === Page 18 ========================================================================    
     \item \textit{The Electromagnetic Spectrum}: This is the entire spectrum of frequencies in the universe. It
-        spans from Radiofrequency Waves (RF) at the lower end (kHz to several MHz), then to Microwaves (several GHz).
+        spans from Radiofrequency waves (RF) at the lower end (kHz to several MHz), then to Microwaves (several GHz).
         Skipping ahead to the center of the Electromagnetic Spectrum is Visible Light. Just below Visible Light is 
         called Infrared, which is a type of light humans can't see (but the camera on your cellphone can!!). 
-        Lots of TV remotes use infrared LEDs to control the TV. Night vision cameras also use infrared to create 
+        Many TV remotes use infrared LEDs to control the TV. Night vision cameras also use infrared to create 
         the bright black and white night vision picture, like on doorbell cameras. Just above visible light are 
         Ultraviolet rays or UV Light, which we also can't see. At the very high end of the Electromagnetic Spectrum 
         are: X-rays, then Gamma Rays, and finally Cosmic Rays are the highest known frequency that exists in the 
@@ -747,7 +750,7 @@ options and configurations for the HT1000.
 
     \item \textit{FCC Part 90}: This is the FCC allocation for ``Private Land Mobile Radio Service'' aka PLMR and
         covers licensed operation for services like: Police, Fire, City, County, Private Contractors, Crane Companies,
-        and etc. that want to use high power radios. This is also the class certification for the HT1000 radios. They
+        and etc. that want to use high power radios. This is also the type certification for the HT1000 radios. They
         are ``FCC Part 90 Type Accepted'' for this type of use.
     \item \textit{channel allocation}: a channel allocation or frequency allocation is a specification that the
         FCC provides to operate in a certain radio service. This allocation will include specs like: maximum power
@@ -766,7 +769,7 @@ options and configurations for the HT1000.
     \item \textit{RSS}: The Motorola trademark for ``Radio Service Software,'' which is the program used to 
         modify programmed radio data such as: operating frequency, PL tone, toggle switch \\configurations, and etc.
     \item \textit{ERP}: ERP stands for Effective Radiated Power. This value referes to how many watts of RF 
-        power the antenna is actually radiating from the antenna, which includes the total output power of the
+        power the transmitter is actually radiating from the antenna, which includes the total output power of the
         radio, minus transmission line losses, plus antenna gain (or loss). This value, in the case of the HT1000
         would be at least 5 watts on high power, which is the transmitter output rating. The transmission line 
         losses are nearly negligible since the antenna is directly connected to the radio. So the only factors that
@@ -777,8 +780,8 @@ options and configurations for the HT1000.
         system, manifested by any performance degradation, misinterpretation, or loss of information which could be 
         extracted in the absence of such unwanted energy.'' What does all that mean? Interference is any unwanted
         RF energy that affects signal reception. Interference can be accidentally caused by LED or fluorescent 
-        lights, or can be deliberate (and illegal) from another radio operator trying to ``jam'' your signal so the
-        receiving radio gets no signal or a degraded signal.
+        lights, some electronic devices, or can be deliberate (and illegal) from another radio operator trying to 
+        ``jam'' your signal so the receiving radio gets no signal or a degraded signal.
     \item \textit{interoperability}: This term refers to different radios, usually carried by different
         departments, which allow them to communicate beyond just their own dispatch unit. As an example: police, 
         fire and EMS could be on separate frequencies with separate dispatchers. However, each police, fire, 
@@ -796,8 +799,8 @@ options and configurations for the HT1000.
 
     \item \textit{Jedi Series}: The Motorola Jedi Series is a generation of radios that were in use in the 1990s
         throughout the 2010s or so. They were preceded by the Motorola ``Genesis Series'' (models like P200s and 
-        HT600s), and proceeded by the ''Astro'' series (Astro Spectras and XTS3000s), and then replaced by the 
-        ``Astro25'' series of radios (XTS and XTL 5000s).
+        HT600s), and proceeded by the ``Astro'' series (Astro Spectras and XTS3000s), which were then replaced by 
+        the ``Astro25'' series of radios (XTS and XTL 5000s).
 
 \begin{center}
     \item \subsection{Page 6 Definitions}
@@ -855,13 +858,14 @@ options and configurations for the HT1000.
         $$ 2^{\text{ }\# \text{ of bits}} = 2^{16} = 65536 \text{ total IDs.} $$
     \item \textit{baud}: ``baud'', also called ``baud rate'' just refers to how many binary bits (1s and 0s)
         are sent every second. $$ 1200 \text{ baud} = 1200 \text{ bits per second. VERY slow by todays standards.} $$
-    \item \textit{hexadecimal}: Also called ``hex'' for shorthand, this is a numbering system using 16 digits 
-        $0 - 9$ and letters A - F. So in order to count in hex, we go like this:
+    \item \textit{hexadecimal}: Also called ``hex'' for shorthand, this is a ``base 16'' numbering system using 16 
+        digits 0 $-$ 9 and letters A $-$ F. This is different than the traditional ``base 10'' decimal system we use
+        everyday. In order to count in hex, we go like this:
     \begin{itemize}
         \item 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10.
         \item 11, 12, 13, 14, 15, 16, 17, 18, 19, 1A, 1B, 1C, 1D, 1E, 1F, 20, and so on.
         \item Hex is just a convenient way to convert binary (1s and 0s) to something more human readable
-        using numbers and a few letters.
+        using numbers and a few letters. Note that 1 hex digit contains 4 binary bits.
     \end{itemize}
     \item \textit{dekey}: ``dekey'' refers to when the radio operator unkeys the radio, which means the
         operator releases the Push To Talk (PTT) button. Releasing the PTT button means the radio stops transmitting
@@ -880,7 +884,7 @@ options and configurations for the HT1000.
     convenient for interoperability between local/state law enforcement and the US Coast Guard, draw bridge operators,
     and etc.
 \item \textit{broadcast station}: A station or beacon that is always transmitting, like the NOAA weather stations,
-    over the air (OTA) television broadcast, or AM/FM radio stations.
+    over the air (OTA) television channels, or AM/FM radio stations.
 \item \textit{RX Only}: A channel that is set to ``listen only.'' These channels on a radio only receive and 
     are blocked from transmitting. In the case of the HT1000s, pressing the PTT button on an RX only channel will 
     result in an error tone emitting from the speaker. This warns the operator that transmitting (TX) is not allowed.
@@ -903,14 +907,14 @@ options and configurations for the HT1000.
     not heard on an unused channel. When the radio receives voice traffic, it ``unsquelches'' or unmutes so 
     the audio can be heard from the speaker. As soon as the signal disappears, the radio returns to the squelched
     state, which is muted audio.
-\item \textit{FM carrier}: FM stands for ``Frequency Modulation,'' which is the mode of transmission the radio uses
-    to transmit information (voice traffic) over the air. The FM Carrier is the signal that the receiving radio
+\item \textit{FM carrier}: FM stands for ``Frequency Modulation,'' which is the mode of transmission the HT1000 radios 
+    use to transmit information (voice traffic) over the air. The FM Carrier is the signal that the receiving radio
     can detect so it can then unmute and the operator can listen to the voice traffic coming over the air. There are 
     two components to the radio transmission: the FM Carrier, which does not change and is used by the receiving radio
     to detect a signal, and the ``baseband,'' which is the actual voice traffic being sent over the air using the FM
     carrier. There are other modes of transmission, one of which may be familiar is AM, or ``Amplitude 
-    Modulation'' which is a slightly different mode. Explaining these modes is beyond the scope of this document, 
-    but can easily be researched on the internet.
+    Modulation'' which is a slightly different mode than FM. Explaining these modes is beyond the scope of this 
+    document, but can easily be researched on the internet.
 
 % === Page 23 ========================================================================   
 \begin{center}
@@ -918,9 +922,9 @@ options and configurations for the HT1000.
 \end{center}
 
 \item \textit{Trunking Protocols}: Trunking protocols are standardized rules and procedures that govern 
-    how trunked radio systems (also known as trunked Land Mobile Radio or LMR systems) automatically manage 
-    and allocate a shared pool of radio frequency channels among multiple users or groups in two-way radio 
-    communications. This is a common practice for public safety systems like Police, Fire, and EMS. In 
+    how trunked radio systems (also known as trunked Land Mobile Radio (LMR) or Logic Trunked Radio (LTR) systems)
+    automatically manage and allocate a shared pool of radio frequency channels among multiple users or groups in 
+    two-way radio communications. This is a common practice for public safety systems like Police, Fire, and EMS. In 
     conventional analog radio systems, such as MURS operation, each group of channels is assigned 
     a fixed, dedicated channel, which can lead to inefficiencies if the channel is idle or very busy and
     overloaded. Trunking uses a computer-controlled central system to dynamically assign available channels 
@@ -932,6 +936,21 @@ options and configurations for the HT1000.
     unneccessary extra hardware, which is not needed for normal use. Non-trunked systems are considered 
     ``conventional systems'', such as using the HT1000s in the MURS band.
 
-\end{enumerate}
+\begin{center}
+    \item \subsection{Page 15 Definitions}
+\end{center}
 
+\item \textit{vocoder}: Vocoder is short for ``voice coder/decoder'' and is required for using digital two-way radio
+    operation. Newer radios in the US for public safety, commercial and amateur \\communications use digital modes such
+    as P25 (APCO 25) and DMR (Digital Mobile Radio) versus the analog modes like AM and FM. The primary purpose of a 
+    vocoder is to efficiently convert analog human speech (the baseband) into a compressed digital format for 
+    transmission over bandwidth-constrained digital radio channels, while enabling intelligible speech reconstruction 
+    at the receiving end. This allows digital radios to achieve better spectrum efficiency, incorporate error 
+    correction for clearer audio in noisy environments, and support additional features like encryption or data 
+    integration compared to analog systems. Without a vocoder, voice signals would require much higher bitrates, 
+    making them impractical for modern narrowband channels with bandwidths from 6.25 kHz $-$ 12.5 kHz in many digital 
+    standards. This modern solution allows the division of the same available spectrum into smaller ``splinter'' 
+    channels, allowing more overall channels and more users in the same spectrum allocation.
+
+\end{enumerate}
 \end{document}
