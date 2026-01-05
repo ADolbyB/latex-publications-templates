@@ -1,4 +1,3 @@
-% !TeX root = tutorial1.tex
 \documentclass[12pt,letterpaper]{article}
 \usepackage[margin=0.75in]{geometry}    % 3/4 inch margins
 \usepackage{amsfonts, amssymb, amsmath} % all the fun math stuff
@@ -14,37 +13,59 @@
     colorlinks=true,                    % colored text rather than box outlined links (cleaner looking)
     urlcolor=blue
 }
-
 \let\oldurl\url                         % Makes \url{} automatically use a custom size.
 \renewcommand{\url}[1]{{\small\oldurl{#1}}} % custom \small \url size
 
 % ======================= Document Start ===================================
 \begin{document}
 % ====================== Title Page Start ==================================
+\title{A General Handheld Radio Primer}
+\author{Joel M. Brigida}
+\date{}                                 % leave blank for no date or \today for current date.
+\thispagestyle{empty}                   % No page number on title page
 
-\title{A General Handheld Radio Primer\\
-    {\large Using Surplus Motorola HT1000s on the MURS Band.}}
+\begin{titlepage}                       % Custom titlepage instead of the default \maketitle.
+    \centering
+    \vspace*{1cm}
+    \rule{\textwidth}{1pt}              % Top title rule (bar)
+
+    \vspace{.7\baselineskip}            % Title
+    {\huge \textbf{A General Handheld Radio Primer \\ \vspace*{.5cm}}}
+    \LARGE Using Surplus HT1000s in the MURS Band % Subtitle
+    
+    \rule{\textwidth}{1pt}              % Bottom title rule (bar)
+    \vspace{1cm}
+    
+    \large Written in \LaTeX\           % Set this size for the remaining titlepage.
+    
+    \vspace{3cm}                        % More authors can be inserted here with additional minipages.
+    \vfill
+
+    Joel Brigida, BSCE \\               % University and date information at bottom of titlepage.
+    R \& D, Engineering. \\
+    % src: https://www.overleaf.com/latex/templates/sample-report-title-page-for-an-university-assignment-or-project/qwqpmbbmfygn
+    \begin{minipage}{.5\textwidth}
+        \centering
+        {\normalsize \texttt{\href{https://github.com/ADolbyB/}{GitHub}}} \, 
+        {\normalsize \texttt{\href{https://www.linkedin.com/in/joelmbrigida/}{LinkedIn}}}
+    \end{minipage}
+
+\end{titlepage}
 
 \medskip
-\date{December 5, 2025}                 % Use a custom Date.
-\author{Written in \LaTeX\ by Joel M. Brigida}
-
-\maketitle                              % Create Document Title
-\thispagestyle{empty}                   % No page number on title page
 \pagenumbering{arabic}                  % 1,2,3 type page numbering.
-
-\clearpage                              % Go to the next page (which will become page 1)
 \setcounter{page}{1}                    % Forces THIS page to be page 1
-% === ToC Page  1 ==========================================================
 
+% === ToC Page  1 ==========================================================
+\renewcommand{\contentsname}{Table of Contents} % Custom name for Table of Contents
 \begin{center}
-    \tableofcontents                    % Table of Contents appears on page 1
+    \item \tableofcontents                    % Table of Contents appears on page 1
 \end{center}
 
 \clearpage
 % === Page 2 ===============================================================
 \begin{center}
-    \section{Disclaimer}
+    \item \section{Disclaimer}
 \end{center}
 
 Please note that none of the information in this manual is meant to be legal advise in any way. The author of
@@ -540,17 +561,7 @@ menu can be viewed on page 88 of the RSS manual if interested.
 % === Page 14 ========================================================================
 \noindent Side and Top Button Definitions:
 \begin{itemize}
-    \item Side Button 1: Top round button on the side of the radio.
-    \begin{itemize}
-        \item Function: Inoperative/Disabled.
-        \item This function CAN be changed in RSS.
-    \end{itemize}
-    \item Side Button 2: Second from top button on the side of the radio.
-    \begin{itemize}
-        \item Function: Inoperative/Disabled.
-        \item This function CAN be changed in RSS.
-    \end{itemize}
-    \item Side Button 3: Third from top button on the side of the radio.
+    \item Side Button 1: Top round green button on the side of the radio.
     \begin{itemize}
         \item Function: Monitor
         \item When pressing this button momentarily, the radio will unsquelch and noise can heard on an unused channel.
@@ -564,6 +575,16 @@ menu can be viewed on page 88 of the RSS manual if interested.
                 \item Note that when using the Monitor function, the tone squelch function is also \\overridden so any 
                     station, including environmental noise can be heard.
             \end{itemize}
+        \item This function CAN be changed in RSS.
+    \end{itemize}
+    \item Side Button 2: Second from top button on the side of the radio.
+    \begin{itemize}
+        \item Function: Inoperative/Disabled.
+        \item This function CAN be changed in RSS.
+    \end{itemize}
+    \item Side Button 3: Third from top button on the side of the radio.
+    \begin{itemize}
+        \item Function: Inoperative/Disabled.
         \item This function CAN be changed in RSS.
     \end{itemize}
         \item Side Button 4: Long bumpy oval button on the side of the radio.
