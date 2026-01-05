@@ -73,9 +73,6 @@ this document does not assume any responsibility for the accuracy of the informa
 document should be regarded as the author's own opinion, and nothing more for legal reasons even though this is a 
 well researched subject in the author's own expertise.
 
-\clearpage                              % Start main content on page 2
-% === Page 3 ===============================================================
-
 \begin{center}
     \item \section{General Information}
 \end{center}
@@ -117,7 +114,7 @@ Software User's Manual placed in the ``Links'' section of this document. This gu
 between the knowledge gap that exists between newer radio users and the Motorola manuals.
 
 \clearpage
-% === Page 4 ========================================================================
+% === Page 3 ========================================================================
 \begin{center}
     \item \subsection{MURS Frequency Allocation and Related Info}
 \end{center}
@@ -156,18 +153,18 @@ VHF-Hi band, which in the case of this bandsplit of Motorola HT1000s means they 
 under FCC Part 90 rules in the VHF-Hi band. Lower than 136 MHz is used for aircraft (FCC Part 87), and above
 174 MHz is used for broadcast television (FCC Part 73). 
 
-\medskip Also note why we are allowed to use an FCC Part 90 radio in the MURS band: the two sets of rules 
+\medskip 
+Also note why we are allowed to use an FCC Part 90 radio in the MURS band: the two sets of rules 
 (Part 90 and Part 95) have overlap and the Part 90 radio type certification can meet or exceed any rules in the
 FCC Part 95 regulations, given that we can operate within the FCC's Part 95 frequency, bandwidth and power 
 allocations.
 
 \clearpage
-% === Page 5 ========================================================================
+% === Page 4 ========================================================================
 \medskip
 So what are the MURS frequency allocations? These \textit{channel allocations} are numbered and named by 
 the FCC as follows under Part 95:
 
-\medskip
 \begin{enumerate}
     \item Name: MURS 1.
     \begin{itemize}
@@ -208,7 +205,7 @@ are also good for \textit{interoperability} so that everyone wanting to use the 
 settings, the audio received from the radio sounds correct, and all the radios are on the same frequencies.
 
 \clearpage
-% === Page 6 ========================================================================
+% === Page 5 ========================================================================
 \begin{center}
     \item \subsection{The Motorola \textit{Jedi Series} Handhelds}
 \end{center}
@@ -221,7 +218,7 @@ settings, the audio received from the radio sounds correct, and all the radios a
 \end{figure}
 
 \clearpage
-% === Page 7 ========================================================================
+% === Page 6 ========================================================================
 The above linked guide is a free public download, but is a 170 page document. It is the factory service manual that an 
 \textsc{RF Technician} or \textsc{RF Engineer} could refer to for service and \\ maintenance of the Jedi Generation of 
 handheld radios. It has all the part numbers and pictures for every piece the radio contains. The service manual 
@@ -254,7 +251,7 @@ an engineering firm in South Florida. Most of the information needed for this jo
     \item Other useful tools in the service manual this author would use:
     \begin{itemize}
         \item How to test the complete assembly, what measurements to take and how to measure them.
-        \item Pictures and part numbers of proprietary test equipment and proprietary tools for \\ purchase.
+        \item Pictures and part numbers of proprietary test equipment and proprietary tools for \\purchase.
         \item Error Codes and how to retrieve, decode, interpret, and troubleshoot them.
         \item How to ``align'' the radio. This is a periodic maintenance item and done after some repairs.
             Radio alignment adjusts the radio so that it conforms to the FCC channel specifications for operation.
@@ -264,7 +261,7 @@ an engineering firm in South Florida. Most of the information needed for this jo
     \end{itemize}
 \end{itemize}
 
-% === Page 8 ========================================================================
+% === Page 7 ========================================================================
 This old style service manual would typically be printed in a 3-ring binder and shipped to the Motorola radio dealers 
 in addition to its use by the internal Motorola Engineering team. \\Nowadays, the manuals are electronic, and
 the engineers who write the manual just send files to open in subscription-based computer programs or web tools 
@@ -303,7 +300,7 @@ These programs are all EDAs: Electronic Design Automation tools. They are far su
 on paper and snail mailing it all like years ago.
 
 \clearpage
-% === Page 9 ========================================================================
+% === Page 8 ========================================================================
 \begin{center}
     \section{Channel Groups and Information}
 \end{center}
@@ -316,6 +313,7 @@ that is not using the same 103.5 Hz tone on their transmitter, since unmuting th
 note that when the radio receives traffic and unmutes, the red LED near the antenna will blink.
 Later on, other commonalities of each group will be explained as they appear.
 
+\medskip
 In the case of the wrong PL tone received by the radio but it hears an FM carrier signal on that channel, 
 the red LED light near the antenna will still blink, indicating the presence of voice traffic, but the radio 
 remains muted.
@@ -324,7 +322,6 @@ remains muted.
     \item \subsection{Channel Group 1: Channels 1 - 5}
 \end{center}
 
-\medskip
 \begin{enumerate}
     \item MURS 1
     \begin{itemize}
@@ -359,12 +356,11 @@ remains muted.
 \end{enumerate}
 
 \clearpage
-% === Page 10 ========================================================================
+% === Page 9 ========================================================================
 \begin{center}
-    \item \subsection{Channel Group 2: Channels 6 - 11}    
+    \item \subsection{Channel Group 2: Channels 6 - 10}    
 \end{center}
 
-\medskip
 \begin{enumerate}[resume]
     \item MURS 1
     \begin{itemize}
@@ -398,56 +394,62 @@ remains muted.
     \end{itemize}
 \end{enumerate}
 
-\medskip
-Note that all of these have the same tone of 127.3 Hz, so they are considered a channel group.
-Channel 11 is slightly different than the rest of the channels in Group 2, although it should be 
-interoperable with any of the HT1000s that are tuned to channel 10 or 11. This is discussed next.
+Note that all of these have the same tone squelch setting of 127.3 Hz, so they are considered a channel group.
+Channel 11 is slightly different than the rest of the channels in Group 2, so it is considered its own
+channel group. This is discussed next.
 
 \clearpage    
-% === Page 11 ======================================================================== 
-\medskip
-The ``special'' channel 11 is exactly the same as channel 10, except at the end of every \\transmission on 
-channel 11, there is a unique ``chirp'' noise that can be heard by the receiving radio. While listening, after 
-the voice audio stops, the transmitting radio sends out a little data burst packet which is what many Police 
-Departments used for unit ID. This data burst is decoded by the dispatch console and used typically by the 
-dispatcher when one of the officers (or firefighters, EMS, etc.) calls out on the radio. The dispatcher knows 
-immediately who is calling to keep transmissions shorter and help keep the channel clear of traffic. Each officer 
-in a squad car will usually have two radios: one handheld, and one mobile unit mounted in the vehicle. Each radio 
-can have its own unique ID, so the dispatcher knows if the officer is calling from the handheld or the squad car.
+% === Page 10 ======================================================================== 
+\begin{center}
+    \item \subsection{Channel Group 3: Channel 11}    
+\end{center}
 
+\medskip
+The ``special'' channel 11 uses the same MURS 5 (Green Dot) frequency as channel 10 with a different PL Tone than the 
+previous two groups. Also, at the end of every transmission on channel 11, there is a unique ``chirp'' noise that can 
+be heard by the receiving radio. While listening, after the voice audio stops, the transmitting radio sends out a 
+little data burst packet which is what many Police Departments used for unit ID. This data burst is decoded by the 
+dispatch console and used typically by the dispatcher when one of the officers (or firefighters, EMS, etc.) calls out 
+on the radio. The dispatcher knows immediately who is calling to keep transmissions shorter and help keep the channel 
+clear of traffic. Each officer in a squad car will usually have two radios: one handheld, and one mobile unit mounted 
+in the vehicle. Each radio can have its own unique ID, so the dispatcher knows if the officer is calling from the 
+handheld or the squad car.
+
+\medskip
 This chirp tone is named: \textit{MDC-1200}, and is set to ID on \textit{dekey}. For it to work properly,
 the radio must be \textit{keyed up} for $\approx$ one second or longer.
 
+\medskip
 \begin{enumerate}[resume]
     \item MURS 5 with MDC1200 ID on dekey.
     \begin{itemize}
         \item Freq: 154.60 MHz
-        \item Tone: 127.3 Hz
+        \item Tone: 141.3 Hz
         \item Bandwidth: Wide (20 kHz)
     \end{itemize}
 \end{enumerate}
 
-The purpose of having two separate channel groups with different tone squelch settings is for versatility. Since the
-HT1000s have 16 available channels, rather than leave some of the channels unprogrammed, the author decided to create
-two separate groups in case of interference. Channel group 1 will typically be sufficient for most operation, but
-there is the possibility of being in a location where someone else is using the same tone frequency on their 
-transmitter, since the MURS channels can be used by anyone in the general public. If in the rare instance MURS $1 - 5$
-are busy with other traffic using the 103.5 Hz PL tone, channel group 2 can be used with a different PL tone of 
-127.3 Hz to block out the unwanted traffic. This is not a perfect solution, though. If the other stations are 
-operating close by, their FM carrier signals can still cause unwanted interference by blocking your wanted traffic
-from being heard at all in some circumstances if their FM carrier signal is stronger. This can cause receiving 
-operators to ``miss calls.''
+The purpose of having three separate channel operating groups with different tone squelch settings is for versatility. 
+Since the HT1000s have 16 available channels, rather than leave some of the channels unprogrammed, the author decided 
+to create three separate groups in case of interference. Channel group 1 will typically be sufficient for most 
+operation, but there is the possibility of being in a location where someone else is using the same tone frequency on 
+their transmitter, since the MURS channels can be used by anyone in the general public. If in the rare instance MURS 
+$1 - 5$ are busy with other traffic using the 103.5 Hz PL tone, channel group 2 can be used with a different PL tone 
+of 127.3 Hz or channel group 3 with PL tone of 141.3 Hz to block out the unwanted traffic. This is not a perfect 
+solution, though. If the other stations are operating close by, their FM carrier signals can still cause unwanted 
+interference by blocking your wanted traffic from being heard at all in some circumstances if their FM carrier signal 
+is stronger. This can cause receiving operators to ``miss calls.''
 
 \clearpage
-% === Page 12 ========================================================================
+% === Page 11 ========================================================================
 \begin{center}
-    \item \subsection{Channel Group 3: Channels 12 - 16}    
+    \item \subsection{Channel Group 4: Channels 12 - 16}    
 \end{center}
 
-In Channel Group 3, all channels are set to receive (RX) only. Transmitting on these
-channels is not allowed in this case due to the missing \textit{FCC Part 80} type certification on the HT1000 
-radios, which is needed for transmitting on the Marine VHF band. Transmitting on the NOAA Weather Band is never 
-allowed because the beacons are \textit{broadcast stations}.
+In Channel Group 4, all channels are set to receive (RX) only. Transmitting on these channels is not allowed in 
+this case due to the missing \textit{FCC Part 80} type certification on the HT1000 radios, which is needed for 
+transmitting on the Marine VHF band. Transmitting on the NOAA Weather Band is never allowed because the beacons 
+are \textit{broadcast stations}.
 
 \medskip
 \begin{enumerate}[resume]
@@ -494,7 +496,7 @@ while listening. The National Weather Service shows more information about these
 \end{itemize}
 
 \clearpage
-% === Page 13 ========================================================================
+% === Page 12 ========================================================================
 \begin{center}
     \item \subsection{Toggle Switch and Button Functions}   
 \end{center}
@@ -539,7 +541,6 @@ while listening. The National Weather Service shows more information about these
     \end{itemize}
 \end{itemize}
 
-\medskip
 Note that the Toggle Switch Configuration can be changed in the RSS (MS-DOS based). The only other useful
 function we might care about in this application is changing the Toggle Switch Configuration to:
 \begin{itemize}
@@ -551,14 +552,13 @@ function we might care about in this application is changing the Toggle Switch C
     \item C: Channel scan function just as described earlier.
 \end{itemize}
 
-\medskip
 All the other Toggle Switch functions in the RSS are mostly useless now since they are legacy configurations 
 related to obsolete and outdated \textit{Trunking Protocols}. The other configurations can be viewed in the Radio
 Service Software manual. The link for that manual is in Section 5 of this document. The side button configuration
 menu can be viewed on page 88 of the RSS manual if interested.
 
 \clearpage
-% === Page 14 ========================================================================
+% === Page 13 ========================================================================
 \noindent Side and Top Button Definitions:
 \begin{itemize}
     \item Side Button 1: Top round green button on the side of the radio.
@@ -605,14 +605,15 @@ menu can be viewed on page 88 of the RSS manual if interested.
 \end{itemize}
 
 \clearpage
-% === Page 15 =========================================================================
+% === Page 14 =========================================================================
 \begin{center}
     \item \section{Other Thoughts}
 \end{center}
 
+\medskip
 In this guide, some different services in the VHF-Hi band for the range of 136 MHz $-$ 174 MHz were discussed,
 since that is the frequency range of operation for the HT1000s.
-In that band, there are many different services, some which were not discussed:
+In that band, there are many different services, some of which were not discussed:
 
 \medskip
 \begin{itemize}
@@ -623,13 +624,25 @@ In that band, there are many different services, some which were not discussed:
     \item NOAA Weather Radio: 162 MHz (FCC Part 11 for Emergency Alert Systems.)
 \end{itemize}
 
-\medskip
 Railroad VHF used to be conventional analog operation, but has mostly moved to digital \\operation, so the 
 HT1000 would only hear the digital tones and not decode it properly for listening to voice traffic in this case. 
 To decode digital voice traffic, a newer digital radio with a digital \textit{vocoder} is required.
 
+\medskip
+Here is a photo from when this author was servicing the HT1000s for reuse. This is a Panasonic CF-27 the author
+purchased and built a custom MS-DOS 6.22 \& Windows XP dual boot operating system specifically for surplus 
+radios. The Bird 43 wattmeter is equipped with a 5 watt slug for VHF-Hi Band, so full scale on the meter is 5 watts.
+The meter is terminated on the output by a small dummy load. The radio connects to the PC via the accessory connector
+as shown.
+\medskip
+\begin{figure}[H]                       % Place image HERE. Note: [H] requires float pkg
+    \centering                          % center image, scale to 100% of the text width:
+    \includegraphics[width=1.0\textwidth]{./RSS-Service.jpg}
+    \caption{Setting power output using the RSS Service menu.} % Place caption BELOW image.
+\end{figure}
+
 \clearpage
-% === Page 16 ========================================================================
+% === Page 15 ========================================================================
 \begin{center}
     \item \section{Links}
 \end{center}
@@ -699,7 +712,7 @@ options and configurations for the HT1000.
 \end{itemize}
 
 \clearpage
-% === Page 17 ========================================================================
+% === Page 16 ========================================================================
 \begin{center}
     \section{Vocabulary and Definitions}
 \end{center}
@@ -741,7 +754,7 @@ options and configurations for the HT1000.
     \item \textit{UHF}: Ultra High Frequency band. The ``next highest'' band in frequency above VHF. UHF spans
         from 300 MHz to 3 GHz in frequency, or 1 meter to 10 centimeters in wavelength.
 
-% === Page 18 ========================================================================    
+% === Page 17 ========================================================================    
     \item \textit{The Electromagnetic Spectrum}: This is the entire spectrum of frequencies in the universe. It
         spans from Radiofrequency waves (RF) at the lower end (kHz to several MHz), then to Microwaves (several GHz).
         Skipping ahead to the center of the Electromagnetic Spectrum is Visible Light. Just below Visible Light is 
@@ -786,7 +799,7 @@ options and configurations for the HT1000.
         radio transmitter. We must set the radio to transmit within its own ``lane'' so that it does not interfere 
         with other radio traffic on adjacent channels. The bandwith setting in the radio firmware (modified 
         via \textit{RSS}) must be set properly. The RSS has predetermined settings for channel bandwidth.
-% === Page 19 ========================================================================
+% === Page 18 ========================================================================
     \item \textit{RSS}: The Motorola trademark for ``Radio Service Software,'' which is the program used to 
         modify programmed radio data such as: operating frequency, PL tone, toggle switch \\configurations, and etc.
     \item \textit{ERP}: ERP stands for Effective Radiated Power. This value referes to how many watts of RF 
@@ -813,7 +826,7 @@ options and configurations for the HT1000.
         one agency is responding to a call.
 
 \clearpage
-% === Page 20 ========================================================================
+% === Page 19 ========================================================================
 \begin{center}
     \item \subsection{Page 5 Definitions}
 \end{center}
@@ -851,7 +864,7 @@ options and configurations for the HT1000.
         to the internal file system like a ``general use'' computer (laptop, desktop, etc.) The HT1000s are also 
         considered an embedded system.
 
-% === Page 21 ========================================================================
+% === Page 20 ========================================================================
 \begin{center}
     \item \subsection{Page 8 Definitions}
 \end{center}
@@ -891,7 +904,7 @@ options and configurations for the HT1000.
     \item \textit{dekey}: ``dekey'' refers to when the radio operator unkeys the radio, which means the
         operator releases the Push To Talk (PTT) button. Releasing the PTT button means the radio stops transmitting
         and reverts to receive mode.
-% === Page 22 ========================================================================    
+% === Page 21 ========================================================================    
     \item \textit{keyed up}: A radio is ``keyed up'' when the PTT button is pressed. This puts the radio in
         transmit mode so the radio operator can talk over the air. This can also be referred to as the ``keyup'' 
         state of the radio, which is terminology referred to in the service and RSS manuals.
@@ -937,7 +950,7 @@ options and configurations for the HT1000.
     Modulation'' which is a slightly different mode than FM. Explaining these modes is beyond the scope of this 
     document, but can easily be researched on the internet.
 
-% === Page 23 ========================================================================   
+% === Page 22 ========================================================================   
 \begin{center}
     \item \subsection{Page 13 Definitions}
 \end{center}
