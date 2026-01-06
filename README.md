@@ -1,11 +1,19 @@
 # LaTeX Publications and Templates
 
-Update 8/2/2023: I added a new `Publications` folder and renamed the repo. This folder will now hold any papers I decide to add
-for publication.
+Here I have published my personal publications, available for download below. 
 
-Under the `Tutorials` folder is a small collection of LaTeX templates I began creating and customizing from tutorials and content I found on the web, which is referenced below.
+This repo also contains a `tutorials` folder with multiple different tutorials for reference purposes.
 
-## Environment:
+## Personal Publications Download:
+
+<p>
+    <a href="https://github.com/ADolbyB/latex-publications-templates/blob/main/Publications/Conference/DisasterMgmt/CrisisToControl.pdf" title="DL From Crisis To Control"><img alt="DL From Crisis To Control" src="https://img.shields.io/badge/PDF-From_Crisis_To_Control-blue?style=for-the-badge&logo=latex&logoColor=red&link=https%3A%2F%2Fgithub.com%2FADolbyB%2Flatex-publications-templates%2Fblob%2Fmain%2FPublications%2FConference%2FDisasterMgmt%2FCrisisToControl.pdf"></a>&nbsp;&nbsp;
+    <a href="https://github.com/ADolbyB/latex-publications-templates/blob/main/Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.pdf" title="DL A Handheld Radio Primer"><img alt="DL General Handheld Radio Primer" src="https://img.shields.io/badge/PDF-A_General_Handheld_Radio_Primer-blue?style=for-the-badge&logo=latex&logoColor=red&link=https%3A%2F%2Fgithub.com%2FADolbyB%2Flatex-publications-templates%2Fblob%2Fmain%2FPublications%2FArticles%2FRadio-HT1000%2F2025_HT1000_ch_guide.pdf"></a>&nbsp;&nbsp;
+</p>
+
+---
+
+## Environment Setup:
 
 For Local Installations:
 
@@ -22,7 +30,9 @@ Online IDE:
 3. Overleaf: 
     - [Overleaf](https://www.overleaf.com/) Online LaTeX Editor, which also has collaborative capabilities.
 
-## Sources:
+## Tutorial Sources:
+
+Under the `Tutorials` folder is a small collection of LaTeX templates I began creating and customizing from tutorials and content I found on the web, which is referenced here:
 
  - Electrical Engineering Lectures: [LaTeX Tutorial For Beginners](https://www.youtube.com/watch?v=uVM2FcwPCgk)
  - Simulation Engineer: [How To Compile LaTeX Document in VS Code](https://www.youtube.com/watch?v=QK_yc9qSa2w)
@@ -31,6 +41,7 @@ Online IDE:
  - IEEE: [Manuscript Templates for Conference Proceedings](https://www.ieee.org/conferences/publishing/templates.html)
 
  ## Free Templates:
+
  - [IEEE Citation Generator](https://www.mybib.com/tools/ieee-citation-generator).
     - Great for short papers that have few sources.
     - Works good if you don't want to set up a separate .bib file, and always up to date.
@@ -43,4 +54,4 @@ Online IDE:
 
 ## Status:
 
-![GitHub repo size](https://img.shields.io/github/repo-size/ADolbyB/latex-template-docs?label=Repo%20Size&logo=Github)
+![GitHub repo size](https://img.shields.io/github/repo-size/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github&label=Repo%20Size&color=blue)
