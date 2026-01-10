@@ -1,7 +1,7 @@
+<div align="center">
+
 # LaTeX Publications & Templates
 ### Your Ultimate LaTeX Learning Ecosystem
-
-<div align="center">
 
 [![Stars](https://img.shields.io/github/stars/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates/stargazers)
 [![Forks](https://img.shields.io/github/forks/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates/network/members)
