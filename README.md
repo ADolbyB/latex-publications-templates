@@ -6,7 +6,9 @@
 [![Stars](https://img.shields.io/github/stars/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates/stargazers)
 [![Forks](https://img.shields.io/github/forks/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates/network/members)
 [![Issues](https://img.shields.io/github/issues/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates/issues)
-[![License](https://img.shields.io/github/license/ADolbyB/latex-publications-templates?style=for-the-badge)](https://github.com/ADolbyB/latex-publications-templates/blob/main/LICENSE)
+[![GitHub License](https://img.shields.io/github/license/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates/blob/main/LICENSE)
+
+
 
 [![Last Commit](https://img.shields.io/github/last-commit/ADolbyB/latex-publications-templates?style=flat-square&logo=github)](https://github.com/ADolbyB/latex-publications-templates/commits)
 [![Repo Size](https://img.shields.io/github/repo-size/ADolbyB/latex-publications-templates?style=flat-square&logo=github)](https://github.com/ADolbyB/latex-publications-templates)
@@ -74,9 +76,13 @@ Explore complete LaTeX projects with compiled PDFs and full source code:
 
 [![PDF - From Crisis To Control](https://img.shields.io/badge/PDF-From_Crisis_To_Control-blue?style=for-the-badge&logo=latex&logoColor=white)](https://github.com/ADolbyB/latex-publications-templates/releases/latest/download/CrisisToControl.pdf)
 
-**From Crisis To Control** — IEEE conference-style LaTeX publication demonstrating professional formatting and structure
+**From Crisis To Control** : IEEE conference-style LaTeX publication demonstrating professional formatting and structure
 
 [![PDF - General Handheld Radio Primer](https://img.shields.io/badge/PDF-General_Handheld_Radio_Primer-blue?style=for-the-badge&logo=latex&logoColor=white)](https://github.com/ADolbyB/latex-publications-templates/releases/latest/download/2025_HT1000_ch_guide.pdf)
+
+**Tutorial PDFs** : Download Precompiled PDFs
+
+[![Releases](https://img.shields.io/badge/Releases-Download_PDFs-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ADolbyB/latex-publications-templates/releases)
 
 
 **General Handheld Radio Primer** — Complete technical documentation with figures, tables, and references
@@ -214,34 +220,41 @@ git clone https://github.com/ADolbyB/latex-publications-templates.git
 cd latex-publications-templates
 
 # Navigate to a template or publication
-cd Templates/IEEE-Conference
+cd Publications/Conference/DisasterMgmt
 
 # Compile (if using command line)
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
+pdflatex CrisisToControl.tex      # 1. First pass: collect citation info → creates .aux
+bibtex CrisisToControl            # 2. Process bibliography → creates .bbl
+pdflatex CrisisToControl.tex      # 3. Incorporate bibliography + update references
+pdflatex CrisisToControl.tex      # 4. Resolve page numbers / cross-references / final layout
+
+# Clean up afterwards:
+rm CrisisToControl.aux CrisisToControl.log CrisisToControl.out CrisisToControl.toc CrisisToControl.bbl CrisisToControl.blg
 ```
 
-### 📝 Using Templates
+### 📝 Using Templates  
 
-1. **Choose a template** from the `Templates/` directory
-2. **Copy the template** to your working directory
-3. **Modify** the content while preserving structure
-4. **Compile** using your preferred method
-5. **Iterate** until satisfied with results
+1. **Choose a template** from `Publications\` or `Tutorials\`  
+2. **Copy the template** to your working directory  
+3. **Modify** the content while preserving structure  
+4. **Compile** using your preferred method  
+5. **Iterate** until satisfied with results  
 
-### 🔍 Learning from Publications
+### 🔍 Learning from Publications  
 
-1. **Browse** the compiled PDFs in `Publications/`
-2. **Open** the corresponding source `.tex` files
-3. **Study** the document structure and packages used
-4. **Experiment** by modifying and recompiling
-5. **Apply** techniques to your own documents
+1. **Browse** the compiled PDFs in `Publications/`  
+2. **Open** the corresponding source `.tex` files  
+3. **Study** the document structure and packages used  
+4. **Experiment** by modifying and recompiling  
+5. **Apply** techniques to your own documents  
+
+### 📥 Download Precompiled PDFs  
+
+  [![Releases](https://img.shields.io/badge/Releases-Download_PDFs-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ADolbyB/latex-publications-templates/releases)  
 
 ---
 
-## 🧠 Practical LaTeX Tips
+## 🧠 Practical LaTeX Tips  
 
 Even experienced LaTeX users forget these fundamentals:
 
@@ -260,27 +273,27 @@ These small habits make a **massive difference** in long-term productivity.
 
 ---
 
-## 📊 Template Categories
+## 📊 Template Categories  
 
-### 📄 IEEE Conference Papers
+### 📄 IEEE Conference Papers  
 - Single-column and double-column formats
 - Proper citation styles
 - Figure and table examples
 - Ready for submission
 
-### 🎓 Academic Documents
+### 🎓 Academic Documents  
 - Thesis and dissertation templates
 - Research reports
 - Class notes and documentation
 - CVs and resumes
 
-### 📊 Presentations
+### 📊 Presentations  
 - Beamer slide decks
 - Professional themes
 - Code highlighting
 - Mathematical notation
 
-### 📃 Technical Documentation
+### 📃 Technical Documentation  
 - User manuals
 - API documentation
 - Technical reports
