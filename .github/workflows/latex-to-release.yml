@@ -42,8 +42,8 @@ jobs:
       - name: Compile Tutorial 01
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: fcc-01-BasicStrucure.tex
-          working_directory: Tutorials/01-FCC-BasicStrucure
+          root_file: fcc-01-BasicStructure.tex
+          working_directory: Tutorials/01-FCC-BasicStructure
 
       - name: Compile Tutorial 02
         uses: xu-cheng/latex-action@v3
