@@ -116,7 +116,6 @@ jobs:
       #  with:
       #    root_file: IEEE-JB.tex
       #    working_directory: Tutorials/11b-IEEE-withBibroot_file: LabelError.tex
-
       - name: Compile Tutorial 13
         uses: xu-cheng/latex-action@v3
         with:
@@ -135,7 +134,7 @@ jobs:
           generate_release_notes: true
           body: "Keep Publications and Tutorials separate"
 
-    # Create missing name tolerant ZIP of Tutorial PDFs
+      # Create ZIP of Tutorial PDFs
       - name: Create Tutorials ZIP archive
         run: |
           zip -j TutorialsAllPDFs.zip \
@@ -158,8 +157,11 @@ jobs:
             Tutorials/13-imageFlipping/imageFlip.pdf \
             2>/dev/null || true
 
-      - name: Upload Tutorials ZIP to release
+      # Upload Tutorial ZIP and Radio article as separate downloads
+      - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          files: TutorialsAllPDFs.zip
+          files: |
+            TutorialsAllPDFs.zip
+            Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.pdf
