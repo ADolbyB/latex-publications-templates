@@ -111,11 +111,11 @@ jobs:
           root_file: IEEE-JB.tex
           working_directory: Tutorials/11b-IEEE-withBib
 
-      - name: Compile Tutorial 12
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: LabelError.tex
-          working_directory: Tutorials/12-LabelError
+      # - name: Compile Tutorial 12
+      #   uses: xu-cheng/latex-action@v3
+      #   with:
+      #     root_file: LabelError.tex
+      #     working_directory: Tutorials/12-LabelError
 
       - name: Compile Tutorial 13
         uses: xu-cheng/latex-action@v3
