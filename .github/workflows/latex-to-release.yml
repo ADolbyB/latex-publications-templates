@@ -111,11 +111,11 @@ jobs:
           root_file: IEEE-JB.tex
           working_directory: Tutorials/11b-IEEE-withBib
 
-      # - name: Compile Tutorial 12
-      #   uses: xu-cheng/latex-action@v3
-      #   with:
-      #     root_file: LabelError.tex
-      #     working_directory: Tutorials/12-LabelError
+      # Tutorial 12 intentionally skipped for compilation ### do you know why??
+      #  uses: xu-cheng/latex-action@v3
+      #  with:
+      #    root_file: IEEE-JB.tex
+      #    working_directory: Tutorials/11b-IEEE-withBibroot_file: LabelError.tex
 
       - name: Compile Tutorial 13
         uses: xu-cheng/latex-action@v3
@@ -135,14 +135,14 @@ jobs:
           generate_release_notes: true
           body: "Keep Publications and Tutorials separate"
 
-      # Create ZIP of Tutorial PDFs
+    # Create missing name tolerant ZIP of Tutorial PDFs
       - name: Create Tutorials ZIP archive
         run: |
           zip -j TutorialsAllPDFs.zip \
             Tutorials/00a-Tutorial1/tutorial1.pdf \
             Tutorials/00b-MLACites/MLABib.pdf \
             Tutorials/00c-UsingBibTex/BibTexChapters.pdf \
-            Tutorials/01-FCC-BasicStrucure/fcc-01-BasicStrucure.pdf \
+            Tutorials/01-FCC-BasicStructure/fcc-01-BasicStructure.pdf \
             Tutorials/02-FCC-BasicMath/fcc-02-BasicMath.pdf \
             Tutorials/03-FCC-TablesArrays/fcc-03.pdf \
             Tutorials/04-FCC-Lists/fcc-04.pdf \
@@ -155,7 +155,8 @@ jobs:
             Tutorials/11a-IEEE-Conference/conference_101719.pdf \
             Tutorials/11b-IEEE-withBib/IEEE-JB.pdf \
             Tutorials/12-LabelError/LabelError.pdf \
-            Tutorials/13-imageFlipping/imageFlip.pdf
+            Tutorials/13-imageFlipping/imageFlip.pdf \
+            2>/dev/null || true
 
       - name: Upload Tutorials ZIP to release
         uses: softprops/action-gh-release@v2
