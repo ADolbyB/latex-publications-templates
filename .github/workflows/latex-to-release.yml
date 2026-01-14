@@ -1,9 +1,9 @@
-name: LaTeX → PDF Release
+name: LaTeX → PDF Release # Does it work?
 
 on:
   push:
     tags:
-      - 'v*'           # ← triggers on tags like v0.1, v1.2.3, etc.
+      - 'v*'
 
 jobs:
   build-and-release:
@@ -12,22 +12,117 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Compile relevant documents (subject to change)
+      # Compile Publication 1
       - name: Compile A General Handheld Radio Primer article
-        uses: xu-cheng/latex-action@v3  # switch to latest @v4 when available
+        uses: xu-cheng/latex-action@v3
         with:
-          #root_file: Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.tex
-          working_directory: Publications/Articles/Radio-HT1000 # optional vs `root_file`
-          # compiler: lualatex          # test if needed
-          # args: -pdf -interaction=nonstopmode
+          root_file: 2025_HT1000_ch_guide.tex
+          working_directory: Publications/Articles/Radio-HT1000
 
-      - name: Add papers here
-      - uses: xu-cheng/latex-action@v3 # switch to latest @v4 when available
+      # Compile all Tutorial documents
+      - name: Compile Tutorial 00a
+        uses: xu-cheng/latex-action@v3
         with:
-          # root_file: Tutorials/11b-IEEE-withBib/main.tex
-          working_directory: Tutorials # optional vs root_file
+          root_file: tutorial1.tex
+          working_directory: Tutorials/00a-Tutorial1
 
-      # Create GitHub Release (only if it doesn't exist yet)
+      - name: Compile Tutorial 00b
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: MLABib.tex
+          working_directory: Tutorials/00b-MLACites
+
+      - name: Compile Tutorial 00c
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: BibTexChapters.tex
+          working_directory: Tutorials/00c-UsingBibTex
+
+      - name: Compile Tutorial 01
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-01-BasicStrucure.tex
+          working_directory: Tutorials/01-FCC-BasicStrucure
+
+      - name: Compile Tutorial 02
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-02-BasicMath.tex
+          working_directory: Tutorials/02-FCC-BasicMath
+
+      - name: Compile Tutorial 03
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-03.tex
+          working_directory: Tutorials/03-FCC-TablesArrays
+
+      - name: Compile Tutorial 04
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-04.tex
+          working_directory: Tutorials/04-FCC-Lists
+
+      - name: Compile Tutorial 05
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-05.tex
+          working_directory: Tutorials/05-FCC-Formatting
+
+      - name: Compile Tutorial 06
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-06.tex
+          working_directory: Tutorials/06-FCC-MacrosGraphics
+
+      - name: Compile Tutorial 07
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-07.tex
+          working_directory: Tutorials/07-FCC-Debugging
+
+      - name: Compile Tutorial 08
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-08.tex
+          working_directory: Tutorials/08-FCC-Calculus
+
+      - name: Compile Tutorial 09
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-09.tex
+          working_directory: Tutorials/09-FCC-MathPaper
+
+      - name: Compile Tutorial 10
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tutorial1.tex
+          working_directory: Tutorials/10-FCC-BeamerPPT
+
+      - name: Compile Tutorial 11a
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tutorial1.tex
+          working_directory: Tutorials/11a-IEEE-Conference
+
+      - name: Compile Tutorial 11b
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tutorial1.tex
+          working_directory: Tutorials/11b-IEEE-withBib
+
+      - name: Compile Tutorial 12
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tutorial1.tex
+          working_directory: Tutorials/12-LabelError
+
+      - name: Compile Tutorial 13
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tutorial1.tex
+          working_directory: Tutorials/13-imageFlipping
+
+      # Create GitHub Release
       - name: Create PDF Releases
         id: create_release
         uses: softprops/action-gh-release@v2
@@ -38,29 +133,31 @@ jobs:
           prerelease: false
           generate_release_notes: true
           body: "Keep Publications and Tutorials separate"
-          # add conferences after they compile
 
-      - name: Bundle Tutorial PDFs together as a ZIP, upload to release as single file
+      # Create ZIP of Tutorial PDFs
+      - name: Create Tutorials ZIP archive
+        run: |
+          zip -j TutorialsAllPDFs.zip \
+            Tutorials/00a-Tutorial1/tutorial1.pdf \
+            Tutorials/00b-MLACites/MLABib.pdf \
+            Tutorials/00c-UsingBibTex/BibTexChapters.pdf \
+            Tutorials/01-FCC-BasicStrucure/fcc-01-BasicStrucure.pdf \
+            Tutorials/02-FCC-BasicMath/fcc-02-BasicMath.pdf \
+            Tutorials/03-FCC-TablesArrays/fcc-03.pdf \
+            Tutorials/04-FCC-Lists/fcc-04.pdf \
+            Tutorials/05-FCC-Formatting/fcc-05.pdf \
+            Tutorials/06-FCC-MacrosGraphics/fcc-06.pdf \
+            Tutorials/07-FCC-Debugging/fcc-07.pdf \
+            Tutorials/08-FCC-Calculus/fcc-08.pdf \
+            Tutorials/09-FCC-MathPaper/fcc-09.pdf \
+            Tutorials/10-FCC-BeamerPPT/tutorial1.pdf \
+            Tutorials/11a-IEEE-Conference/tutorial1.pdf \
+            Tutorials/11b-IEEE-withBib/tutorial1.pdf \
+            Tutorials/12-LabelError/tutorial1.pdf \
+            Tutorials/13-imageFlipping/tutorial1.pdf
+
+      - name: Upload Tutorials ZIP to release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          files: |
-            Tutorials/00a-Tutorial1/tutorial1.pdf
-            Tutorials/00b-MLACites/MLABib.pdf
-            Tutorials/00c-UsingBibTex/BibTexChapters.pdf
-            Tutorials/01-FCC-BasicStrucure/fcc-01-BasicStrucure.pdf
-            Tutorials/02-FCC-BasicMath/fcc-02-BasicMath.pdf
-            Tutorials/03-FCC-TablesArrays/fcc-03.pdf
-            Tutorials/04-FCC-Lists/fcc-04.pdf
-            Tutorials/05-FCC-Formatting/fcc-05.pdf
-            Tutorials/06-FCC-MacrosGraphics/fcc-06.pdf
-            Tutorials/07-FCC-Debugging/fcc-07.pdf
-            Tutorials/08-FCC-Calculus/fcc-08.pdf
-            Tutorials/09-FCC-MathPaper/fcc-09.pdf
-            Tutorials/10-FCC-BeamerPPT/tutorial1.pdf
-            Tutorials/11a-IEEE-Conference/tutorial1.pdf
-            Tutorials/11b-IEEE-withBib/tutorial1.pdf
-            Tutorials/12-LabelError/tutorial1.pdf
-            Tutorials/13-imageFlipping/tutorial1.pdf
-          dest:
-            TutorialsAllPDFs.zip
+          files: TutorialsAllPDFs.zip
