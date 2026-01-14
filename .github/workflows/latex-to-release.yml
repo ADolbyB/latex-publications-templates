@@ -96,31 +96,31 @@ jobs:
       - name: Compile Tutorial 10
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: tutorial1.tex
+          root_file: beamer-tut.tex
           working_directory: Tutorials/10-FCC-BeamerPPT
 
       - name: Compile Tutorial 11a
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: tutorial1.tex
+          root_file: conference_101719.tex
           working_directory: Tutorials/11a-IEEE-Conference
 
       - name: Compile Tutorial 11b
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: tutorial1.tex
+          root_file: IEEE-JB.tex
           working_directory: Tutorials/11b-IEEE-withBib
 
       - name: Compile Tutorial 12
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: tutorial1.tex
+          root_file: LabelError.tex
           working_directory: Tutorials/12-LabelError
 
       - name: Compile Tutorial 13
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: tutorial1.tex
+          root_file: imageFlip.tex
           working_directory: Tutorials/13-imageFlipping
 
       # Create GitHub Release
@@ -151,11 +151,11 @@ jobs:
             Tutorials/07-FCC-Debugging/fcc-07.pdf \
             Tutorials/08-FCC-Calculus/fcc-08.pdf \
             Tutorials/09-FCC-MathPaper/fcc-09.pdf \
-            Tutorials/10-FCC-BeamerPPT/tutorial1.pdf \
-            Tutorials/11a-IEEE-Conference/tutorial1.pdf \
-            Tutorials/11b-IEEE-withBib/tutorial1.pdf \
-            Tutorials/12-LabelError/tutorial1.pdf \
-            Tutorials/13-imageFlipping/tutorial1.pdf
+            Tutorials/10-FCC-BeamerPPT/beamer-tut.pdf \
+            Tutorials/11a-IEEE-Conference/conference_101719.pdf \
+            Tutorials/11b-IEEE-withBib/IEEE-JB.pdf \
+            Tutorials/12-LabelError/LabelError.pdf \
+            Tutorials/13-imageFlipping/imageFlip.pdf
 
       - name: Upload Tutorials ZIP to release
         uses: softprops/action-gh-release@v2
