@@ -136,22 +136,22 @@ Choose your LaTeX workflow based on your preferences and needs.
 
 ### 💻 Local Development (Recommended for Power Users)
 
-**Option 1: VS Code + MiKTeX (Best Overall)**
+**Option 1: VS Code on Linux Mint**
 
-1. **Install MiKTeX** - [Download MiKTeX](https://miktex.org/)
-   - Automatic package management
-   - Cross-platform support
-   - Works with any editor
-
-2. **Install VS Code** - [Download VS Code](https://code.visualstudio.com/)
+1. **Install VS Code** - [Download VS Code](https://code.visualstudio.com/)
    - Lightweight and fast
    - Excellent LaTeX support
 
-3. **Add LaTeX Workshop Extension**
+2. **Add LaTeX Workshop Extension**
    - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
    - Auto-compilation on save
    - PDF preview in editor
    - Syntax highlighting and IntelliSense
+
+3. Add all LaTeX packages to your installation: 
+```bash
+sudo apt-get install texlive-full
+```
 
 **Why this setup?**
 - ✅ Fastest compilation
@@ -164,9 +164,9 @@ Choose your LaTeX workflow based on your preferences and needs.
 - **Install** - [Download TeXMaker](https://www.xm1math.net/texmaker/)
 - Dedicated LaTeX IDE
 - Built-in PDF viewer
-- Still requires MiKTeX for compilation
+- Still requires `texlive-full` for PDF compilation
 
-> 💡 **Important:** MiKTeX handles package installation automatically, even if you use a different editor.
+> 💡 **Important:** `texlive-full` includes all dependency packages, this minimizes PDF compilation errors.
 
 ### ☁️ Online Editing (Great for Beginners & Collaboration)
 
@@ -215,21 +215,9 @@ Choose your LaTeX workflow based on your preferences and needs.
 ### ⚡ Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/ADolbyB/latex-publications-templates.git
-cd latex-publications-templates
+# All PDFs are generated into the `Releases` section of this repository.
 
-# Navigate to a template or publication
-cd Publications/Conference/DisasterMgmt
-
-# Compile (if using command line)
-pdflatex CrisisToControl.tex      # 1. First pass: collect citation info → creates .aux
-bibtex CrisisToControl            # 2. Process bibliography → creates .bbl
-pdflatex CrisisToControl.tex      # 3. Incorporate bibliography + update references
-pdflatex CrisisToControl.tex      # 4. Resolve page numbers / cross-references / final layout
-
-# Clean up afterwards:
-rm CrisisToControl.aux CrisisToControl.log CrisisToControl.out CrisisToControl.toc CrisisToControl.bbl CrisisToControl.blg
+# All tutorial PDFs are generated into 1 convenient .ZIP file.
 ```
 
 ### 📝 Using Templates  
