@@ -1,0 +1,66 @@
+name: LaTeX → PDF Release
+
+on:
+  push:
+    tags:
+      - 'v*'           # ← triggers on tags like v0.1, v1.2.3, etc.
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Compile relevant documents (subject to change)
+      - name: Compile A General Handheld Radio Primer article
+        uses: xu-cheng/latex-action@v3  # switch to latest @v4 when available
+        with:
+          #root_file: Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.tex
+          working_directory: Publications/Articles/Radio-HT1000 # optional vs `root_file`
+          # compiler: lualatex          # test if needed
+          # args: -pdf -interaction=nonstopmode
+
+      - name: Add papers here
+      - uses: xu-cheng/latex-action@v3 # switch to latest @v4 when available
+        with:
+          # root_file: Tutorials/11b-IEEE-withBib/main.tex
+          working_directory: Tutorials # optional vs root_file
+
+      # Create GitHub Release (only if it doesn't exist yet)
+      - name: Create PDF Releases
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          body: "Keep Publications and Tutorials separate"
+          # add conferences after they compile
+
+      - name: Bundle Tutorial PDFs together as a ZIP, upload to release as single file
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: |
+            Tutorials/00a-Tutorial1/tutorial1.pdf
+            Tutorials/00b-MLACites/MLABib.pdf
+            Tutorials/00c-UsingBibTex/BibTexChapters.pdf
+            Tutorials/01-FCC-BasicStrucure/fcc-01-BasicStrucure.pdf
+            Tutorials/02-FCC-BasicMath/fcc-02-BasicMath.pdf
+            Tutorials/03-FCC-TablesArrays/fcc-03.pdf
+            Tutorials/04-FCC-Lists/fcc-04.pdf
+            Tutorials/05-FCC-Formatting/fcc-05.pdf
+            Tutorials/06-FCC-MacrosGraphics/fcc-06.pdf
+            Tutorials/07-FCC-Debugging/fcc-07.pdf
+            Tutorials/08-FCC-Calculus/fcc-08.pdf
+            Tutorials/09-FCC-MathPaper/fcc-09.pdf
+            Tutorials/10-FCC-BeamerPPT/tutorial1.pdf
+            Tutorials/11a-IEEE-Conference/tutorial1.pdf
+            Tutorials/11b-IEEE-withBib/tutorial1.pdf
+            Tutorials/12-LabelError/tutorial1.pdf
+            Tutorials/13-imageFlipping/tutorial1.pdf
+          dest:
+            TutorialsAllPDFs.zip
