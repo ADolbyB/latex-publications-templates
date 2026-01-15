@@ -158,9 +158,6 @@ jobs:
             Tutorials/11b-IEEE-withBib/IEEE-JB.pdf \
             Tutorials/13-imageFlipping/imageFlip.pdf \
             2>/dev/null || true   # ignore missing files during test
-      
-      - name: List generated PDFs (DEBUG)
-        run: find Tutorials -name "*.pdf" -print || true
 
       # Create/Update release and upload assets
       - name: Create Release & Upload Assets
