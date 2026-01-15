@@ -135,18 +135,6 @@ jobs:
           root_file: imageFlip.tex
           working_directory: Tutorials/13-imageFlipping
 
-      # Create GitHub Release
-      - name: Create PDF Releases
-        id: create_release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
-          body: "Keep Publications and Tutorials separate"
-
       # Create ZIP of Compiled PDFs
       - name: Create Tutorials ZIP archive
         run: |
@@ -169,11 +157,11 @@ jobs:
             Tutorials/13-imageFlipping/imageFlip.pdf \
             2>/dev/null || true   # ignore missing files during test
 
-      # Create/Update release and upload assets
+      # Create/Update release and upload assets (ONLY THIS ONE)
       - name: Create Release & Upload Assets
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}     # defaults to the pushed tag
+          tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
@@ -188,5 +176,4 @@ jobs:
             Publications/Conference/Backup/IEEE-BackupTemplate.pdf
             Publications/Conference/DisasterMgmt/CrisisToControl.pdf
             TutorialsAllPDFs.zip
-          overwrite_files: true               # useful for testing/re-runs
-          fail_on_unmatched_files: true       # fail fast if a PDF is missing
+          fail_on_unmatched_files: true
