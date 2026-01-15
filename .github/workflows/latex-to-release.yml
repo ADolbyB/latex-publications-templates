@@ -135,7 +135,17 @@ jobs:
           root_file: imageFlip.tex
           working_directory: Tutorials/13-imageFlipping
 
-      # Add any others for compilation
+      # Create GitHub Release
+      - name: Create PDF Releases
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          body: "Keep Publications and Tutorials separate"
 
       # Create ZIP of Compiled PDFs
       - name: Create Tutorials ZIP archive
