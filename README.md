@@ -150,7 +150,8 @@ Choose your LaTeX workflow based on your preferences and needs.
 
 3. Add all LaTeX packages to your installation: 
 ```bash
-sudo apt-get install texlive-full
+sudo apt update
+sudo apt install texlive-publishers texlive-science texlive-fonts-recommended texlive-latex-extra texlive-bibtex-extra
 ```
 
 **Why this setup?**
@@ -164,9 +165,7 @@ sudo apt-get install texlive-full
 - **Install** - [Download TeXMaker](https://www.xm1math.net/texmaker/)
 - Dedicated LaTeX IDE
 - Built-in PDF viewer
-- Still requires `texlive-full` for PDF compilation
-
-> 💡 **Important:** `texlive-full` includes all dependency packages, this minimizes PDF compilation errors.
+- Still requires `texlive` packages above for PDF compilation
 
 ### ☁️ Online Editing (Great for Beginners & Collaboration)
 
@@ -215,9 +214,11 @@ sudo apt-get install texlive-full
 ### ⚡ Quick Start
 
 ```bash
-# All PDFs are generated into the `Releases` section of this repository.
+git clone https://github.com/ADolbyB/latex-publications-templates.git
+cd latex-publications-templates
+code .
 
-# All tutorial PDFs are generated into 1 convenient .ZIP file.
+# All PDFs are already generated into the Releases section of this repository.
 ```
 
 ### 📝 Using Templates  
