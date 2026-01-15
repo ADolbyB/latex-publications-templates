@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write          # ← Required for releases & assets!
+  contents: write          # Required for releases and assets
 
 jobs:
   build-and-release:
@@ -38,12 +38,109 @@ jobs:
           root_file: CrisisToControl.tex
           working_directory: Publications/Conference/DisasterMgmt
 
-      # add any other compilations here
+      # Compile Tutorial 00a
+      - name: Compile Tutorial 00a
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: tutorial1.tex
+          working_directory: Tutorials/00a-Tutorial1
 
-      # Create ZIP of Tutorial PDFs
+      - name: Compile Tutorial 00b
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: MLABib.tex
+          working_directory: Tutorials/00b-MLACites
+
+      - name: Compile Tutorial 00c
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: BibTexChapters.tex
+          working_directory: Tutorials/00c-UsingBibTex
+
+      - name: Compile Tutorial 01
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-01-BasicStructure.tex
+          working_directory: Tutorials/01-FCC-BasicStructure
+
+      - name: Compile Tutorial 02
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-02-BasicMath.tex
+          working_directory: Tutorials/02-FCC-BasicMath
+
+      - name: Compile Tutorial 03
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-03.tex
+          working_directory: Tutorials/03-FCC-TablesArrays
+
+      - name: Compile Tutorial 04
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-04.tex
+          working_directory: Tutorials/04-FCC-Lists
+
+      - name: Compile Tutorial 05
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-05.tex
+          working_directory: Tutorials/05-FCC-Formatting
+
+      - name: Compile Tutorial 06
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-06.tex
+          working_directory: Tutorials/06-FCC-MacrosGraphics
+
+      - name: Compile Tutorial 07
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-07.tex
+          working_directory: Tutorials/07-FCC-Debugging
+
+      - name: Compile Tutorial 08
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-08.tex
+          working_directory: Tutorials/08-FCC-Calculus
+
+      - name: Compile Tutorial 09
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: fcc-09.tex
+          working_directory: Tutorials/09-FCC-MathPaper
+
+      - name: Compile Tutorial 10
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: beamer-tut.tex
+          working_directory: Tutorials/10-FCC-BeamerPPT
+
+      - name: Compile Tutorial 11a
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: conference_101719.tex
+          working_directory: Tutorials/11a-IEEE-Conference
+
+      - name: Compile Tutorial 11b
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: IEEE-JB.tex
+          working_directory: Tutorials/11b-IEEE-withBib
+
+      - name: Compile Tutorial 13
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: imageFlip.tex
+          working_directory: Tutorials/13-imageFlipping
+
+      # Add any others for compilation
+
+      # Create ZIP of Compiled PDFs
       - name: Create Tutorials ZIP archive
         run: |
-          zip -j TutorialsAllPDFs.zip \
+          zip -j TutorialsAllPDFs.zip \ 
             Tutorials/00a-Tutorial1/tutorial1.pdf \
             Tutorials/00b-MLACites/MLABib.pdf \
             Tutorials/00c-UsingBibTex/BibTexChapters.pdf \
@@ -62,14 +159,14 @@ jobs:
             Tutorials/13-imageFlipping/imageFlip.pdf \
             2>/dev/null || true   # ignore missing files during test
       
-      - name: List generated PDFs (debug)
+      - name: List generated PDFs (DEBUG)
         run: find Tutorials -name "*.pdf" -print || true
 
-      # Single step: Create/Update release + upload ALL assets
+      # Create/Update release and upload assets
       - name: Create Release & Upload Assets
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}     # optional – defaults to the pushed tag
+          tag_name: ${{ github.ref_name }}     # defaults to the pushed tag
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
