@@ -164,12 +164,21 @@ jobs:
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
-          generate_release_notes: true
+          generate_release_notes: false
           body: |
-            Auto-generated release with compiled PDFs and tutorials archive.
-            
-            - 3 main publication PDFs
-            - All tutorial PDFs in one ZIP
+            📚 LaTeX Publications & Tutorials - Release ${{ github.ref_name }}
+      
+            This release contains compiled PDFs from LaTeX source files:
+      
+            **Publications:**
+            - 📄 HT1000 Radio Primer (Article)
+            - 📄 IEEE Backup Template (Conference)
+            - 📄 Disaster Management Paper (Conference)
+      
+            **Tutorials:**
+            - 📦 Complete tutorial collection (ZIP file)
+      
+            View the source `.tex` files in the repository.
           files: |
             Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.pdf
             Publications/Conference/Backup/IEEE-BackupTemplate.pdf
