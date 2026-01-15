@@ -150,7 +150,7 @@ jobs:
       # Create ZIP of Compiled PDFs
       - name: Create Tutorials ZIP archive
         run: |
-          zip -j TutorialsAllPDFs.zip \ 
+          zip -j TutorialsAllPDFs.zip \
             Tutorials/00a-Tutorial1/tutorial1.pdf \
             Tutorials/00b-MLACites/MLABib.pdf \
             Tutorials/00c-UsingBibTex/BibTexChapters.pdf \
