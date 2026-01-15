@@ -1,10 +1,13 @@
-name: LaTeX → PDF Release # Does it work?
+name: LaTeX → PDF Release
 
 on:
   push:
     tags:
       - 'v*'
   workflow_dispatch:
+
+permissions:
+  contents: write          # ← Required for releases & assets!
 
 jobs:
   build-and-release:
@@ -13,126 +16,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Compile Publication 1
+      # LaTeX compilation
+      # Compile Publication 1 [article]
       - name: Compile A General Handheld Radio Primer article
         uses: xu-cheng/latex-action@v3
         with:
           root_file: 2025_HT1000_ch_guide.tex
           working_directory: Publications/Articles/Radio-HT1000
-
-      # Compile all Tutorial documents
-      - name: Compile Tutorial 00a
+    
+      # Compile Publication 2 [conference]
+      - name: Compile Partial IEEE Backup template
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: tutorial1.tex
-          working_directory: Tutorials/00a-Tutorial1
-
-      - name: Compile Tutorial 00b
+          root_file: IEEE-BackupTemplate.tex
+          working_directory: Publications/Conference/Backup
+            
+      # Compile Publication 3 [conference]
+      - name: Compile Disaster Management Paper
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: MLABib.tex
-          working_directory: Tutorials/00b-MLACites
+          root_file: CrisisToControl.tex
+          working_directory: Publications/Conference/DisasterMgmt
 
-      - name: Compile Tutorial 00c
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: BibTexChapters.tex
-          working_directory: Tutorials/00c-UsingBibTex
-
-      - name: Compile Tutorial 01
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-01-BasicStructure.tex
-          working_directory: Tutorials/01-FCC-BasicStructure
-
-      - name: Compile Tutorial 02
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-02-BasicMath.tex
-          working_directory: Tutorials/02-FCC-BasicMath
-
-      - name: Compile Tutorial 03
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-03.tex
-          working_directory: Tutorials/03-FCC-TablesArrays
-
-      - name: Compile Tutorial 04
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-04.tex
-          working_directory: Tutorials/04-FCC-Lists
-
-      - name: Compile Tutorial 05
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-05.tex
-          working_directory: Tutorials/05-FCC-Formatting
-
-      - name: Compile Tutorial 06
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-06.tex
-          working_directory: Tutorials/06-FCC-MacrosGraphics
-
-      - name: Compile Tutorial 07
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-07.tex
-          working_directory: Tutorials/07-FCC-Debugging
-
-      - name: Compile Tutorial 08
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-08.tex
-          working_directory: Tutorials/08-FCC-Calculus
-
-      - name: Compile Tutorial 09
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-09.tex
-          working_directory: Tutorials/09-FCC-MathPaper
-
-      - name: Compile Tutorial 10
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: beamer-tut.tex
-          working_directory: Tutorials/10-FCC-BeamerPPT
-
-      - name: Compile Tutorial 11a
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: conference_101719.tex
-          working_directory: Tutorials/11a-IEEE-Conference
-
-      - name: Compile Tutorial 11b
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: IEEE-JB.tex
-          working_directory: Tutorials/11b-IEEE-withBib
-
-      # Tutorial 12 intentionally skipped for compilation ### do you know why??
-      #  uses: xu-cheng/latex-action@v3
-      #  with:
-      #    root_file: IEEE-JB.tex
-      #    working_directory: Tutorials/11b-IEEE-withBibroot_file: LabelError.tex
-      - name: Compile Tutorial 13
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: imageFlip.tex
-          working_directory: Tutorials/13-imageFlipping
-
-      # Create GitHub Release
-      - name: Create PDF Releases
-        id: create_release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
-          body: "Keep Publications and Tutorials separate"
+      # add any other compilations here
 
       # Create ZIP of Tutorial PDFs
       - name: Create Tutorials ZIP archive
@@ -153,15 +59,30 @@ jobs:
             Tutorials/10-FCC-BeamerPPT/beamer-tut.pdf \
             Tutorials/11a-IEEE-Conference/conference_101719.pdf \
             Tutorials/11b-IEEE-withBib/IEEE-JB.pdf \
-            Tutorials/12-LabelError/LabelError.pdf \
             Tutorials/13-imageFlipping/imageFlip.pdf \
-            2>/dev/null || true
+            2>/dev/null || true   # ignore missing files during test
+      
+      - name: List generated PDFs (debug)
+        run: find Tutorials -name "*.pdf" -print || true
 
-      # Upload Tutorial ZIP and Radio article as separate downloads
-      - name: Upload release assets
+      # Single step: Create/Update release + upload ALL assets
+      - name: Create Release & Upload Assets
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}     # optional – defaults to the pushed tag
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          body: |
+            Auto-generated release with compiled PDFs and tutorials archive.
+            
+            - 3 main publication PDFs
+            - All tutorial PDFs in one ZIP
           files: |
-            TutorialsAllPDFs.zip
             Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.pdf
+            Publications/Conference/Backup/IEEE-BackupTemplate.pdf
+            Publications/Conference/DisasterMgmt/CrisisToControl.pdf
+            TutorialsAllPDFs.zip
+          overwrite_files: true               # useful for testing/re-runs
+          fail_on_unmatched_files: true       # fail fast if a PDF is missing
