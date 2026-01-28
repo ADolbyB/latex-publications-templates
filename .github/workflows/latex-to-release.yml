@@ -3,168 +3,136 @@ name: LaTeX → PDF Release
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*'  # Only run when a tag starting with 'v' is pushed (v0.91, v2.3.1, etc.)
 
 permissions:
-  contents: write          # Required for releases and assets
+  contents: write  # Required to create releases and upload release assets
 
 jobs:
-  build-and-release:
+  # JOB 1: Compile publication documents in parallel
+  compile-publications:
     runs-on: ubuntu-latest
+    strategy:   # Matrix strategy allows running the same steps multiple times
+      matrix:   # Each item in the matrix runs a separate, parallel job
+        publication:
+          # 'name' is a friendly identifier, 'dir' is the working directory, 'file' is the .tex file
+          - { name: 'HT1000 Radio Primer', dir: 'Publications/Articles/Radio-HT1000', file: '2025_HT1000_ch_guide.tex' }
+          - { name: 'From Crisis to Control', dir: 'Publications/Conference/DisasterMgmt', file: 'CrisisToControl.tex' }
+          - { name: 'IEEE Backup Template', dir: 'Publications/Conference/Backup', file: 'IEEE-BackupTemplate.tex' }
+  
     steps:
+      # Step 1: Check out the repository code to access .tex files
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      # LaTeX compilation
-      # Compile Publication 1 [article]
-      - name: Compile A General Handheld Radio Primer article
+      
+      # Step 2: Compile the LaTeX documents in parallel
+      - name: Compile ${{ matrix.publication.name }}  # Name shows which document is being compiled
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: 2025_HT1000_ch_guide.tex
-          working_directory: Publications/Articles/Radio-HT1000
+          root_file: ${{ matrix.publication.file }}        # Each main .tex file to compile
+          working_directory: ${{ matrix.publication.dir }} # Directory to run the compilation
+      
+      # Step 3: Upload the compiled PDF as a temporary artifact
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-${{ matrix.publication.name }}    # Unique name for this artifact
+          path: ${{ matrix.publication.dir }}/*.pdf   # Path to the compiled PDF
+          retention-days: 1  # Delete after 1 day (only needed for this workflow)
+
+  # JOB 2: Compile tutorial documents in parallel
+  compile-tutorials:
+    runs-on: ubuntu-latest
+    strategy:   # Matrix strategy allows running the same steps multiple times
+      matrix:   # 16 separate, parallel jobs
+        tutorial:
+          - { dir: '00a-Tutorial1', file: 'tutorial1.tex' }
+          - { dir: '00b-MLACites', file: 'MLABib.tex' }
+          - { dir: '00c-UsingBibTex', file: 'BibTexChapters.tex' }
+          - { dir: '01-FCC-BasicStructure', file: 'fcc-01-BasicStructure.tex' }
+          - { dir: '02-FCC-BasicMath', file: 'fcc-02-BasicMath.tex' }
+          - { dir: '03-FCC-TablesArrays', file: 'fcc-03.tex' }
+          - { dir: '04-FCC-Lists', file: 'fcc-04.tex' }
+          - { dir: '05-FCC-Formatting', file: 'fcc-05.tex' }
+          - { dir: '06-FCC-MacrosGraphics', file: 'fcc-06.tex' }
+          - { dir: '07-FCC-Debugging', file: 'fcc-07.tex' }
+          - { dir: '08-FCC-Calculus', file: 'fcc-08.tex' }
+          - { dir: '09-FCC-MathPaper', file: 'fcc-09.tex' }
+          - { dir: '10-FCC-BeamerPPT', file: 'beamer-tut.tex' }
+          - { dir: '11a-IEEE-Conference', file: 'conference_101719.tex' }
+          - { dir: '11b-IEEE-withBib', file: 'IEEE-JB.tex' }
+          - { dir: '13-imageFlipping', file: 'imageFlip.tex' }
+          # Tutorial 12 (LabelError.tex) is intentionally skipped
+
+    steps:  # runs 16 times in parallel
+      # Step 1: Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # Step 2: Compile the tutorial LaTeX document
+      - name: Compile Tutorial ${{ matrix.tutorial.dir }}  # Name of tutorial being compiled
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ${{ matrix.tutorial.file }}           # tex file to compile
+          working_directory: Tutorials/${{ matrix.tutorial.dir }}  # Tutorial subdirectory
+      
+      # Step 3: Upload the compiled tutorial PDF as an artifact
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-tutorial-${{ matrix.tutorial.dir }}  # Unique artifact name for each tutorial
+          path: Tutorials/${{ matrix.tutorial.dir }}/*.pdf  # Path to compiled PDF
+          retention-days: 1
+
+  # JOB 3: Create the GitHub release and upload all compiled PDFs
+  create-release:
+    # This job needs to wait for both compilation jobs to finish
+    needs: [compile-publications, compile-tutorials]
+    runs-on: ubuntu-latest
     
-      # Compile Publication 2 [conference]
-      - name: Compile Partial IEEE Backup template
-        uses: xu-cheng/latex-action@v3
+    steps:
+      # Step 1: Check out the repository (needed for directory structure)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      # Step 2: Download all the PDF artifacts created by the previous jobs
+      - name: Download all publication PDFs
+        uses: actions/download-artifact@v4  # Official action for downloading artifacts
         with:
-          root_file: IEEE-BackupTemplate.tex
-          working_directory: Publications/Conference/Backup
-            
-      # Compile Publication 3 [conference]
-      - name: Compile Disaster Management Paper
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: CrisisToControl.tex
-          working_directory: Publications/Conference/DisasterMgmt
+          pattern: pdf-*  # Download all artifacts that start with "pdf-"
+          path: compiled-pdfs  # Download everything into this directory
+          merge-multiple: true  # Merge all artifacts into a single directory
+      
+      # Step 3: Recreate the original repo structure so the files are in expected locations
+      - name: Organize PDFs
+        run: |
+          mkdir -p Publications/Articles/Radio-HT1000
+          mkdir -p Publications/Conference/Backup
+          mkdir -p Publications/Conference/DisasterMgmt
+          mkdir -p Tutorials
 
-      # Compile Tutorial 00a
-      - name: Compile Tutorial 00a
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: tutorial1.tex
-          working_directory: Tutorials/00a-Tutorial1
-
-      - name: Compile Tutorial 00b
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: MLABib.tex
-          working_directory: Tutorials/00b-MLACites
-
-      - name: Compile Tutorial 00c
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: BibTexChapters.tex
-          working_directory: Tutorials/00c-UsingBibTex
-
-      - name: Compile Tutorial 01
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-01-BasicStructure.tex
-          working_directory: Tutorials/01-FCC-BasicStructure
-
-      - name: Compile Tutorial 02
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-02-BasicMath.tex
-          working_directory: Tutorials/02-FCC-BasicMath
-
-      - name: Compile Tutorial 03
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-03.tex
-          working_directory: Tutorials/03-FCC-TablesArrays
-
-      - name: Compile Tutorial 04
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-04.tex
-          working_directory: Tutorials/04-FCC-Lists
-
-      - name: Compile Tutorial 05
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-05.tex
-          working_directory: Tutorials/05-FCC-Formatting
-
-      - name: Compile Tutorial 06
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-06.tex
-          working_directory: Tutorials/06-FCC-MacrosGraphics
-
-      - name: Compile Tutorial 07
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-07.tex
-          working_directory: Tutorials/07-FCC-Debugging
-
-      - name: Compile Tutorial 08
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-08.tex
-          working_directory: Tutorials/08-FCC-Calculus
-
-      - name: Compile Tutorial 09
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: fcc-09.tex
-          working_directory: Tutorials/09-FCC-MathPaper
-
-      - name: Compile Tutorial 10
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: beamer-tut.tex
-          working_directory: Tutorials/10-FCC-BeamerPPT
-
-      - name: Compile Tutorial 11a
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: conference_101719.tex
-          working_directory: Tutorials/11a-IEEE-Conference
-
-      - name: Compile Tutorial 11b
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: IEEE-JB.tex
-          working_directory: Tutorials/11b-IEEE-withBib
-
-      - name: Compile Tutorial 13
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: imageFlip.tex
-          working_directory: Tutorials/13-imageFlipping
-
-      # Create ZIP of Compiled PDFs
+          find compiled-pdfs -name "2025_HT1000_ch_guide.pdf" -exec cp {} Publications/Articles/Radio-HT1000/ \;
+          find compiled-pdfs -name "IEEE-BackupTemplate.pdf" -exec cp {} Publications/Conference/Backup/ \;
+          find compiled-pdfs -name "CrisisToControl.pdf" -exec cp {} Publications/Conference/DisasterMgmt/ \;
+          find compiled-pdfs -name "*.pdf" ! -name "2025_HT1000_ch_guide.pdf" ! -name "IEEE-BackupTemplate.pdf" ! -name "CrisisToControl.pdf" -exec cp {} Tutorials/ \;
+      
+      # Step 4: Create a ZIP archive containing all Tutorial PDFs
       - name: Create Tutorials ZIP archive
         run: |
-          zip -j TutorialsAllPDFs.zip \
-            Tutorials/00a-Tutorial1/tutorial1.pdf \
-            Tutorials/00b-MLACites/MLABib.pdf \
-            Tutorials/00c-UsingBibTex/BibTexChapters.pdf \
-            Tutorials/01-FCC-BasicStructure/fcc-01-BasicStructure.pdf \
-            Tutorials/02-FCC-BasicMath/fcc-02-BasicMath.pdf \
-            Tutorials/03-FCC-TablesArrays/fcc-03.pdf \
-            Tutorials/04-FCC-Lists/fcc-04.pdf \
-            Tutorials/05-FCC-Formatting/fcc-05.pdf \
-            Tutorials/06-FCC-MacrosGraphics/fcc-06.pdf \
-            Tutorials/07-FCC-Debugging/fcc-07.pdf \
-            Tutorials/08-FCC-Calculus/fcc-08.pdf \
-            Tutorials/09-FCC-MathPaper/fcc-09.pdf \
-            Tutorials/10-FCC-BeamerPPT/beamer-tut.pdf \
-            Tutorials/11a-IEEE-Conference/conference_101719.pdf \
-            Tutorials/11b-IEEE-withBib/IEEE-JB.pdf \
-            Tutorials/13-imageFlipping/imageFlip.pdf \
-            2>/dev/null || true   # ignore missing files during test
-
-      # Create/Update release and upload assets (ONLY THIS ONE)
+          cd Tutorials
+          zip -j ../TutorialsAllPDFs.zip *.pdf 2>/dev/null || true
+      
+      # Step 5: Create the GitHub release and upload all assets
       - name: Create Release & Upload Assets
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}      # "v1.0.0, etc."
+          name: Release ${{ github.ref_name }}  # Title shown on the release page
           draft: false
           prerelease: false
           generate_release_notes: false
+          
+          # Custom release description using markdown. The pipe '|' allows multi-line text
           body: |
             📚 LaTeX Publications & Tutorials - Release ${{ github.ref_name }}
       
@@ -176,12 +144,16 @@ jobs:
             - 📄 IEEE Pre-filled Template (IEEE Conference)
       
             **Tutorials:**
-            - 📦 Complete tutorial collection (ZIP file)
+            - 📦 Complete tutorial collection (ZIP file - 16 tutorials)
       
             Download the source code for all pre-compiled `.tex` files in the repository.
+          
+          # List of files to attach to the release
           files: |
             Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.pdf
-            Publications/Conference/Backup/IEEE-BackupTemplate.pdf
             Publications/Conference/DisasterMgmt/CrisisToControl.pdf
+            Publications/Conference/Backup/IEEE-BackupTemplate.pdf
             TutorialsAllPDFs.zip
+
+          # Fail if anything missing (no incomplete releases)
           fail_on_unmatched_files: true
