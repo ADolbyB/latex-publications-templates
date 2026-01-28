@@ -172,13 +172,13 @@ jobs:
       
             **Publications:**
             - 📄 HT1000 Radio Primer (Article)
-            - 📄 IEEE Backup Template (Conference)
-            - 📄 Disaster Management Paper (Conference)
+            - 📄 From Crisis To Control (IEEE Conference)
+            - 📄 IEEE Pre-filled Template (IEEE Conference)
       
             **Tutorials:**
             - 📦 Complete tutorial collection (ZIP file)
       
-            View the source `.tex` files in the repository.
+            Download the source code for all pre-compiled `.tex` files in the repository.
           files: |
             Publications/Articles/Radio-HT1000/2025_HT1000_ch_guide.pdf
             Publications/Conference/Backup/IEEE-BackupTemplate.pdf
