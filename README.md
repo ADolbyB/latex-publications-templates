@@ -10,9 +10,9 @@
 
 
 
-[![Last Commit](https://img.shields.io/github/last-commit/ADolbyB/latex-publications-templates?style=flat-square&logo=github)](https://github.com/ADolbyB/latex-publications-templates/commits)
-[![Repo Size](https://img.shields.io/github/repo-size/ADolbyB/latex-publications-templates?style=flat-square&logo=github)](https://github.com/ADolbyB/latex-publications-templates)
-[![Top Language](https://img.shields.io/github/languages/top/ADolbyB/latex-publications-templates?style=flat-square)](https://github.com/ADolbyB/latex-publications-templates)
+[![Last Commit](https://img.shields.io/github/last-commit/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates/commits)
+[![Repo Size](https://img.shields.io/github/repo-size/ADolbyB/latex-publications-templates?style=for-the-badge&logo=github)](https://github.com/ADolbyB/latex-publications-templates)
+[![Top Language](https://img.shields.io/github/languages/top/ADolbyB/latex-publications-templates?style=for-the-badge)](https://github.com/ADolbyB/latex-publications-templates)
 
 **LaTeX** | **Academic Publishing** | **Templates** | **Tutorials**
 
@@ -74,18 +74,17 @@ This repository provides a **structured learning progression**:
 
 Explore complete LaTeX projects with compiled PDFs and full source code:
 
+**From Crisis To Control** : IEEE conference-style LaTeX publication demonstrating professional formatting and structure
+
 [![PDF - From Crisis To Control](https://img.shields.io/badge/PDF-From_Crisis_To_Control-blue?style=for-the-badge&logo=latex&logoColor=white)](https://github.com/ADolbyB/latex-publications-templates/releases/latest/download/CrisisToControl.pdf)
 
-**From Crisis To Control** : IEEE conference-style LaTeX publication demonstrating professional formatting and structure
+**General Handheld Radio Primer** — Complete technical documentation with figures, tables, and references
 
 [![PDF - General Handheld Radio Primer](https://img.shields.io/badge/PDF-General_Handheld_Radio_Primer-blue?style=for-the-badge&logo=latex&logoColor=white)](https://github.com/ADolbyB/latex-publications-templates/releases/latest/download/2025_HT1000_ch_guide.pdf)
 
 **Tutorial PDFs** : Download Precompiled PDFs
 
 [![Releases](https://img.shields.io/badge/Releases-Download_PDFs-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ADolbyB/latex-publications-templates/releases)
-
-
-**General Handheld Radio Primer** — Complete technical documentation with figures, tables, and references
 
 **Each publication demonstrates:**
 - Clean document organization
